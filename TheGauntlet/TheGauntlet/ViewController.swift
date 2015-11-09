@@ -23,3 +23,12 @@ class ViewController: UIViewController {
 
 }
 
+// Crashlytics
+import Crashlytics
+
+extension ViewController {
+    
+    @IBAction func crashAction(sender: UIButton) {
+        Crashlytics.sharedInstance().crash()
+    }
+}

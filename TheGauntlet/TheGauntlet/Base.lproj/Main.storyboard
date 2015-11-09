@@ -20,6 +20,9 @@
                                 <rect key="frame" x="280" y="285" width="41" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Crash"/>
+                                <connections>
+                                    <action selector="crashAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="igu-XY-rcU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>

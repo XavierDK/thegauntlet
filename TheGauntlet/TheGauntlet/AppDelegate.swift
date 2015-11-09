@@ -13,9 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        initFabric(application, willFinishLaunchingWithOptions: launchOptions)
         return true
     }
 
@@ -44,3 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// Fabric.io
+import Fabric
+import Crashlytics
+
+extension AppDelegate {
+    
+    func initFabric(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) {
+        Fabric.sharedSDK().debug = true
+        Fabric.with([Crashlytics.self()])
+    }
+}
