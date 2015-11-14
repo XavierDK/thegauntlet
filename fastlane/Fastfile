@@ -10,7 +10,7 @@ ENV["JM_PROJECTPATH"] = "./TheGauntlet/TheGauntlet.xcodeproj"
 ENV["JM_MAINSCHEME"] = "TheGauntlet"
 ENV["JM_CRASHLYTICS_PATH"] = "./TheGauntlet/Pods/Crashlytics/Crashlytics.framework"
 
-ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
 
 ##################################################################################################################
 # Functions
