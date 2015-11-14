@@ -1,0 +1,121 @@
+update_fastlane
+fastlane_version "1.39.0"
+default_platform :ios
+
+##################################################################################################################
+# Configuration
+##################################################################################################################
+ENV["JM_WORKSPACEPATH"] = "./TheGauntlet/TheGauntlet.xcworkspace"
+ENV["JM_PROJECTPATH"] = "./TheGauntlet/TheGauntlet.xcodeproj"
+ENV["JM_MAINSCHEME"] = "TheGauntlet"
+ENV["JM_CRASHLYTICS_PATH"] = "./TheGauntlet/Pods/Crashlytics/Crashlytics.framework"
+ENV["JM_ARTEFACT_FOLDER"] = "./TheGauntlet/Pods/Crashlytics/Crashlytics.framework"
+ENV["JM_IPA_NAME"] = "TheGauntlet.ipa"
+
+ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+
+##################################################################################################################
+# Functions
+##################################################################################################################
+def unit_test
+  scan(
+    workspace: ENV["JM_WORKSPACEPATH"],
+    scheme: "TheGauntlet", # avoir differents scheme
+    clean: false
+  )
+end
+
+def ui_test
+  scan(
+    workspace: ENV["JM_WORKSPACEPATH"],
+    scheme: "TheGauntlet", # avoir differents scheme
+    clean: false
+  )
+end
+
+def version_bump
+  commit_version_bump(
+    message: 'Version Bump by fastlane',
+    xcodeproj: ENV["JM_PROJECTPATH"],
+    force: true
+  )
+  push_to_git_remote
+end
+
+def crashlytics_beta_deploy
+  crashlytics(
+    crashlytics_path: ENV["JM_CRASHLYTICS_PATH"],
+    api_token: '8f8919adb53c5ad650215fb52c8c73bec6124041',
+    build_secret: 'b2deb874dd6c7056a55ccc56007a6cca4f2f4a258b0b2e98c76e18c2bdb913a2',
+    ipa_path: "./#{ENV["JM_CRASHLYTICS_PATH"]}/#{ENV["JM_IPA_NAME"]}"
+  )
+end
+
+##################################################################################################################
+# Lanes
+##################################################################################################################
+platform :ios do
+  before_all do
+    ensure_git_status_clean
+    increment_build_number(xcodeproj: ENV["JM_PROJECTPATH"])
+    version = get_build_number(xcodeproj: ENV["JM_PROJECTPATH"])
+    slack(
+      message: "Commencement de la Build: #{version}",
+      default_payloads: Array.new
+    )
+    unit_test
+  end
+
+  desc "Create new screenshots for the App Store in all languages and device types"
+  desc "Additionally, this will add device frames around the screenshots and add the correct titles"
+  lane :screenshots do
+    snapshot
+    frameit(white: true, path: './fastlane/screenshots')
+  end
+
+  desc "Submit a new Beta Build to Crashlytics Beta"
+  desc "This will also make sure the profile is up to date"
+  lane :alpha do
+    sigh
+    clear_derived_data
+    gym(scheme: ENV["JM_MAINSCHEME"], workspace: ENV["JM_PROJECTPATH"], output_name: ENV["JM_IPA_NAME"], output_directory: ENV["JM_ARTEFACT_FOLDER"])
+    clean_build_artifacts
+    version_bump
+    crashlytics_beta_deploy
+  end
+  
+  desc "Submit a new Beta Build to Apple TestFlight / Crashlytics beta"
+  desc "This will also make sure the profile is up to date"
+  lane :beta do
+    sigh
+    gym(scheme: ENV["JM_MAINSCHEME"], workspace: ENV["JM_PROJECTPATH"], output_name: ENV["JM_IPA_NAME"], output_directory: ENV["JM_ARTEFACT_FOLDER"])
+    pilot
+  end
+
+  desc "Deploy a new version to the App Store"
+  lane :deploy do
+    # verify_xcode
+    # snapshot
+    sigh
+    gym # Build your app - more options available
+    # deliver(force: true)
+    # frameit
+  end
+
+  # You can define as many lanes as you want
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+    
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+  end
+end
