@@ -16,7 +16,8 @@ class LevelSelectorViewController: UITableViewController {
 // UITableViewDelegate
 extension LevelSelectorViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+      let gameViewController = GameViewController(level: Level.levelForIndex(indexPath.row))
+      self.navigationController?.pushViewController(gameViewController, animated: true)
     }
 }
 

@@ -7,22 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04176F33D030CC9AE162A8C445E69367 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4E913F7E371AA9A2627B43A08ABB67 /* Foundation.framework */; };
-		F6D1F6994AB5088F0200462DD6DB13B7 /* Pods-TheGauntlet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE73E93A3FD69F5F0D690968A4564D /* Pods-TheGauntlet-dummy.m */; };
+		3705FDE89AD85B0C945885D9EE85C49B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		F6D1F6994AB5088F0200462DD6DB13B7 /* Pods-TheGauntlet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CBC0C2EB952C129A6246AC94929C1E /* Pods-TheGauntlet-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00BA37ACC1E13F3F4B449746C38D9DD0 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		20284F9224DCAB8E80C738DBDF13A916 /* Pods-TheGauntlet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TheGauntlet.debug.xcconfig"; sourceTree = "<group>"; };
-		339CA7F00D1C69EC8433A4435ADD7C04 /* libPods-TheGauntlet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TheGauntlet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		67D073E0A6E229402BAC27AF546523E0 /* Pods-TheGauntlet-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TheGauntlet-acknowledgements.markdown"; sourceTree = "<group>"; };
-		72E5F6122FB80AB897F7F738A83B846E /* Pods-TheGauntlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TheGauntlet.release.xcconfig"; sourceTree = "<group>"; };
-		8BEE73E93A3FD69F5F0D690968A4564D /* Pods-TheGauntlet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TheGauntlet-dummy.m"; sourceTree = "<group>"; };
+		31F80F55EC0B29C51AAA8223BF2B4DA5 /* Pods-TheGauntlet-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TheGauntlet-frameworks.sh"; sourceTree = "<group>"; };
+		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5C1465ADB855BCD2FEC6555643490723 /* Pods-TheGauntlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TheGauntlet.release.xcconfig"; sourceTree = "<group>"; };
+		65E62B54E0528E7D29075965B0ABD93D /* libPods-TheGauntlet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TheGauntlet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F5B9BC7AF35CE60C05CC6AF5E7A48A3 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		8F91354F56B692EF5EFB715F3527CC96 /* Pods-TheGauntlet-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TheGauntlet-acknowledgements.plist"; sourceTree = "<group>"; };
+		A99E0CE04B8B6AFBF2E76619C934E0CD /* Pods-TheGauntlet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TheGauntlet.debug.xcconfig"; sourceTree = "<group>"; };
+		AECAA8A8E213FBC9F0B1D357613F91CC /* Pods-TheGauntlet-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TheGauntlet-acknowledgements.plist"; sourceTree = "<group>"; };
+		B7CBC0C2EB952C129A6246AC94929C1E /* Pods-TheGauntlet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TheGauntlet-dummy.m"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BD4E913F7E371AA9A2627B43A08ABB67 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		DA20D7AAF68F6EDC07B53607FDEBCA6C /* Pods-TheGauntlet-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TheGauntlet-resources.sh"; sourceTree = "<group>"; };
+		CBA3106B9BCBB124FDDB790F2317FF23 /* Pods-TheGauntlet-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TheGauntlet-resources.sh"; sourceTree = "<group>"; };
+		D334FA274B413B9F01BCACECBCDBE835 /* Pods-TheGauntlet-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TheGauntlet-acknowledgements.markdown"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,7 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04176F33D030CC9AE162A8C445E69367 /* Foundation.framework in Frameworks */,
+				3705FDE89AD85B0C945885D9EE85C49B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +52,21 @@
 				8F5B9BC7AF35CE60C05CC6AF5E7A48A3 /* Crashlytics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1D689B8AEFD9044EF3267AFEB4247E12 /* Pods-TheGauntlet */ = {
+			isa = PBXGroup;
+			children = (
+				D334FA274B413B9F01BCACECBCDBE835 /* Pods-TheGauntlet-acknowledgements.markdown */,
+				AECAA8A8E213FBC9F0B1D357613F91CC /* Pods-TheGauntlet-acknowledgements.plist */,
+				B7CBC0C2EB952C129A6246AC94929C1E /* Pods-TheGauntlet-dummy.m */,
+				31F80F55EC0B29C51AAA8223BF2B4DA5 /* Pods-TheGauntlet-frameworks.sh */,
+				CBA3106B9BCBB124FDDB790F2317FF23 /* Pods-TheGauntlet-resources.sh */,
+				A99E0CE04B8B6AFBF2E76619C934E0CD /* Pods-TheGauntlet.debug.xcconfig */,
+				5C1465ADB855BCD2FEC6555643490723 /* Pods-TheGauntlet.release.xcconfig */,
+			);
+			name = "Pods-TheGauntlet";
+			path = "Target Support Files/Pods-TheGauntlet";
 			sourceTree = "<group>";
 		};
 		2DF7B8E8EC04019122F08AA5D3BBDAC1 /* Base */ = {
@@ -78,61 +94,39 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		532045214869AFB65B19F38C936FF0B2 /* Pods-TheGauntlet */ = {
-			isa = PBXGroup;
-			children = (
-				67D073E0A6E229402BAC27AF546523E0 /* Pods-TheGauntlet-acknowledgements.markdown */,
-				8F91354F56B692EF5EFB715F3527CC96 /* Pods-TheGauntlet-acknowledgements.plist */,
-				8BEE73E93A3FD69F5F0D690968A4564D /* Pods-TheGauntlet-dummy.m */,
-				DA20D7AAF68F6EDC07B53607FDEBCA6C /* Pods-TheGauntlet-resources.sh */,
-				20284F9224DCAB8E80C738DBDF13A916 /* Pods-TheGauntlet.debug.xcconfig */,
-				72E5F6122FB80AB897F7F738A83B846E /* Pods-TheGauntlet.release.xcconfig */,
-			);
-			name = "Pods-TheGauntlet";
-			path = "Target Support Files/Pods-TheGauntlet";
-			sourceTree = "<group>";
-		};
-		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				BD4E913F7E371AA9A2627B43A08ABB67 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		6E56538E3B0D49438AEDD80E3C48B166 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				532045214869AFB65B19F38C936FF0B2 /* Pods-TheGauntlet */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				4C01CE7C97A1F4AA2AA6283DCBF4679A /* Pods */,
-				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
-				6E56538E3B0D49438AEDD80E3C48B166 /* Targets Support Files */,
+				A72A236DEA3729489B74C8403FEC6689 /* Products */,
+				FEC66D46ED8AAD58F9EEB8A5C2713763 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		A72A236DEA3729489B74C8403FEC6689 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65E62B54E0528E7D29075965B0ABD93D /* libPods-TheGauntlet.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				53F661C0CA7190D2CF05023FB33D61E4 /* iOS */,
+				BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
+		BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				339CA7F00D1C69EC8433A4435ADD7C04 /* libPods-TheGauntlet.a */,
+				3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */,
 			);
-			name = Products;
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		D521363D3F36F2ABB10B4C264BC52A76 /* Fabric */ = {
@@ -141,6 +135,14 @@
 				2DF7B8E8EC04019122F08AA5D3BBDAC1 /* Base */,
 			);
 			path = Fabric;
+			sourceTree = "<group>";
+		};
+		FEC66D46ED8AAD58F9EEB8A5C2713763 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1D689B8AEFD9044EF3267AFEB4247E12 /* Pods-TheGauntlet */,
+			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,7 +161,7 @@
 			);
 			name = "Pods-TheGauntlet";
 			productName = "Pods-TheGauntlet";
-			productReference = 339CA7F00D1C69EC8433A4435ADD7C04 /* libPods-TheGauntlet.a */;
+			productReference = 65E62B54E0528E7D29075965B0ABD93D /* libPods-TheGauntlet.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -179,7 +181,7 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = CCA510CFBEA2D207524CDA0D73C3B561 /* Products */;
+			productRefGroup = A72A236DEA3729489B74C8403FEC6689 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -200,6 +202,40 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		33495C08A42148D04FB574BCE70C8645 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A99E0CE04B8B6AFBF2E76619C934E0CD /* Pods-TheGauntlet.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4D912982D3535300835B7C6BB9591E68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C1465ADB855BCD2FEC6555643490723 /* Pods-TheGauntlet.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -273,38 +309,6 @@
 			};
 			name = Release;
 		};
-		A2E232BCBA4C55AE7950931D93C5F424 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 20284F9224DCAB8E80C738DBDF13A916 /* Pods-TheGauntlet.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		F62E7DA64C1237EF9DF742C39B71F4A0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72E5F6122FB80AB897F7F738A83B846E /* Pods-TheGauntlet.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -320,8 +324,8 @@
 		98EC19554C6EADAA2DAEA81454608314 /* Build configuration list for PBXNativeTarget "Pods-TheGauntlet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A2E232BCBA4C55AE7950931D93C5F424 /* Debug */,
-				F62E7DA64C1237EF9DF742C39B71F4A0 /* Release */,
+				33495C08A42148D04FB574BCE70C8645 /* Debug */,
+				4D912982D3535300835B7C6BB9591E68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

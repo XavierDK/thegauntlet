@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,17 +18,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- TheGauntlet -" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmK-Vw-h3w">
-                                <rect key="frame" x="241" y="290" width="119" height="21"/>
+                                <rect key="frame" x="242" y="290" width="116" height="20"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rw-background" translatesAutoresizingMaskIntoConstraints="NO" id="owz-1H-Sdg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="owz-1H-Sdg" secondAttribute="trailing" constant="-20" id="6Ci-pt-NB9"/>
                             <constraint firstItem="YmK-Vw-h3w" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Gzg-yq-Awb"/>
+                            <constraint firstItem="owz-1H-Sdg" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="OOr-pv-TpW"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="owz-1H-Sdg" secondAttribute="bottom" id="PiU-Io-bfE"/>
+                            <constraint firstItem="owz-1H-Sdg" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="Vsv-DQ-Y0o"/>
                             <constraint firstItem="YmK-Vw-h3w" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xvF-vk-5fR"/>
                         </constraints>
                     </view>
@@ -37,4 +46,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="rw-background" width="2208" height="2208"/>
+    </resources>
 </document>
