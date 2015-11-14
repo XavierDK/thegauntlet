@@ -74,10 +74,6 @@ platform :ios do
         export_method: "ad-hoc", 
         include_bitcode: true
       )
-      ipa_path = "./#{ENV["GYM_OUTPUT_DIRECTORY"]}/#{ENV["GYM_OUTPUT_NAME"]}"
-      puts "==========================================================================================="
-      puts ipa_path
-      puts "==========================================================================================="
       crashlytics(
         crashlytics_path: ENV["JM_CRASHLYTICS_PATH"],
         api_token: '8f8919adb53c5ad650215fb52c8c73bec6124041',
