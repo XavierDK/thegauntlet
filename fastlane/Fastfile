@@ -77,11 +77,11 @@ platform :ios do
     begin
       sigh
       clear_derived_data
-      gym(scheme: ENV["JM_MAINSCHEME"], workspace: ENV["JM_WORKSPACEPATH"])
+      gym(scheme: ENV["JM_MAINSCHEME"], workspace: ENV["JM_WORKSPACEPATH"], export_method: "ad-hoc", include_bitcode: true)
       ENV["JM_IPA_PATH"] = "./#{ENV["GYM_OUTPUT_DIRECTORY"]}/#{ENV["GYM_OUTPUT_NAME"]}"
-      clean_build_artifacts
-      version_bump
       crashlytics_beta_deploy
+      clean_build_artifacts
+      version_bump # doit etre fait en dernier
     rescue => ex
       puts ex
       reset_git_repo
@@ -92,8 +92,12 @@ platform :ios do
   desc "This will also make sure the profile is up to date"
   lane :beta do
     sigh
-    gym(scheme: ENV["JM_MAINSCHEME"], workspace: ENV["JM_WORKSPACEPATH"], output_name: ENV["JM_IPA_NAME"], output_directory: ENV["JM_ARTEFACT_FOLDER"])
+    clear_derived_data
+    gym(scheme: ENV["JM_MAINSCHEME"], workspace: ENV["JM_WORKSPACEPATH"], export_method: "ad-hoc", include_bitcode: true)
+    ENV["JM_IPA_PATH"] = "./#{ENV["GYM_OUTPUT_DIRECTORY"]}/#{ENV["GYM_OUTPUT_NAME"]}"
     pilot
+    clean_build_artifacts
+    version_bump # doit etre fait en dernier
   end
 
   desc "Deploy a new version to the App Store"
@@ -109,17 +113,15 @@ platform :ios do
   # You can define as many lanes as you want
 
   after_all do |lane|
-    # This block is called, only if the executed lane was successful
-    
-    # slack(
-    #   message: "Successfully deployed new App Update."
-    # )
+    slack(
+      message: "Successfully deployed new App Update."
+    )
   end
 
   error do |lane, exception|
-    # slack(
-    #   message: exception.message,
-    #   success: false
-    # )
+    slack(
+      message: exception.message,
+      success: false
+    )
   end
 end
