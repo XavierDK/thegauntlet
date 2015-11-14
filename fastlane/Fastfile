@@ -74,10 +74,9 @@ platform :ios do
         export_method: "ad-hoc", 
         include_bitcode: true
       )
-      ENV["JM_IPA_PATH"] = "./#{ENV["GYM_OUTPUT_DIRECTORY"]}/#{ENV["GYM_OUTPUT_NAME"]}"
+      ipa_path = "./#{ENV["GYM_OUTPUT_DIRECTORY"]}/#{ENV["GYM_OUTPUT_NAME"]}"
       puts "==========================================================================================="
-      puts ENV
-      puts ENV["JM_IPA_PATH"]
+      puts ipa_path
       puts "==========================================================================================="
       crashlytics(
         crashlytics_path: ENV["JM_CRASHLYTICS_PATH"],
