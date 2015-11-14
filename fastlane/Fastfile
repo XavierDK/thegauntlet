@@ -23,14 +23,6 @@ def unit_test
   )
 end
 
-def ui_test
-  scan(
-    workspace: ENV["JM_WORKSPACEPATH"],
-    scheme: "TheGauntlet", # avoir differents scheme
-    clean: false
-  )
-end
-
 def commit_version_bump_fastlane
   commit_version_bump(
     message: 'Version Bump by fastlane',
@@ -94,29 +86,40 @@ platform :ios do
     end
   end
   
-  desc "Submit a new Beta Build to Apple TestFlight"
-  desc "This will also make sure the profile is up to date"
-  lane :beta do
-    sigh
-    clear_derived_data
-    gym(scheme: ENV["JM_MAINSCHEME"], workspace: ENV["JM_WORKSPACEPATH"], export_method: "ad-hoc", include_bitcode: true)
-    ENV["JM_IPA_PATH"] = "./#{ENV["GYM_OUTPUT_DIRECTORY"]}/#{ENV["GYM_OUTPUT_NAME"]}"
-    pilot
-    clean_build_artifacts
-    commit_version_bump_fastlane # doit etre fait en dernier
+  desc "Beta Lane"
+  desc "Verification des Certificats"
+  desc "Nettoyage des Derived Data"
+  desc "Generation de l'ipa ad-hoc"
+  desc "Deploiment Testflight"
+  desc "Nettoyage des artefact de compilation"
+  desc "Push sur git d'un version bump"
+  lane :alpha do
+    begin
+      sigh
+      clear_derived_data
+      gym(
+        scheme: ENV["JM_MAINSCHEME"], 
+        workspace: ENV["JM_WORKSPACEPATH"], 
+        export_method: "ad-hoc", 
+        include_bitcode: true
+      )
+      pilot
+      clean_build_artifacts
+      commit_version_bump_fastlane # doit etre fait en dernier
+    rescue => ex
+      puts ex
+      reset_git_repo
+    end
   end
 
   desc "Deploy a new version to the App Store"
   lane :deploy do
-    # verify_xcode
-    # snapshot
+    verify_xcode
+    snapshot
     sigh
-    gym # Build your app - more options available
-    # deliver(force: true)
-    # frameit
+    gym
+    deliver(force: true)
   end
-
-  # You can define as many lanes as you want
 
   after_all do |lane|
     slack(
