@@ -31,22 +31,13 @@ def ui_test
   )
 end
 
-def version_bump
+def commit_version_bump_fastlane
   commit_version_bump(
     message: 'Version Bump by fastlane',
     xcodeproj: ENV["JM_PROJECTPATH"],
     force: true
   )
   push_to_git_remote
-end
-
-def crashlytics_beta_deploy
-  crashlytics(
-    crashlytics_path: ENV["JM_CRASHLYTICS_PATH"],
-    api_token: '8f8919adb53c5ad650215fb52c8c73bec6124041',
-    build_secret: 'b2deb874dd6c7056a55ccc56007a6cca4f2f4a258b0b2e98c76e18c2bdb913a2',
-    ipa_path: ENV["JM_IPA_PATH"]
-  )
 end
 
 ##################################################################################################################
@@ -77,18 +68,33 @@ platform :ios do
     begin
       sigh
       clear_derived_data
-      gym(scheme: ENV["JM_MAINSCHEME"], workspace: ENV["JM_WORKSPACEPATH"], export_method: "ad-hoc", include_bitcode: true)
+      gym(
+        scheme: ENV["JM_MAINSCHEME"], 
+        workspace: ENV["JM_WORKSPACEPATH"], 
+        export_method: "ad-hoc", 
+        include_bitcode: true
+      )
       ENV["JM_IPA_PATH"] = "./#{ENV["GYM_OUTPUT_DIRECTORY"]}/#{ENV["GYM_OUTPUT_NAME"]}"
-      crashlytics_beta_deploy
+      puts "==========================================================================================="
+      puts ENV
+      puts ENV["JM_IPA_PATH"]
+      puts "==========================================================================================="
+      crashlytics(
+        crashlytics_path: ENV["JM_CRASHLYTICS_PATH"],
+        api_token: '8f8919adb53c5ad650215fb52c8c73bec6124041',
+        build_secret: 'b2deb874dd6c7056a55ccc56007a6cca4f2f4a258b0b2e98c76e18c2bdb913a2',
+        ipa_path: "./TheGauntlet.ipa",
+        groups: "devs"
+      )
       clean_build_artifacts
-      version_bump # doit etre fait en dernier
+      commit_version_bump_fastlane # doit etre fait en dernier
     rescue => ex
       puts ex
       reset_git_repo
     end
   end
   
-  desc "Submit a new Beta Build to Apple TestFlight / Crashlytics beta"
+  desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
     sigh
@@ -97,7 +103,7 @@ platform :ios do
     ENV["JM_IPA_PATH"] = "./#{ENV["GYM_OUTPUT_DIRECTORY"]}/#{ENV["GYM_OUTPUT_NAME"]}"
     pilot
     clean_build_artifacts
-    version_bump # doit etre fait en dernier
+    commit_version_bump_fastlane # doit etre fait en dernier
   end
 
   desc "Deploy a new version to the App Store"
@@ -123,5 +129,6 @@ platform :ios do
       message: exception.message,
       success: false
     )
+    reset_git_repo
   end
 end
