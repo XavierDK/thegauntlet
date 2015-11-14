@@ -78,12 +78,17 @@ platform :ios do
   desc "Submit a new Beta Build to Crashlytics Beta"
   desc "This will also make sure the profile is up to date"
   lane :alpha do
-    sigh
-    clear_derived_data
-    gym(scheme: ENV["JM_MAINSCHEME"], workspace: ENV["JM_WORKSPACEPATH"], output_name: ENV["JM_IPA_NAME"], output_directory: ENV["JM_ARTEFACT_FOLDER"])
-    clean_build_artifacts
-    version_bump
-    crashlytics_beta_deploy
+    begin
+      sigh
+      clear_derived_data
+      gym(scheme: ENV["JM_MAINSCHEME"], workspace: ENV["JM_WORKSPACEPATH"], output_name: ENV["JM_IPA_NAME"], output_directory: ENV["JM_ARTEFACT_FOLDER"])
+      clean_build_artifacts
+      version_bump
+      crashlytics_beta_deploy
+    rescue => ex
+      puts ex
+      reset_git_repo
+    end
   end
   
   desc "Submit a new Beta Build to Apple TestFlight / Crashlytics beta"
