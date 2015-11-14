@@ -15,6 +15,13 @@
 		0F2904DC1BF15838000F0F23 /* TheGauntletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2904DB1BF15838000F0F23 /* TheGauntletTests.swift */; };
 		0F2904E71BF15838000F0F23 /* TheGauntletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2904E61BF15838000F0F23 /* TheGauntletUITests.swift */; };
 		0F7BC61D1BF6894000DE3A5C /* LevelSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7BC61C1BF6894000DE3A5C /* LevelSelectorViewController.swift */; };
+		252566231BF7E03E006D014D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252566221BF7E03E006D014D /* GameViewController.swift */; };
+		252566251BF7E1F5006D014D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252566241BF7E1F5006D014D /* GameScene.swift */; };
+		2525662B1BF7E5D2006D014D /* Level00.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2525662A1BF7E5D2006D014D /* Level00.sks */; };
+		2525662D1BF7EB15006D014D /* LevelEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2525662C1BF7EB15006D014D /* LevelEnum.swift */; };
+		2525662F1BF7ECAE006D014D /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2525662E1BF7ECAE006D014D /* SpriteComponent.swift */; };
+		252566311BF7EF64006D014D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252566301BF7EF64006D014D /* Player.swift */; };
+		252566331BF7EF7D006D014D /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252566321BF7EF7D006D014D /* EntityManager.swift */; };
 		ECE144647FABDCBD3888DD39 /* libPods-TheGauntlet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE8C54D9CAE031036E04FE1 /* libPods-TheGauntlet.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +59,13 @@
 		0F2904E81BF15838000F0F23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F7BC61C1BF6894000DE3A5C /* LevelSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectorViewController.swift; sourceTree = "<group>"; };
 		0F7BC61E1BF6B38000DE3A5C /* BacASable.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BacASable.playground; sourceTree = "<group>"; };
+		252566221BF7E03E006D014D /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = Game/GameViewController.swift; sourceTree = "<group>"; };
+		252566241BF7E1F5006D014D /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = Game/GameScene.swift; sourceTree = "<group>"; };
+		2525662A1BF7E5D2006D014D /* Level00.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Level00.sks; path = Game/Levels/Level00.sks; sourceTree = "<group>"; };
+		2525662C1BF7EB15006D014D /* LevelEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelEnum.swift; path = Game/Levels/LevelEnum.swift; sourceTree = "<group>"; };
+		2525662E1BF7ECAE006D014D /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpriteComponent.swift; path = Game/Components/SpriteComponent.swift; sourceTree = "<group>"; };
+		252566301BF7EF64006D014D /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Player.swift; path = Game/Entities/Player.swift; sourceTree = "<group>"; };
+		252566321BF7EF7D006D014D /* EntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntityManager.swift; path = Game/Entities/EntityManager.swift; sourceTree = "<group>"; };
 		63EBAD06DDABE42B988298DE /* Pods-TheGauntlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheGauntlet.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheGauntlet/Pods-TheGauntlet.release.xcconfig"; sourceTree = "<group>"; };
 		CAE8C54D9CAE031036E04FE1 /* libPods-TheGauntlet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TheGauntlet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -107,14 +121,11 @@
 		0F2904C51BF15838000F0F23 /* TheGauntlet */ = {
 			isa = PBXGroup;
 			children = (
-				0F2904C61BF15838000F0F23 /* AppDelegate.swift */,
-				0F2904C81BF15838000F0F23 /* ViewController.swift */,
-				0F7BC61C1BF6894000DE3A5C /* LevelSelectorViewController.swift */,
+				2525661D1BF7DA19006D014D /* Misc */,
+				2525661C1BF7DA0D006D014D /* Game */,
+				2525661B1BF7DA04006D014D /* Menu */,
 				0F7BC61E1BF6B38000DE3A5C /* BacASable.playground */,
-				0F2904CA1BF15838000F0F23 /* Main.storyboard */,
 				0F2904CD1BF15838000F0F23 /* Assets.xcassets */,
-				0F2904CF1BF15838000F0F23 /* LaunchScreen.storyboard */,
-				0F2904D21BF15838000F0F23 /* Info.plist */,
 			);
 			path = TheGauntlet;
 			sourceTree = "<group>";
@@ -145,6 +156,72 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2525661B1BF7DA04006D014D /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		2525661C1BF7DA0D006D014D /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				252566221BF7E03E006D014D /* GameViewController.swift */,
+				252566241BF7E1F5006D014D /* GameScene.swift */,
+				2525661F1BF7DAED006D014D /* Components */,
+				2525661E1BF7DAD3006D014D /* Entities */,
+				252566201BF7DB06006D014D /* Levels */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		2525661D1BF7DA19006D014D /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				0F7BC61C1BF6894000DE3A5C /* LevelSelectorViewController.swift */,
+				0F2904C81BF15838000F0F23 /* ViewController.swift */,
+				0F2904C61BF15838000F0F23 /* AppDelegate.swift */,
+				0F2904D21BF15838000F0F23 /* Info.plist */,
+				0F2904CF1BF15838000F0F23 /* LaunchScreen.storyboard */,
+				0F2904CA1BF15838000F0F23 /* Main.storyboard */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		2525661E1BF7DAD3006D014D /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				252566321BF7EF7D006D014D /* EntityManager.swift */,
+				252566301BF7EF64006D014D /* Player.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		2525661F1BF7DAED006D014D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2525662E1BF7ECAE006D014D /* SpriteComponent.swift */,
+				252566211BF7DB24006D014D /* Behaviors */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		252566201BF7DB06006D014D /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				2525662C1BF7EB15006D014D /* LevelEnum.swift */,
+				2525662A1BF7E5D2006D014D /* Level00.sks */,
+			);
+			name = Levels;
+			sourceTree = "<group>";
+		};
+		252566211BF7DB24006D014D /* Behaviors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Behaviors;
+			sourceTree = "<group>";
+		};
 		C5159DB00072473D605D1B12 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +244,7 @@
 				0F2904C11BF15838000F0F23 /* Resources */,
 				B02A745731405F1C10761A2F /* Copy Pods Resources */,
 				0F7BC61B1BF680F500DE3A5C /* ShellScript */,
+				0D5FB456429EBE587B0CE73A /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -263,6 +341,7 @@
 			files = (
 				0F2904D11BF15838000F0F23 /* LaunchScreen.storyboard in Resources */,
 				0F2904CE1BF15838000F0F23 /* Assets.xcassets in Resources */,
+				2525662B1BF7E5D2006D014D /* Level00.sks in Resources */,
 				0F2904CC1BF15838000F0F23 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +363,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0D5FB456429EBE587B0CE73A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheGauntlet/Pods-TheGauntlet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		0F7BC61B1BF680F500DE3A5C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -334,9 +428,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				252566251BF7E1F5006D014D /* GameScene.swift in Sources */,
+				252566231BF7E03E006D014D /* GameViewController.swift in Sources */,
+				252566331BF7EF7D006D014D /* EntityManager.swift in Sources */,
+				2525662F1BF7ECAE006D014D /* SpriteComponent.swift in Sources */,
 				0F2904C91BF15838000F0F23 /* ViewController.swift in Sources */,
+				252566311BF7EF64006D014D /* Player.swift in Sources */,
 				0F2904C71BF15838000F0F23 /* AppDelegate.swift in Sources */,
 				0F7BC61D1BF6894000DE3A5C /* LevelSelectorViewController.swift in Sources */,
+				2525662D1BF7EB15006D014D /* LevelEnum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +585,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.thegauntlet.TheGauntlet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -500,6 +601,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.thegauntlet.TheGauntlet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
