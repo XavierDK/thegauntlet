@@ -9,7 +9,8 @@ ENV["JM_WORKSPACEPATH"] = "./TheGauntlet/TheGauntlet.xcworkspace"
 ENV["JM_PROJECTPATH"] = "./TheGauntlet/TheGauntlet.xcodeproj"
 ENV["JM_MAINSCHEME"] = "TheGauntlet"
 ENV["JM_CRASHLYTICS_PATH"] = "./TheGauntlet/Pods/Crashlytics/Crashlytics.framework"
-ENV["JM_ARTEFACT_FOLDER"] = "./TheGauntlet/Pods/Crashlytics/Crashlytics.framework"
+
+ENV["JM_ARTEFACT_FOLDER"] = "./build"
 ENV["JM_IPA_NAME"] = "TheGauntlet.ipa"
 
 ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
@@ -47,7 +48,8 @@ def crashlytics_beta_deploy
     crashlytics_path: ENV["JM_CRASHLYTICS_PATH"],
     api_token: '8f8919adb53c5ad650215fb52c8c73bec6124041',
     build_secret: 'b2deb874dd6c7056a55ccc56007a6cca4f2f4a258b0b2e98c76e18c2bdb913a2',
-    ipa_path: "./#{ENV["JM_CRASHLYTICS_PATH"]}/#{ENV["JM_IPA_NAME"]}"
+    # ipa_path: "./#{ENV["JM_CRASHLYTICS_PATH"]}/#{ENV["JM_IPA_NAME"]}"
+    ipa_path: "./#{ENV["GYM_OUTPUT_DIRECTORY"]}/#{ENV["GYM_OUTPUT_NAME"]}"
   )
 end
 
