@@ -62,8 +62,13 @@ platform :ios do
     frameit(white: true, path: './fastlane/screenshots')
   end
 
-  desc "Submit a new Beta Build to Crashlytics Beta"
-  desc "This will also make sure the profile is up to date"
+  desc "Alpha Lane"
+  desc "Verification des Certificats"
+  desc "Nettoyage des Derived Data"
+  desc "Generation de l'ipa ad-hoc"
+  desc "Deploiment Crashlytics"
+  desc "Nettoyage des artefact de compilation"
+  desc "Push sur git d'un version bump"
   lane :alpha do
     begin
       sigh
