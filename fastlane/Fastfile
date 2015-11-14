@@ -78,7 +78,7 @@ platform :ios do
   lane :alpha do
     sigh
     clear_derived_data
-    gym(scheme: ENV["JM_MAINSCHEME"], workspace: ENV["JM_PROJECTPATH"], output_name: ENV["JM_IPA_NAME"], output_directory: ENV["JM_ARTEFACT_FOLDER"])
+    gym(scheme: ENV["JM_MAINSCHEME"], workspace: ENV["JM_WORKSPACEPATH"], output_name: ENV["JM_IPA_NAME"], output_directory: ENV["JM_ARTEFACT_FOLDER"])
     clean_build_artifacts
     version_bump
     crashlytics_beta_deploy
@@ -88,7 +88,7 @@ platform :ios do
   desc "This will also make sure the profile is up to date"
   lane :beta do
     sigh
-    gym(scheme: ENV["JM_MAINSCHEME"], workspace: ENV["JM_PROJECTPATH"], output_name: ENV["JM_IPA_NAME"], output_directory: ENV["JM_ARTEFACT_FOLDER"])
+    gym(scheme: ENV["JM_MAINSCHEME"], workspace: ENV["JM_WORKSPACEPATH"], output_name: ENV["JM_IPA_NAME"], output_directory: ENV["JM_ARTEFACT_FOLDER"])
     pilot
   end
 
