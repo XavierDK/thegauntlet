@@ -11,7 +11,7 @@ import GameplayKit
 
 class Player: GKEntity {
   
-  init(spriteNode: SKSpriteNode?, entityManager: EntityManager) {
+  init(spriteNode: SKSpriteNode?, entityManager: EntityManager, actionsManager: ActionsManager) {
     super.init()
     
     guard let node = spriteNode else {
@@ -20,5 +20,10 @@ class Player: GKEntity {
     
     let spriteComponent = SpriteComponent(spriteNode: node)
     addComponent(spriteComponent)
+    
+    let moveComponent = MoveComponent(actionManager: actionsManager)
+    addComponent(moveComponent)
   }
+  
+  
 }

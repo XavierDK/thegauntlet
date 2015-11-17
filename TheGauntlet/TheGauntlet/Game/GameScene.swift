@@ -15,40 +15,46 @@ class GameScene: SKScene, JoystickDelegate {
   var gameOver = false
   
   var entityManager: EntityManager!
-  var joystick = Joystick(padImgName: "joystick_pad", baseImgName: "joystick_base")
+  var actionsManager: ActionsManager = ActionsManager()
   
   override func didMoveToView(view: SKView) {
     
-    joystick.delegate = self
-    addChild(joystick)
-    
     entityManager = EntityManager(scene: self)
     
-    let player = Player(spriteNode: self.childNodeWithName("player") as? SKSpriteNode, entityManager: entityManager)
+    let player = Player(spriteNode: self.childNodeWithName("player") as? SKSpriteNode, entityManager: entityManager, actionsManager: self.actionsManager)
     entityManager.add(player)
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     
-    for touch in touches {
+    let touch = touches.first
+    
+    if let touch = touch {
       let location = touch.locationInNode(self)
-      
-      self.joystick.startJoystickForLocation(location)
+      self.actionsManager.touchBeganForLocation(location)
     }
   }
   
   override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
     
-    for touch in touches {
-      let location = touch.locationInNode(self)
-      
-      self.joystick.moveJoystickForLocation(location)
-    }
+//    for touch in touches {
+//      let location = touch.locationInNode(self)
+//      
+//    }
   }
   
   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
     
-    self.joystick.endJoystick()
+    let touch = touches.first
+    
+    if let touch = touch {
+      let location = touch.locationInNode(self)
+      self.actionsManager.touchEndedForLocation(location)
+    }
+  }
+  
+  override func update(currentTime: NSTimeInterval) {
+    self.entityManager.update(currentTime)
   }
   
 }

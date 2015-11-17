@@ -19,7 +19,8 @@ class EntityManager
   var toRemove = Set<GKEntity>()
   
   lazy var componentSystems: [GKComponentSystem] = {
-    return []
+    let moveSystem = GKComponentSystem(componentClass: MoveComponent.self)
+    return [moveSystem]
   }()
   
   init(scene: SKScene)
@@ -64,5 +65,15 @@ class EntityManager
       }
     }
     toRemove.removeAll()
+  }
+  
+  func player() -> Player? {
+    for entity in self.entities {
+      
+      if entity is Player {        
+        return entity as? Player
+      }
+    }
+    return nil
   }
 }
