@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene, JoystickDelegate {
+class GameScene: SKScene {
   
   var lastUpdateTimeInterval: NSTimeInterval = 0
   
@@ -37,10 +37,6 @@ class GameScene: SKScene, JoystickDelegate {
   
   override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
     
-//    for touch in touches {
-//      let location = touch.locationInNode(self)
-//      
-//    }
   }
   
   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {

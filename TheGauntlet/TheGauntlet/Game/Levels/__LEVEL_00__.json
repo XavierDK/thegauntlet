@@ -1,0 +1,36 @@
+{
+  "name": "__LEVEL_00__",
+  "size": {
+    "width": 10,
+    "height": 30
+  },
+  "elements": [
+               {
+               "type": "__START__",
+               "position": {
+               "x": 0,
+               "y": 0,
+               "z": 1
+               },
+               "angle": "__TOP__"
+               },
+               {
+               "type": "__END__",
+               "position": {
+               "x": 9,
+               "y": 29,
+               "z": 1
+               },
+               "angle": "__TOP__"
+               },
+               {
+               "type": "__BASIC_BLOC__",
+               "position": {
+               "x": 5,
+               "y": 12,
+               "z": 1
+               },
+               "angle": "__BOTTOM__"
+               }
+               ]
+}

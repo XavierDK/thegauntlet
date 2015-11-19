@@ -12,10 +12,18 @@ import SpriteKit
 
 class GameViewController: UIViewController {
   
-  let level: Level
+  let fileParserManager: FileParserManager = FileParserManager()
+  let levelManager: LevelManager = LevelManager()
+  let scene: SKScene?
   
-  init(level: Level) {
-    self.level = level
+  init(levelName: String) {
+    
+    let levelObject = self.fileParserManager.levelObjectsFromLevelName(levelName)
+    
+    guard let levelObj = levelObject else {
+      fatalError("Level Object should not be nil")
+    }
+    self.scene = self.levelManager.levelFromLevelObject(levelObj)
     super.init(nibName:nil, bundle:nil)
   }
   
@@ -31,7 +39,7 @@ class GameViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    if let scene = GameScene.unarchiveFromFile(self.level.rawValue) as? GameScene {
+    if let scene = scene {
       
       // Configure the view.
       let skView = self.view as! SKView

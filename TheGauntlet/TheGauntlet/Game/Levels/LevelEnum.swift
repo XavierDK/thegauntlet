@@ -10,7 +10,7 @@ import Foundation
 
 enum Level: String {
   
-  case Level00 = "Level00"
+  case Level00 = "__LEVEL_00__"
   
   static func levelForIndex(index: Int) -> Level {
     
