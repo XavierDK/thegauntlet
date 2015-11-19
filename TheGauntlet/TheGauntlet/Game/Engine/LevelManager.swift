@@ -11,8 +11,6 @@ import SpriteKit
 
 class LevelManager {
   
-  let fileManager: FileParserManager = FileParserManager()
-  
   func levelFromLevelObject(levelObject: LevelObject) -> SKScene {
     
     guard let levelObject: LevelObject = levelObject else {

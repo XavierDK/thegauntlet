@@ -9,101 +9,131 @@
 import Foundation
 import SpriteKit
 import SceneKit
+import UIKit
+
+enum FileParserError: ErrorType {
+  case NotFound(String)
+  case BadFormat(String)
+  case Empty(String)
+  case MissingValue(String)
+}
 
 
-// PUT IN THROW
-class FileParserManager {
+protocol FileParserManager {
   
-  func levelObjectsFromLevelName(levelName: String) -> LevelObject? {
+  func levelObjectsFromLevelName(levelName: String) throws -> LevelObject
+  func dataFromFile(levelName: String) throws -> NSDictionary
+  func levelObjectFromDataDic(dataDic: NSDictionary) throws -> LevelObject
+  func levelComponentForDic(component: NSDictionary) throws -> LevelComponent
+  func alertErrorForError(error: FileParserError)
+}
+
+
+extension FileParserManager {
+  
+  func levelObjectsFromLevelName(levelName: String) throws -> LevelObject {
     
-    let dataDic = self.dataFromFile(levelName)
-    
-    var levelObject: LevelObject?
-    if let dataDic = dataDic {
-      levelObject = self.levelObjectFromDataDic(dataDic)
-    }
-    
+    let dataDic = try self.dataFromFile(levelName)
+    let levelObject = try self.levelObjectFromDataDic(dataDic)
     return levelObject
   }
   
-  func dataFromFile(levelName: String) -> NSDictionary? {
+  
+  func dataFromFile(levelName: String) throws -> NSDictionary  {
     
-    if let path = NSBundle.mainBundle().pathForResource(levelName, ofType: "json") {
-      if let jsonData = NSData(contentsOfFile: path)
-      {
-        do {
-          let jsonData = try NSJSONSerialization.JSONObjectWithData(jsonData, options:NSJSONReadingOptions.MutableContainers ) as! NSDictionary
-          return jsonData
-        } catch {
-          return nil
-        }
-      }
+    guard let path = NSBundle.mainBundle().pathForResource(levelName, ofType: "json") else {
+      throw FileParserError.NotFound("Level file not found")
     }
-    return nil;
+    guard let jsonData = NSData(contentsOfFile: path) else {
+      throw FileParserError.Empty("Level file is empty")
+    }
+    
+    do {
+      let jsonData = try NSJSONSerialization.JSONObjectWithData(jsonData, options:NSJSONReadingOptions.MutableContainers ) as! NSDictionary
+      return jsonData
+    } catch {
+      throw FileParserError.BadFormat("Level format incorrect")
+    }
   }
   
-  func levelObjectFromDataDic(dataDic: NSDictionary) -> LevelObject {
+  
+  func levelObjectFromDataDic(dataDic: NSDictionary) throws -> LevelObject {
     
     guard let name = dataDic["name"] as? String else {
-      fatalError("Name level is mandatory")
+      throw FileParserError.MissingValue("Level name is missing")
     }
-    
-    var width: CGFloat = 0
-    var height: CGFloat = 0
-    if let size = dataDic["size"] as? NSDictionary {
-      if let widthTmp = size["width"] as? CGFloat,
-        let heightTmp = size["height"] as? CGFloat {
-          width = widthTmp
-          height = heightTmp
-      }
+    guard let size = dataDic["size"] as? NSDictionary else {
+      throw FileParserError.MissingValue("Level size is missing")
+    }
+    guard let width = size["width"] as? CGFloat else {
+      throw FileParserError.MissingValue("Level size width is missing")
+    }
+    guard let height = size["height"] as? CGFloat else {
+      throw FileParserError.MissingValue("Level size height is missing")
+    }
+    guard let dataComponents = dataDic["elements"] as? NSArray else {
+      throw FileParserError.MissingValue("Level elements are missing")
     }
     
     var components: [LevelComponent] = []
     
-    if let dataComponents = dataDic["elements"] as? NSArray {
-      for component in dataComponents {
-        if let component = component as? NSDictionary {
-          components.append(self.levelComponentForDic(component))
-        }
+    for component in dataComponents {
+      guard let component = component as? NSDictionary else {
+        throw FileParserError.BadFormat("Level components format incorrect")
       }
+      components.append(try self.levelComponentForDic(component))
     }
     
     return LevelObject(name: name, size:  CGSizeMake(width, height), components: components)
   }
   
-  func levelComponentForDic(component: NSDictionary?) -> LevelComponent {
+  
+  func levelComponentForDic(component: NSDictionary) throws -> LevelComponent {
     
-    guard let component = component else {
-      fatalError("Bad syntax component")
+    guard let type = component["type"] as? String else {
+      throw FileParserError.MissingValue("Component type is missing")
+    }
+    guard let size = component["position"] as? NSDictionary else {
+      throw FileParserError.MissingValue("Component position is missing")
+    }
+    guard let x = size["x"] as? Float else {
+      throw FileParserError.MissingValue("Component position x is missing")
+    }
+    guard let y = size["y"] as? Float else {
+      throw FileParserError.MissingValue("Component position x is missing")
     }
     
-    guard let name = component["type"] as? String else {
-      fatalError("Type component is mandatory")
-    }
-    
-    
-    //PUT IN GUARD
-    var x: Float = 0
-    var y: Float = 0
-    var z: Float = 1
-    if let size = component["position"] as? NSDictionary {
-      if let xTmp = size["x"] as? Float,
-        let yTmp = size["y"] as? Float,
-        let zTmp = size["z"] as? Float{
-          x = xTmp
-          y = yTmp
-          z = zTmp
-      }
-    }
+    let z = size["z"] as? Float ?? 1
     
     guard let angleTmp = component["angle"] as? String else {
-      fatalError("Angle component is mandatory")
+      throw FileParserError.MissingValue("Angle is missing")
     }
     
     guard let angle = AngleComponent(rawValue: angleTmp) else {
-      fatalError("Angle component is not a good value")
+      throw FileParserError.BadFormat("Angle has a bad value")
     }
     
-    return LevelComponent(name: name, position: SCNVector3(x: x, y: y, z: z), angle: angle)
+    return LevelComponent(type: type, position: SCNVector3(x: x, y: y, z: z), angle: angle)
+  }
+  
+  
+  func alertErrorForError(error: FileParserError) {
+    let message: String?
+    switch error {
+      
+    case .NotFound(let mess):
+      message = mess
+    case .BadFormat(let mess):
+      message = mess
+    case .Empty(let mess):
+      message = mess
+    case .MissingValue(let mess):
+      message = mess
+    }
+    
+    let alert = UIAlertController(title: "Error", message: message, preferredStyle: .Alert)
+    alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+    }))
+    UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
   }
 }

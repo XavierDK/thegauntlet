@@ -10,21 +10,29 @@ import Foundation
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, FileParserManager {
   
-  let fileParserManager: FileParserManager = FileParserManager()
   let levelManager: LevelManager = LevelManager()
-  let scene: SKScene?
+  var scene: SKScene?
   
   init(levelName: String) {
     
-    let levelObject = self.fileParserManager.levelObjectsFromLevelName(levelName)
-    
-    guard let levelObj = levelObject else {
-      fatalError("Level Object should not be nil")
-    }
-    self.scene = self.levelManager.levelFromLevelObject(levelObj)
     super.init(nibName:nil, bundle:nil)
+    
+    do {
+      let levelObject = try self.levelObjectsFromLevelName(levelName)
+      self.scene = self.levelManager.levelFromLevelObject(levelObject)
+    }
+    catch let error as FileParserError {
+      self.alertErrorForError(error)
+    }
+    catch {
+      let alert = UIAlertController(title: "Error", message: "An error occured", preferredStyle: .Alert)
+      alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+        
+      }))
+      UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+    }
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -61,7 +69,7 @@ class GameViewController: UIViewController {
   }
   
   override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-      return UIInterfaceOrientationMask.All
+    return UIInterfaceOrientationMask.All
   }
   
   override func didReceiveMemoryWarning() {
@@ -73,21 +81,3 @@ class GameViewController: UIViewController {
   }
 }
 
-
-extension SKNode {
-  
-  class func unarchiveFromFile(file : String) -> SKNode? {
-    if let path = NSBundle.mainBundle().pathForResource(file, ofType: "sks") {
-      let sceneData = try! NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe)
-      let archiver = NSKeyedUnarchiver(forReadingWithData: sceneData)
-      
-      archiver.setClass(self.classForKeyedUnarchiver(), forClassName: "SKScene")
-      let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as! GameScene
-      archiver.finishDecoding()
-      return scene
-    } else {
-      return nil
-    }
-  }
-  
-}

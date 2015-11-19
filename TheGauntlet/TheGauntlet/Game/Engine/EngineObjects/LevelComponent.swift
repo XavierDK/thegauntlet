@@ -19,7 +19,7 @@ enum AngleComponent: String {
 
 struct LevelComponent {
   
-  let name: String
+  let type: String
   let position: SCNVector3
   let angle: AngleComponent
 }
