@@ -9,6 +9,7 @@
 import UIKit
 
 enum ActionType {
+  
   case ActionRightMove
   case ActionLeftMove
   case ActionUpMove
@@ -47,18 +48,24 @@ enum ActionType {
   }
 }
 
+
 struct ActionsStack {
+  
   var items = [ActionType]()
+  
   mutating func push(item: ActionType) {
+    
     items.append(item)
   }
   mutating func pop() -> ActionType? {
+    
     if items.count == 0 {
       return nil
     }
     return items.removeLast()
   }
 }
+
 
 class ActionsManager {
   
@@ -68,19 +75,23 @@ class ActionsManager {
   var touchStart: CGPoint = CGPointZero
   
   func resetStacks() {
+    
     self.actionsStack = ActionsStack()
     self.moveActionsStack = ActionsStack()
   }
   
   func nextAction() -> ActionType? {
+    
       return self.actionsStack.pop()
   }
   
   func nextMoveAction() -> ActionType? {
+    
     return self.moveActionsStack.pop()
   }
   
   func touchBeganForLocation(location: CGPoint) {
+    
     self.touchStart = location
   }
   
@@ -89,9 +100,11 @@ class ActionsManager {
     let action = ActionType.actionForTouches(self.touchStart, touchEnd: location)
     
     if action == .ActionTouchPressed {
+      
       self.actionsStack.push(action)
     }
     else {
+      
       self.moveActionsStack.push(action)
     }
     self.touchStart = CGPointZero

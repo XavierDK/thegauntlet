@@ -4,13 +4,16 @@ PODS:
   - Fabric (1.6.0):
     - Fabric/Base (= 1.6.0)
   - Fabric/Base (1.6.0)
+  - ObjectMapper (1.0.1)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
+  - ObjectMapper
 
 SPEC CHECKSUMS:
   Crashlytics: 1ee87895c37472eb3f01f409ea1654a464d2f8d4
   Fabric: d737eda3a26ac940a5430230eedb35f16b226131
+  ObjectMapper: 98524bac0dca46c6b3d5ee02cd410fc700ec6ce2
 
 COCOAPODS: 0.39.0

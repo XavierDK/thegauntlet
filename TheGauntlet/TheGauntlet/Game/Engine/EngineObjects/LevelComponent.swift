@@ -8,18 +8,80 @@
 
 import Foundation
 import SpriteKit
-import SceneKit
+import ObjectMapper
 
-enum AngleComponent: String {
-  case TOP = "__TOP__"
-  case RIGHT = "__RIGHT__"
-  case BOTTOM = "__BOTTOM__"
-  case LEFT = "__LEFT__"
+
+enum ComponentType: Int {
+  
+  case Start = 0
+  case End = 1
+  case Wall = 2
+  case BasicBloc = 3
 }
 
-struct LevelComponent {
+enum ComponentAngle: Int {
   
-  let type: String
-  let position: SCNVector3
-  let angle: AngleComponent
+  case Top = 0
+  case Right = 90
+  case Bottom = 180
+  case Left = 270
+}
+
+struct ComponentPosition: Mappable {
+  
+  var x: Int?
+  var y: Int?
+  var z: Int?
+  
+  init?(_ map: Map) {
+  }
+  
+  mutating func mapping(map: Map) {
+    
+    x <- map["x"]
+    y <- map["y"]
+    z <- map["z"]
+    
+  }
+}
+
+struct LevelComponent: Mappable {
+  
+  var type: ComponentType?
+  var position: ComponentPosition?
+  var angle: ComponentAngle?
+  
+  init?(_ map: Map) {
+  }
+  
+  mutating func mapping(map: Map) {
+    
+    let typeTransform = TransformOf<ComponentType, Int>(fromJSON: { (value: Int?) -> ComponentType? in
+      if let value = value {
+        return ComponentType(rawValue: value)
+      }
+      return nil
+      }, toJSON: { (value: ComponentType?) -> Int? in
+        if let value = value {
+          return value.rawValue
+        }
+        return nil
+    })
+    type <- (map["type"], typeTransform)
+    
+    let angleTransform = TransformOf<ComponentAngle, Int>(fromJSON: { (value: Int?) -> ComponentAngle? in
+      if let value = value {
+        return ComponentAngle(rawValue: value)
+      }
+      return nil
+      }, toJSON: { (value: ComponentAngle?) -> Int? in
+        if let value = value {
+          return value.rawValue
+        }
+        return nil
+    })
+    angle <- (map["angle"], angleTransform)
+    
+    position <- map["position"]
+  }
 }

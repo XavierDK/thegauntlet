@@ -1,0 +1,6 @@
+framework module Pods_TheGauntlet {
+  umbrella header "Pods-TheGauntlet-umbrella.h"
+
+  export *
+  module * { export * }
+}

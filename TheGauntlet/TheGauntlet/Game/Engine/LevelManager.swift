@@ -9,14 +9,18 @@
 import Foundation
 import SpriteKit
 
+enum LevelEntity {
+  
+  
+}
+
 class LevelManager {
   
-  func levelFromLevelObject(levelObject: LevelObject) -> SKScene {
+  let entitySize: CGFloat = 20.0
+  
+  func levelFromLevelObject(levelObject: LevelObject) -> GameScene {
     
-    guard let levelObject: LevelObject = levelObject else {
-    
-      fatalError("")
-    }
-    return SKScene()
+//    let gameScene: GameScene = GameScene(size: CGSize(width: CGFloat(levelObject.size.width) * entitySize, height: CGFloat(levelObject.size.height) * entitySize))
+    return GameScene(size: CGSizeZero)
   }
 }

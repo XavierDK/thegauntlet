@@ -7,91 +7,175 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3705FDE89AD85B0C945885D9EE85C49B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		F6D1F6994AB5088F0200462DD6DB13B7 /* Pods-TheGauntlet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B7CBC0C2EB952C129A6246AC94929C1E /* Pods-TheGauntlet-dummy.m */; };
+		063DD3D46D82B61CE995627318D22363 /* ISO8601DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CD643DD062D59FBAC0A9AD7515BEB7 /* ISO8601DateTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0D5672C8E3F7C0716F7934A00A9D84DF /* TransformOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C19DBF5DAAB99BFD3F055D6D78C14 /* TransformOf.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		223CB6EF9908A6276E85F54B093C4317 /* TransformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3AEB9E50DDB9C135BFB2DD7BF3B70B /* TransformType.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2324C86A7D8A16881EBEC0FFD32B93A8 /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B07EA809DE9C64F0644817340B8B4 /* DateTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3E8FA9A42B93C8032DD642F9C1601B65 /* Pods-TheGauntlet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7992DB474DB4D81F6751D3D2BBF256F9 /* Pods-TheGauntlet-dummy.m */; };
+		4D56122B9710B3EADD744226A067F636 /* EnumTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881F9630E4CB6554EF86DDA94C0E1C56 /* EnumTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5250F06F4BA279F40349E49DF1F23E87 /* ObjectMapper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F9D20A22AD5E59B5B248CB1ED8067FC /* ObjectMapper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		533599864D48D2CD81C9C7BB421F3448 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D8233ABBFAAD3D99729E3D527177E6 /* Mapper.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5DF3355C4ED929E3B6E0CF865782C391 /* ObjectMapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B353C116CB8329ED5A806EF85DF6E211 /* ObjectMapper-dummy.m */; };
+		6B595899C2DE32358F2800878B58AA6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		7A0C13EB74FA59332B4E73D26835A7AC /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCF6EAADCC01957BEE93E98D1E27591 /* Map.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		93CF645EFF7021DB61A2BA8E9D365903 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		A4695A815F7B56393CCA2035B20F5814 /* CustomDateFormatTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15CD6AB00CA228CA2ECB0FF8720F685 /* CustomDateFormatTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AF7B8E3333ABB360D30EF514DC57F71F /* Pods-TheGauntlet-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4D5049DBF5964CB492900B9924BDB5C /* Pods-TheGauntlet-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C049E84E61F967054FB322C5873F15CC /* ToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3EF582E339A9F95695E3844F249069 /* ToJSON.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D5BC01A39FBE77BB7A8BF4B8F2DA0C04 /* DateFormatterTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58E377A99755E43316514A5A800C6DC /* DateFormatterTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0E91B3657C79A467DE4AFFD43C98B18 /* URLTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D668298A43FF2B743913D61613998F0 /* URLTransform.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E45CB75232BB3B0A48024534702FE1BB /* FromJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE092C05A76CC3379B2ECB445FA9903 /* FromJSON.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F4B252E423D970FC4C6B8BDC3E946189 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA90DB462903A136FF71F9CFB6E5DE7 /* Operators.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DD98C31FF385C33E223C24BEF9605346 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E82421CBEE4F9A6C8D5D9FEC459CE24A;
+			remoteInfo = ObjectMapper;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		00BA37ACC1E13F3F4B449746C38D9DD0 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		31F80F55EC0B29C51AAA8223BF2B4DA5 /* Pods-TheGauntlet-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TheGauntlet-frameworks.sh"; sourceTree = "<group>"; };
+		0093D7E5BF1B632DDAABFEF2E24E2563 /* Pods-TheGauntlet-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TheGauntlet-resources.sh"; sourceTree = "<group>"; };
+		13B44930FD2C8008EA2E2A91C44CD315 /* ObjectMapper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ObjectMapper-prefix.pch"; sourceTree = "<group>"; };
+		2848B37B9DF48F1DED64D92A81242442 /* Pods-TheGauntlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TheGauntlet.release.xcconfig"; sourceTree = "<group>"; };
+		299870F40B4B14ED215201FF360CE8CB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		2C3AEB9E50DDB9C135BFB2DD7BF3B70B /* TransformType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformType.swift; path = ObjectMapper/Transforms/TransformType.swift; sourceTree = "<group>"; };
+		372291A5642B1EE706B98DC718CE775A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		5C1465ADB855BCD2FEC6555643490723 /* Pods-TheGauntlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TheGauntlet.release.xcconfig"; sourceTree = "<group>"; };
-		65E62B54E0528E7D29075965B0ABD93D /* libPods-TheGauntlet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TheGauntlet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F5B9BC7AF35CE60C05CC6AF5E7A48A3 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		A99E0CE04B8B6AFBF2E76619C934E0CD /* Pods-TheGauntlet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TheGauntlet.debug.xcconfig"; sourceTree = "<group>"; };
-		AECAA8A8E213FBC9F0B1D357613F91CC /* Pods-TheGauntlet-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TheGauntlet-acknowledgements.plist"; sourceTree = "<group>"; };
-		B7CBC0C2EB952C129A6246AC94929C1E /* Pods-TheGauntlet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TheGauntlet-dummy.m"; sourceTree = "<group>"; };
+		449964122B7A9D079F7DB722784CE809 /* ObjectMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59F800AA2AD9A43AFA83777C2C8D66FA /* Pods-TheGauntlet-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TheGauntlet-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5DB2C5BC6D7BF6910692799828BB011C /* ObjectMapper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ObjectMapper.xcconfig; sourceTree = "<group>"; };
+		72CD643DD062D59FBAC0A9AD7515BEB7 /* ISO8601DateTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ISO8601DateTransform.swift; path = ObjectMapper/Transforms/ISO8601DateTransform.swift; sourceTree = "<group>"; };
+		7992DB474DB4D81F6751D3D2BBF256F9 /* Pods-TheGauntlet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TheGauntlet-dummy.m"; sourceTree = "<group>"; };
+		79D9CB5EA9C51886F44C1C0D941F0F2C /* Pods-TheGauntlet-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TheGauntlet-acknowledgements.plist"; sourceTree = "<group>"; };
+		816C19DBF5DAAB99BFD3F055D6D78C14 /* TransformOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformOf.swift; path = ObjectMapper/Transforms/TransformOf.swift; sourceTree = "<group>"; };
+		874056FC519FAC93E244BCAB4BD21F89 /* Pods-TheGauntlet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TheGauntlet.debug.xcconfig"; sourceTree = "<group>"; };
+		881F9630E4CB6554EF86DDA94C0E1C56 /* EnumTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EnumTransform.swift; path = ObjectMapper/Transforms/EnumTransform.swift; sourceTree = "<group>"; };
+		8CE38C49A59F83952B6D77E802930EB5 /* ObjectMapper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ObjectMapper.modulemap; sourceTree = "<group>"; };
+		8D668298A43FF2B743913D61613998F0 /* URLTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLTransform.swift; path = ObjectMapper/Transforms/URLTransform.swift; sourceTree = "<group>"; };
+		8DCF6EAADCC01957BEE93E98D1E27591 /* Map.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Map.swift; path = ObjectMapper/Core/Map.swift; sourceTree = "<group>"; };
+		8F9D20A22AD5E59B5B248CB1ED8067FC /* ObjectMapper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ObjectMapper-umbrella.h"; sourceTree = "<group>"; };
+		B15B07EA809DE9C64F0644817340B8B4 /* DateTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateTransform.swift; path = ObjectMapper/Transforms/DateTransform.swift; sourceTree = "<group>"; };
+		B353C116CB8329ED5A806EF85DF6E211 /* ObjectMapper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ObjectMapper-dummy.m"; sourceTree = "<group>"; };
+		B445C2B4A15CEC75509015D2C9073023 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		CBA3106B9BCBB124FDDB790F2317FF23 /* Pods-TheGauntlet-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TheGauntlet-resources.sh"; sourceTree = "<group>"; };
-		D334FA274B413B9F01BCACECBCDBE835 /* Pods-TheGauntlet-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TheGauntlet-acknowledgements.markdown"; sourceTree = "<group>"; };
+		BF53D72981E330C15B23C9DC6BEFBE6C /* Pods-TheGauntlet-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TheGauntlet-frameworks.sh"; sourceTree = "<group>"; };
+		C1D1B3822D1A1EECE2CD460B323A2401 /* Pods-TheGauntlet.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TheGauntlet.modulemap"; sourceTree = "<group>"; };
+		D14C0B485EE45A7448D4994F9F388641 /* Pods_TheGauntlet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheGauntlet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D58E377A99755E43316514A5A800C6DC /* DateFormatterTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateFormatterTransform.swift; path = ObjectMapper/Transforms/DateFormatterTransform.swift; sourceTree = "<group>"; };
+		E0D8233ABBFAAD3D99729E3D527177E6 /* Mapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Mapper.swift; path = ObjectMapper/Core/Mapper.swift; sourceTree = "<group>"; };
+		E15CD6AB00CA228CA2ECB0FF8720F685 /* CustomDateFormatTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomDateFormatTransform.swift; path = ObjectMapper/Transforms/CustomDateFormatTransform.swift; sourceTree = "<group>"; };
+		E4D5049DBF5964CB492900B9924BDB5C /* Pods-TheGauntlet-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TheGauntlet-umbrella.h"; sourceTree = "<group>"; };
+		E70A5C756567ABC2721388992162DAB4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE3EF582E339A9F95695E3844F249069 /* ToJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToJSON.swift; path = ObjectMapper/Core/ToJSON.swift; sourceTree = "<group>"; };
+		FAA90DB462903A136FF71F9CFB6E5DE7 /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = ObjectMapper/Core/Operators.swift; sourceTree = "<group>"; };
+		FDE092C05A76CC3379B2ECB445FA9903 /* FromJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FromJSON.swift; path = ObjectMapper/Core/FromJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FF46E550FB574DDF9416403D5B9F4BDE /* Frameworks */ = {
+		CEE1F3EA27D2A239975BA90C8BA35906 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3705FDE89AD85B0C945885D9EE85C49B /* Foundation.framework in Frameworks */,
+				6B595899C2DE32358F2800878B58AA6D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F69217D43A5AB894D56780952C9896AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93CF645EFF7021DB61A2BA8E9D365903 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0FBADD4C4C312933525779355B4A728B /* Crashlytics */ = {
+		0054BD314EB724C9EEF2A710050A9E5C /* Fabric */ = {
 			isa = PBXGroup;
 			children = (
-				15E523726C28200B5F13DC712FE358E5 /* Frameworks */,
+				B8C7604338867257B6BDC1BB58AA10EB /* Base */,
 			);
-			path = Crashlytics;
+			path = Fabric;
 			sourceTree = "<group>";
 		};
-		15E523726C28200B5F13DC712FE358E5 /* Frameworks */ = {
+		072E62D14FBF52926B5E3ECC7B5BDEFF /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				8F5B9BC7AF35CE60C05CC6AF5E7A48A3 /* Crashlytics.framework */,
+				5B2448CCB6EF980103B3555A9E48F770 /* Pods-TheGauntlet */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		240AB97D626736E52BAC3FB912C4C1A7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				372291A5642B1EE706B98DC718CE775A /* Info.plist */,
+				8CE38C49A59F83952B6D77E802930EB5 /* ObjectMapper.modulemap */,
+				5DB2C5BC6D7BF6910692799828BB011C /* ObjectMapper.xcconfig */,
+				B353C116CB8329ED5A806EF85DF6E211 /* ObjectMapper-dummy.m */,
+				13B44930FD2C8008EA2E2A91C44CD315 /* ObjectMapper-prefix.pch */,
+				8F9D20A22AD5E59B5B248CB1ED8067FC /* ObjectMapper-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ObjectMapper";
+			sourceTree = "<group>";
+		};
+		373DB7EACF95CD1587121E7150B22B83 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				68134BA0E6D097897616D9BA1DBB3687 /* Crashlytics */,
+				0054BD314EB724C9EEF2A710050A9E5C /* Fabric */,
+				A911A6C978D84F7A6F7B5737F8348357 /* ObjectMapper */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		55A1CC35619E44EC45306937F4D4A896 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				299870F40B4B14ED215201FF360CE8CB /* Crashlytics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1D689B8AEFD9044EF3267AFEB4247E12 /* Pods-TheGauntlet */ = {
+		5B2448CCB6EF980103B3555A9E48F770 /* Pods-TheGauntlet */ = {
 			isa = PBXGroup;
 			children = (
-				D334FA274B413B9F01BCACECBCDBE835 /* Pods-TheGauntlet-acknowledgements.markdown */,
-				AECAA8A8E213FBC9F0B1D357613F91CC /* Pods-TheGauntlet-acknowledgements.plist */,
-				B7CBC0C2EB952C129A6246AC94929C1E /* Pods-TheGauntlet-dummy.m */,
-				31F80F55EC0B29C51AAA8223BF2B4DA5 /* Pods-TheGauntlet-frameworks.sh */,
-				CBA3106B9BCBB124FDDB790F2317FF23 /* Pods-TheGauntlet-resources.sh */,
-				A99E0CE04B8B6AFBF2E76619C934E0CD /* Pods-TheGauntlet.debug.xcconfig */,
-				5C1465ADB855BCD2FEC6555643490723 /* Pods-TheGauntlet.release.xcconfig */,
+				E70A5C756567ABC2721388992162DAB4 /* Info.plist */,
+				C1D1B3822D1A1EECE2CD460B323A2401 /* Pods-TheGauntlet.modulemap */,
+				59F800AA2AD9A43AFA83777C2C8D66FA /* Pods-TheGauntlet-acknowledgements.markdown */,
+				79D9CB5EA9C51886F44C1C0D941F0F2C /* Pods-TheGauntlet-acknowledgements.plist */,
+				7992DB474DB4D81F6751D3D2BBF256F9 /* Pods-TheGauntlet-dummy.m */,
+				BF53D72981E330C15B23C9DC6BEFBE6C /* Pods-TheGauntlet-frameworks.sh */,
+				0093D7E5BF1B632DDAABFEF2E24E2563 /* Pods-TheGauntlet-resources.sh */,
+				E4D5049DBF5964CB492900B9924BDB5C /* Pods-TheGauntlet-umbrella.h */,
+				874056FC519FAC93E244BCAB4BD21F89 /* Pods-TheGauntlet.debug.xcconfig */,
+				2848B37B9DF48F1DED64D92A81242442 /* Pods-TheGauntlet.release.xcconfig */,
 			);
 			name = "Pods-TheGauntlet";
 			path = "Target Support Files/Pods-TheGauntlet";
 			sourceTree = "<group>";
 		};
-		2DF7B8E8EC04019122F08AA5D3BBDAC1 /* Base */ = {
+		68134BA0E6D097897616D9BA1DBB3687 /* Crashlytics */ = {
 			isa = PBXGroup;
 			children = (
-				47452721D088AFA42599190FC9718B2B /* Frameworks */,
+				55A1CC35619E44EC45306937F4D4A896 /* Frameworks */,
 			);
-			name = Base;
+			path = Crashlytics;
 			sourceTree = "<group>";
 		};
-		47452721D088AFA42599190FC9718B2B /* Frameworks */ = {
+		7BFB08E094FD91D717C55E0A65828F65 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				00BA37ACC1E13F3F4B449746C38D9DD0 /* Fabric.framework */,
+				B445C2B4A15CEC75509015D2C9073023 /* Fabric.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4C01CE7C97A1F4AA2AA6283DCBF4679A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0FBADD4C4C312933525779355B4A728B /* Crashlytics */,
-				D521363D3F36F2ABB10B4C264BC52A76 /* Fabric */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -99,18 +183,48 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				4C01CE7C97A1F4AA2AA6283DCBF4679A /* Pods */,
-				A72A236DEA3729489B74C8403FEC6689 /* Products */,
-				FEC66D46ED8AAD58F9EEB8A5C2713763 /* Targets Support Files */,
+				373DB7EACF95CD1587121E7150B22B83 /* Pods */,
+				AA0684A8C22E7ADE9EE9B0911E4B946D /* Products */,
+				072E62D14FBF52926B5E3ECC7B5BDEFF /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		A72A236DEA3729489B74C8403FEC6689 /* Products */ = {
+		A911A6C978D84F7A6F7B5737F8348357 /* ObjectMapper */ = {
 			isa = PBXGroup;
 			children = (
-				65E62B54E0528E7D29075965B0ABD93D /* libPods-TheGauntlet.a */,
+				E15CD6AB00CA228CA2ECB0FF8720F685 /* CustomDateFormatTransform.swift */,
+				D58E377A99755E43316514A5A800C6DC /* DateFormatterTransform.swift */,
+				B15B07EA809DE9C64F0644817340B8B4 /* DateTransform.swift */,
+				881F9630E4CB6554EF86DDA94C0E1C56 /* EnumTransform.swift */,
+				FDE092C05A76CC3379B2ECB445FA9903 /* FromJSON.swift */,
+				72CD643DD062D59FBAC0A9AD7515BEB7 /* ISO8601DateTransform.swift */,
+				8DCF6EAADCC01957BEE93E98D1E27591 /* Map.swift */,
+				E0D8233ABBFAAD3D99729E3D527177E6 /* Mapper.swift */,
+				FAA90DB462903A136FF71F9CFB6E5DE7 /* Operators.swift */,
+				EE3EF582E339A9F95695E3844F249069 /* ToJSON.swift */,
+				816C19DBF5DAAB99BFD3F055D6D78C14 /* TransformOf.swift */,
+				2C3AEB9E50DDB9C135BFB2DD7BF3B70B /* TransformType.swift */,
+				8D668298A43FF2B743913D61613998F0 /* URLTransform.swift */,
+				240AB97D626736E52BAC3FB912C4C1A7 /* Support Files */,
+			);
+			path = ObjectMapper;
+			sourceTree = "<group>";
+		};
+		AA0684A8C22E7ADE9EE9B0911E4B946D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				449964122B7A9D079F7DB722784CE809 /* ObjectMapper.framework */,
+				D14C0B485EE45A7448D4994F9F388641 /* Pods_TheGauntlet.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B8C7604338867257B6BDC1BB58AA10EB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7BFB08E094FD91D717C55E0A65828F65 /* Frameworks */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -129,40 +243,62 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		D521363D3F36F2ABB10B4C264BC52A76 /* Fabric */ = {
-			isa = PBXGroup;
-			children = (
-				2DF7B8E8EC04019122F08AA5D3BBDAC1 /* Base */,
-			);
-			path = Fabric;
-			sourceTree = "<group>";
-		};
-		FEC66D46ED8AAD58F9EEB8A5C2713763 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				1D689B8AEFD9044EF3267AFEB4247E12 /* Pods-TheGauntlet */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		4827F524055C122C58F2BD470ED2A8F3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF7B8E3333ABB360D30EF514DC57F71F /* Pods-TheGauntlet-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8ECE297A6AA0798A6C57551A53DC72AE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5250F06F4BA279F40349E49DF1F23E87 /* ObjectMapper-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		043A989EFDD1B39A3ACE81AA0EFAB3DB /* Pods-TheGauntlet */ = {
+		215FE84BBF188B1FF5DC4082C3F2ED26 /* Pods-TheGauntlet */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 98EC19554C6EADAA2DAEA81454608314 /* Build configuration list for PBXNativeTarget "Pods-TheGauntlet" */;
+			buildConfigurationList = 94919A9867613A2ADD54A276B3C0690A /* Build configuration list for PBXNativeTarget "Pods-TheGauntlet" */;
 			buildPhases = (
-				8535C81DD171E9BE67B8CAF45BD90C45 /* Sources */,
-				FF46E550FB574DDF9416403D5B9F4BDE /* Frameworks */,
+				D39C8A337593FDB10B9A247931E9A702 /* Sources */,
+				F69217D43A5AB894D56780952C9896AE /* Frameworks */,
+				4827F524055C122C58F2BD470ED2A8F3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88A385D4F9274301BF6CCBAA46055F7D /* PBXTargetDependency */,
+			);
+			name = "Pods-TheGauntlet";
+			productName = "Pods-TheGauntlet";
+			productReference = D14C0B485EE45A7448D4994F9F388641 /* Pods_TheGauntlet.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E82421CBEE4F9A6C8D5D9FEC459CE24A /* ObjectMapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27F600DA90FD0666FCC35AE6DD3A5774 /* Build configuration list for PBXNativeTarget "ObjectMapper" */;
+			buildPhases = (
+				35C59C531CDEC587212E647D3102A5B8 /* Sources */,
+				CEE1F3EA27D2A239975BA90C8BA35906 /* Frameworks */,
+				8ECE297A6AA0798A6C57551A53DC72AE /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-TheGauntlet";
-			productName = "Pods-TheGauntlet";
-			productReference = 65E62B54E0528E7D29075965B0ABD93D /* libPods-TheGauntlet.a */;
-			productType = "com.apple.product-type.library.static";
+			name = ObjectMapper;
+			productName = ObjectMapper;
+			productReference = 449964122B7A9D079F7DB722784CE809 /* ObjectMapper.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -181,61 +317,58 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = A72A236DEA3729489B74C8403FEC6689 /* Products */;
+			productRefGroup = AA0684A8C22E7ADE9EE9B0911E4B946D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				043A989EFDD1B39A3ACE81AA0EFAB3DB /* Pods-TheGauntlet */,
+				E82421CBEE4F9A6C8D5D9FEC459CE24A /* ObjectMapper */,
+				215FE84BBF188B1FF5DC4082C3F2ED26 /* Pods-TheGauntlet */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8535C81DD171E9BE67B8CAF45BD90C45 /* Sources */ = {
+		35C59C531CDEC587212E647D3102A5B8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6D1F6994AB5088F0200462DD6DB13B7 /* Pods-TheGauntlet-dummy.m in Sources */,
+				A4695A815F7B56393CCA2035B20F5814 /* CustomDateFormatTransform.swift in Sources */,
+				D5BC01A39FBE77BB7A8BF4B8F2DA0C04 /* DateFormatterTransform.swift in Sources */,
+				2324C86A7D8A16881EBEC0FFD32B93A8 /* DateTransform.swift in Sources */,
+				4D56122B9710B3EADD744226A067F636 /* EnumTransform.swift in Sources */,
+				E45CB75232BB3B0A48024534702FE1BB /* FromJSON.swift in Sources */,
+				063DD3D46D82B61CE995627318D22363 /* ISO8601DateTransform.swift in Sources */,
+				7A0C13EB74FA59332B4E73D26835A7AC /* Map.swift in Sources */,
+				533599864D48D2CD81C9C7BB421F3448 /* Mapper.swift in Sources */,
+				5DF3355C4ED929E3B6E0CF865782C391 /* ObjectMapper-dummy.m in Sources */,
+				F4B252E423D970FC4C6B8BDC3E946189 /* Operators.swift in Sources */,
+				C049E84E61F967054FB322C5873F15CC /* ToJSON.swift in Sources */,
+				0D5672C8E3F7C0716F7934A00A9D84DF /* TransformOf.swift in Sources */,
+				223CB6EF9908A6276E85F54B093C4317 /* TransformType.swift in Sources */,
+				E0E91B3657C79A467DE4AFFD43C98B18 /* URLTransform.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39C8A337593FDB10B9A247931E9A702 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E8FA9A42B93C8032DD642F9C1601B65 /* Pods-TheGauntlet-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		88A385D4F9274301BF6CCBAA46055F7D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ObjectMapper;
+			target = E82421CBEE4F9A6C8D5D9FEC459CE24A /* ObjectMapper */;
+			targetProxy = DD98C31FF385C33E223C24BEF9605346 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		33495C08A42148D04FB574BCE70C8645 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A99E0CE04B8B6AFBF2E76619C934E0CD /* Pods-TheGauntlet.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		4D912982D3535300835B7C6BB9591E68 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C1465ADB855BCD2FEC6555643490723 /* Pods-TheGauntlet.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -275,6 +408,36 @@
 			};
 			name = Debug;
 		};
+		5F448A7965F1A5ED9EEC967050DBDBC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2848B37B9DF48F1DED64D92A81242442 /* Pods-TheGauntlet.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TheGauntlet/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TheGauntlet/Pods-TheGauntlet.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_TheGauntlet;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		74857149DC1E0D599B8A01A78349A926 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -309,9 +472,104 @@
 			};
 			name = Release;
 		};
+		E3FE02C026AE88394260C0BD1B027D35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DB2C5BC6D7BF6910692799828BB011C /* ObjectMapper.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ObjectMapper/ObjectMapper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ObjectMapper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ObjectMapper/ObjectMapper.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = ObjectMapper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FE54741B9BBE4726C4F802B5D0E60304 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DB2C5BC6D7BF6910692799828BB011C /* ObjectMapper.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ObjectMapper/ObjectMapper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ObjectMapper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ObjectMapper/ObjectMapper.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = ObjectMapper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FF0F186686DEC453A09D9BEE0D2ACB45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 874056FC519FAC93E244BCAB4BD21F89 /* Pods-TheGauntlet.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-TheGauntlet/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TheGauntlet/Pods-TheGauntlet.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_TheGauntlet;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		27F600DA90FD0666FCC35AE6DD3A5774 /* Build configuration list for PBXNativeTarget "ObjectMapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3FE02C026AE88394260C0BD1B027D35 /* Debug */,
+				FE54741B9BBE4726C4F802B5D0E60304 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -321,11 +579,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		98EC19554C6EADAA2DAEA81454608314 /* Build configuration list for PBXNativeTarget "Pods-TheGauntlet" */ = {
+		94919A9867613A2ADD54A276B3C0690A /* Build configuration list for PBXNativeTarget "Pods-TheGauntlet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				33495C08A42148D04FB574BCE70C8645 /* Debug */,
-				4D912982D3535300835B7C6BB9591E68 /* Release */,
+				FF0F186686DEC453A09D9BEE0D2ACB45 /* Debug */,
+				5F448A7965F1A5ED9EEC967050DBDBC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

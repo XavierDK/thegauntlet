@@ -17,9 +17,17 @@ class GameScene: SKScene {
   var entityManager: EntityManager!
   var actionsManager: ActionsManager = ActionsManager()
   
-  override func didMoveToView(view: SKView) {
+  override init(size: CGSize) {
     
-    entityManager = EntityManager(scene: self)
+    super.init(size: size)
+    self.entityManager = EntityManager(scene: self)
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+  }
+  
+  override func didMoveToView(view: SKView) {
     
     let player = Player(spriteNode: self.childNodeWithName("player") as? SKSpriteNode, entityManager: entityManager, actionsManager: self.actionsManager)
     entityManager.add(player)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01DFE3CB7C5F20AE2471E096 /* Pods_TheGauntlet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A7E83F421784EE977E08646 /* Pods_TheGauntlet.framework */; };
 		0F2904C71BF15838000F0F23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2904C61BF15838000F0F23 /* AppDelegate.swift */; };
 		0F2904C91BF15838000F0F23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2904C81BF15838000F0F23 /* ViewController.swift */; };
 		0F2904CC1BF15838000F0F23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2904CA1BF15838000F0F23 /* Main.storyboard */; };
@@ -28,7 +29,6 @@
 		252566481BFD40F6006D014D /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252566471BFD40F6006D014D /* LevelManager.swift */; };
 		2585FE3A1BFB4788003EC30C /* ActionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2585FE391BFB4788003EC30C /* ActionsManager.swift */; };
 		2585FE3E1BFB57E5003EC30C /* MoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2585FE3D1BFB57E5003EC30C /* MoveComponent.swift */; };
-		ECE144647FABDCBD3888DD39 /* libPods-TheGauntlet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE8C54D9CAE031036E04FE1 /* libPods-TheGauntlet.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +79,7 @@
 		2585FE391BFB4788003EC30C /* ActionsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionsManager.swift; path = Game/ActionsManager.swift; sourceTree = "<group>"; };
 		2585FE3D1BFB57E5003EC30C /* MoveComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoveComponent.swift; path = Game/Components/MoveComponent.swift; sourceTree = "<group>"; };
 		63EBAD06DDABE42B988298DE /* Pods-TheGauntlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheGauntlet.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheGauntlet/Pods-TheGauntlet.release.xcconfig"; sourceTree = "<group>"; };
-		CAE8C54D9CAE031036E04FE1 /* libPods-TheGauntlet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TheGauntlet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A7E83F421784EE977E08646 /* Pods_TheGauntlet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheGauntlet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE144647FABDCBD3888DD39 /* libPods-TheGauntlet.a in Frameworks */,
+				01DFE3CB7C5F20AE2471E096 /* Pods_TheGauntlet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +163,7 @@
 		211D9A332117D08775AE5D64 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CAE8C54D9CAE031036E04FE1 /* libPods-TheGauntlet.a */,
+				9A7E83F421784EE977E08646 /* Pods_TheGauntlet.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

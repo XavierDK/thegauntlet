@@ -20,7 +20,7 @@ class GameViewController: UIViewController, FileParserManager {
     super.init(nibName:nil, bundle:nil)
     
     do {
-      let levelObject = try self.levelObjectsFromLevelName(levelName)
+      let levelObject = try self.levelObjectFromLevelName(levelName)
       self.scene = self.levelManager.levelFromLevelObject(levelObject)
     }
     catch let error as FileParserError {
