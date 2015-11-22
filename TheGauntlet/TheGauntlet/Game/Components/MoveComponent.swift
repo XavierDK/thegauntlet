@@ -12,35 +12,61 @@ import SpriteKit
 class MoveComponent: GKComponent {
   
   let actionManager: ActionsManager
+  let gridManager: GridManager
   
-  let rotateDuration = 0.2
-  let moveDuration = 0.3
+  let rotateDuration = 0.1
+  let moveDuration = 0.15
   
-  init(actionManager: ActionsManager) {
+  init(actionManager: ActionsManager, gridManager: GridManager) {
     
     self.actionManager = actionManager
+    self.gridManager = gridManager
+    
     super.init()
   }
   
   override func updateWithDeltaTime(seconds: NSTimeInterval) {
     
-    guard let spriteComponent = entity?.componentForClass(SpriteComponent.self) else {
+    guard let entity = entity else {
+      return
+    }
+    guard let spriteComponent = entity.componentForClass(SpriteComponent.self) else {
       return
     }
     
-    if let action = self.actionManager.nextMoveAction() {
+    while let action = self.actionManager.nextMoveAction() {
       switch action {
       case .ActionDownMove:
-        self.moveSpriteNode(0, x: 0, y: -spriteComponent.node.size.height, spriteNode: spriteComponent.node)
+        if self.gridManager.moveEntity(entity, direction: .Down) {
+          self.moveSpriteNode(0, x: 0, y: -spriteComponent.node.size.height, spriteNode: spriteComponent.node)
+        }
+        else {
+          self.rotateSpriteNode(0, spriteNode: spriteComponent.node)
+        }
         
       case .ActionLeftMove:
-        self.moveSpriteNode(270, x: -spriteComponent.node.size.height, y: 0, spriteNode: spriteComponent.node)
+        if self.gridManager.moveEntity(entity, direction: .Left) {
+          self.moveSpriteNode(270, x: -spriteComponent.node.size.height, y: 0, spriteNode: spriteComponent.node)
+        }
+        else {
+          self.rotateSpriteNode(270, spriteNode: spriteComponent.node)
+        }
         
       case .ActionUpMove:
-        self.moveSpriteNode(180, x: 0, y: spriteComponent.node.size.height, spriteNode: spriteComponent.node)
+        if self.gridManager.moveEntity(entity, direction: .Up) {
+          self.moveSpriteNode(180, x: 0, y: spriteComponent.node.size.height, spriteNode: spriteComponent.node)
+        }
+        else {
+          self.rotateSpriteNode(180, spriteNode: spriteComponent.node)
+        }
         
       case .ActionRightMove:
-        self.moveSpriteNode(90, x: spriteComponent.node.size.height, y: 0, spriteNode: spriteComponent.node)
+        if self.gridManager.moveEntity(entity, direction: .Right) {
+          self.moveSpriteNode(90, x: spriteComponent.node.size.height, y: 0, spriteNode: spriteComponent.node)
+        }
+        else {
+          self.rotateSpriteNode(90, spriteNode: spriteComponent.node)
+        }
         
       default:
         break
@@ -58,16 +84,40 @@ class MoveComponent: GKComponent {
     actionMove.timingMode = .EaseInEaseOut
     
     spriteNode.runAction(SKAction.sequence([actionRotate, actionMove]))
+    
+    print(spriteNode.position)
   }
+  
+  
+  func rotateSpriteNode(angle: CGFloat, spriteNode: SKSpriteNode) {
+    
+    let bestAngle = MoveComponent.bestAngleForAngle(angle, spriteNode: spriteNode)
+    let actionRotate = SKAction.rotateByAngle(bestAngle * CGFloat(M_PI) / 180, duration: rotateDuration)
+    
+    spriteNode.runAction(SKAction.sequence([actionRotate]))
+    
+    print(spriteNode.position)
+  }
+  
   
   class func bestAngleForAngle(angle: CGFloat, spriteNode: SKSpriteNode) -> CGFloat {
     
     let angleNode = round(spriteNode.zRotation * 180 / CGFloat(M_PI))
+
+    var angle = (angleNode - angle) * -1
     
-    let angle1 = (angleNode + 360 - angle) * -1
-    let angle2 = (angleNode - angle) * -1
+    angle = round(angle) % 360
     
-    return (abs(angle1) < abs(angle2)) ? (angle1) : (angle2)
+    if abs(angle) == 270.0 {
+      var direction = 1
+      if (angle > 0) {
+        direction = -1
+      }
+      angle = CGFloat(90 * direction)
+    }
+
+    print(angle)
+    return angle
   }
   
 }

@@ -19,19 +19,21 @@ enum ComponentType: Int {
   case BasicBloc = 3
 }
 
+
 enum ComponentAngle: Int {
   
-  case Top = 0
+  case Top = 180
   case Right = 90
-  case Bottom = 180
+  case Bottom = 0
   case Left = 270
 }
 
+
 struct ComponentPosition: Mappable {
   
-  var x: Int?
-  var y: Int?
-  var z: Int?
+  var x: Int!
+  var y: Int!
+  var z: Int!
   
   init?(_ map: Map) {
   }
@@ -40,16 +42,16 @@ struct ComponentPosition: Mappable {
     
     x <- map["x"]
     y <- map["y"]
-    z <- map["z"]
-    
+    z <- map["z"]    
   }
 }
 
+
 struct LevelComponent: Mappable {
   
-  var type: ComponentType?
-  var position: ComponentPosition?
-  var angle: ComponentAngle?
+  var type: ComponentType!
+  var position: ComponentPosition!
+  var angle: ComponentAngle!
   
   init?(_ map: Map) {
   }

@@ -22,9 +22,9 @@ enum ActionType {
     let angle = atan2(v.dy, v.dx)
     let deg = angle * CGFloat(180 / M_PI) + 180
     
-    print("Angle: \(deg), X: \(v.dx), Y: \(v.dy)")
+//    print("Angle: \(deg), X: \(v.dx), Y: \(v.dy)")
     
-    if abs(v.dx) + abs(v.dy) < 50 {
+    if abs(v.dx) + abs(v.dy) < 20 {
       return ActionTouchPressed
     }
       

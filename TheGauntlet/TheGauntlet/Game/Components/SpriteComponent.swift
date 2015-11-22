@@ -20,6 +20,6 @@ class SpriteComponent: GKComponent {
   
   init(spriteNode: SKSpriteNode) {
     self.node = spriteNode
-    super.init()
+    super.init()    
   }
 }

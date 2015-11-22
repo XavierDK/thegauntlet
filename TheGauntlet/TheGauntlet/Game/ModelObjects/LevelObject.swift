@@ -12,8 +12,8 @@ import ObjectMapper
 
 struct LevelSize: Mappable {
   
-  var width: Int?
-  var height: Int?
+  var width: Int!
+  var height: Int!
   
   init?(_ map: Map) {
   }
@@ -27,9 +27,9 @@ struct LevelSize: Mappable {
 
 struct LevelObject: Mappable {
   
-  var name: String?
-  var size: LevelSize?
-  var components: [LevelComponent]?
+  var name: String!
+  var size: LevelSize!
+  var components: [LevelComponent]!
   
   init?(_ map: Map) {
   }

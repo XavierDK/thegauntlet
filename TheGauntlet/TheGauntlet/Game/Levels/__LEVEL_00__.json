@@ -2,40 +2,36 @@
   "name": "__LEVEL_00__",
   "size": {
     "width": 10,
-    "height": 30
+    "height": 15
   },
   "components": [
                {
                "type": 0,
                "position": {
                "x": 0,
-               "y": 0,
-               "z": 1
+               "y": 0
                },
-               "angle": 180
+               "angle": 90
                },
                {
                "type": 1,
                "position": {
                "x": 9,
-               "y": 29,
-               "z": 1
+               "y": 10
                }
                },
                {
                "type": 2,
                "position": {
-               "x": 5,
-               "y": 12,
-               "z": 1
+               "x": 2,
+               "y": 2
                }
                },
                {
                "type": 3,
                "position": {
                "x": 7,
-               "y": 15,
-               "z": 1
+               "y": 7
                }
                }
                ]

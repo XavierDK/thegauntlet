@@ -16,10 +16,12 @@ class GameScene: SKScene {
   
   var entityManager: EntityManager!
   var actionsManager: ActionsManager = ActionsManager()
+  var gridManager: GridManager!
   
   override init(size: CGSize) {
     
     super.init(size: size)
+    self.anchorPoint = CGPointMake(0, 0)
     self.entityManager = EntityManager(scene: self)
   }
   
@@ -28,9 +30,7 @@ class GameScene: SKScene {
   }
   
   override func didMoveToView(view: SKView) {
-    
-    let player = Player(spriteNode: self.childNodeWithName("player") as? SKSpriteNode, entityManager: entityManager, actionsManager: self.actionsManager)
-    entityManager.add(player)
+
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

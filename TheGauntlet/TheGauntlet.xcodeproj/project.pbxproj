@@ -21,14 +21,19 @@
 		2525662D1BF7EB15006D014D /* LevelEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2525662C1BF7EB15006D014D /* LevelEnum.swift */; };
 		2525662F1BF7ECAE006D014D /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2525662E1BF7ECAE006D014D /* SpriteComponent.swift */; };
 		252566311BF7EF64006D014D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252566301BF7EF64006D014D /* Player.swift */; };
-		252566331BF7EF7D006D014D /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252566321BF7EF7D006D014D /* EntityManager.swift */; };
 		2525663E1BFD2FC3006D014D /* __LEVEL_00__.json in Resources */ = {isa = PBXBuildFile; fileRef = 2525663D1BFD2FC3006D014D /* __LEVEL_00__.json */; };
-		252566411BFD322C006D014D /* FileParserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252566401BFD322C006D014D /* FileParserManager.swift */; };
-		252566441BFD335E006D014D /* LevelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252566431BFD335E006D014D /* LevelObject.swift */; };
-		252566461BFD33DF006D014D /* LevelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252566451BFD33DF006D014D /* LevelComponent.swift */; };
-		252566481BFD40F6006D014D /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252566471BFD40F6006D014D /* LevelManager.swift */; };
-		2585FE3A1BFB4788003EC30C /* ActionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2585FE391BFB4788003EC30C /* ActionsManager.swift */; };
 		2585FE3E1BFB57E5003EC30C /* MoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2585FE3D1BFB57E5003EC30C /* MoveComponent.swift */; };
+		2599FC101C027EDD00F392FC /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599FC0F1C027EDD00F392FC /* Wall.swift */; };
+		2599FC121C02824300F392FC /* ColliderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599FC111C02824300F392FC /* ColliderComponent.swift */; };
+		2599FC141C02887D00F392FC /* BasicBloc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599FC131C02887D00F392FC /* BasicBloc.swift */; };
+		25B748C11C02272A004E9117 /* ActionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B748BD1C02272A004E9117 /* ActionsManager.swift */; };
+		25B748C21C02272A004E9117 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B748BE1C02272A004E9117 /* EntityManager.swift */; };
+		25B748C31C02272A004E9117 /* FileParserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B748BF1C02272A004E9117 /* FileParserManager.swift */; };
+		25B748C41C02272A004E9117 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B748C01C02272A004E9117 /* LevelManager.swift */; };
+		25B748C71C02273F004E9117 /* LevelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B748C51C02273F004E9117 /* LevelComponent.swift */; };
+		25B748C81C02273F004E9117 /* LevelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B748C61C02273F004E9117 /* LevelObject.swift */; };
+		25B748CA1C0227C6004E9117 /* GridManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B748C91C0227C6004E9117 /* GridManager.swift */; };
+		25B748CC1C023630004E9117 /* GridComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B748CB1C023630004E9117 /* GridComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,14 +75,19 @@
 		2525662C1BF7EB15006D014D /* LevelEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelEnum.swift; path = Game/Levels/LevelEnum.swift; sourceTree = "<group>"; };
 		2525662E1BF7ECAE006D014D /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpriteComponent.swift; path = Game/Components/SpriteComponent.swift; sourceTree = "<group>"; };
 		252566301BF7EF64006D014D /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Player.swift; path = Game/Entities/Player.swift; sourceTree = "<group>"; };
-		252566321BF7EF7D006D014D /* EntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntityManager.swift; path = Game/Entities/EntityManager.swift; sourceTree = "<group>"; };
 		2525663D1BFD2FC3006D014D /* __LEVEL_00__.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = __LEVEL_00__.json; path = Game/Levels/__LEVEL_00__.json; sourceTree = "<group>"; };
-		252566401BFD322C006D014D /* FileParserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileParserManager.swift; path = Game/Engine/FileParserManager.swift; sourceTree = "<group>"; };
-		252566431BFD335E006D014D /* LevelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelObject.swift; path = Game/Engine/EngineObjects/LevelObject.swift; sourceTree = "<group>"; };
-		252566451BFD33DF006D014D /* LevelComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelComponent.swift; path = Game/Engine/EngineObjects/LevelComponent.swift; sourceTree = "<group>"; };
-		252566471BFD40F6006D014D /* LevelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelManager.swift; path = Game/Engine/LevelManager.swift; sourceTree = "<group>"; };
-		2585FE391BFB4788003EC30C /* ActionsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionsManager.swift; path = Game/ActionsManager.swift; sourceTree = "<group>"; };
 		2585FE3D1BFB57E5003EC30C /* MoveComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoveComponent.swift; path = Game/Components/MoveComponent.swift; sourceTree = "<group>"; };
+		2599FC0F1C027EDD00F392FC /* Wall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Wall.swift; path = Game/Entities/Wall.swift; sourceTree = "<group>"; };
+		2599FC111C02824300F392FC /* ColliderComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColliderComponent.swift; path = Game/Components/ColliderComponent.swift; sourceTree = "<group>"; };
+		2599FC131C02887D00F392FC /* BasicBloc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicBloc.swift; path = Game/Entities/BasicBloc.swift; sourceTree = "<group>"; };
+		25B748BD1C02272A004E9117 /* ActionsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionsManager.swift; path = Game/Managers/ActionsManager.swift; sourceTree = "<group>"; };
+		25B748BE1C02272A004E9117 /* EntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntityManager.swift; path = Game/Managers/EntityManager.swift; sourceTree = "<group>"; };
+		25B748BF1C02272A004E9117 /* FileParserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileParserManager.swift; path = Game/Managers/FileParserManager.swift; sourceTree = "<group>"; };
+		25B748C01C02272A004E9117 /* LevelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelManager.swift; path = Game/Managers/LevelManager.swift; sourceTree = "<group>"; };
+		25B748C51C02273F004E9117 /* LevelComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelComponent.swift; path = Game/ModelObjects/LevelComponent.swift; sourceTree = "<group>"; };
+		25B748C61C02273F004E9117 /* LevelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelObject.swift; path = Game/ModelObjects/LevelObject.swift; sourceTree = "<group>"; };
+		25B748C91C0227C6004E9117 /* GridManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridManager.swift; path = Game/Managers/GridManager.swift; sourceTree = "<group>"; };
+		25B748CB1C023630004E9117 /* GridComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridComponent.swift; path = Game/Components/GridComponent.swift; sourceTree = "<group>"; };
 		63EBAD06DDABE42B988298DE /* Pods-TheGauntlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheGauntlet.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheGauntlet/Pods-TheGauntlet.release.xcconfig"; sourceTree = "<group>"; };
 		9A7E83F421784EE977E08646 /* Pods_TheGauntlet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheGauntlet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -180,8 +190,8 @@
 			children = (
 				252566221BF7E03E006D014D /* GameViewController.swift */,
 				252566241BF7E1F5006D014D /* GameScene.swift */,
-				2585FE391BFB4788003EC30C /* ActionsManager.swift */,
-				2525663F1BFD3204006D014D /* Engine */,
+				25B748BB1C02267B004E9117 /* Managers */,
+				25B748BC1C022696004E9117 /* ModelObjects */,
 				2525663A1BF91E04006D014D /* UI */,
 				2525661F1BF7DAED006D014D /* Components */,
 				2525661E1BF7DAD3006D014D /* Entities */,
@@ -206,8 +216,9 @@
 		2525661E1BF7DAD3006D014D /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				252566321BF7EF7D006D014D /* EntityManager.swift */,
 				252566301BF7EF64006D014D /* Player.swift */,
+				2599FC0F1C027EDD00F392FC /* Wall.swift */,
+				2599FC131C02887D00F392FC /* BasicBloc.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -217,7 +228,8 @@
 			children = (
 				2525662E1BF7ECAE006D014D /* SpriteComponent.swift */,
 				2585FE3D1BFB57E5003EC30C /* MoveComponent.swift */,
-				252566211BF7DB24006D014D /* Behaviors */,
+				25B748CB1C023630004E9117 /* GridComponent.swift */,
+				2599FC111C02824300F392FC /* ColliderComponent.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -231,13 +243,6 @@
 			name = Levels;
 			sourceTree = "<group>";
 		};
-		252566211BF7DB24006D014D /* Behaviors */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Behaviors;
-			sourceTree = "<group>";
-		};
 		2525663A1BF91E04006D014D /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,23 +250,25 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
-		2525663F1BFD3204006D014D /* Engine */ = {
+		25B748BB1C02267B004E9117 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				252566421BFD32BA006D014D /* EngineObjects */,
-				252566401BFD322C006D014D /* FileParserManager.swift */,
-				252566471BFD40F6006D014D /* LevelManager.swift */,
+				25B748BD1C02272A004E9117 /* ActionsManager.swift */,
+				25B748BE1C02272A004E9117 /* EntityManager.swift */,
+				25B748BF1C02272A004E9117 /* FileParserManager.swift */,
+				25B748C01C02272A004E9117 /* LevelManager.swift */,
+				25B748C91C0227C6004E9117 /* GridManager.swift */,
 			);
-			name = Engine;
+			name = Managers;
 			sourceTree = "<group>";
 		};
-		252566421BFD32BA006D014D /* EngineObjects */ = {
+		25B748BC1C022696004E9117 /* ModelObjects */ = {
 			isa = PBXGroup;
 			children = (
-				252566431BFD335E006D014D /* LevelObject.swift */,
-				252566451BFD33DF006D014D /* LevelComponent.swift */,
+				25B748C51C02273F004E9117 /* LevelComponent.swift */,
+				25B748C61C02273F004E9117 /* LevelObject.swift */,
 			);
-			name = EngineObjects;
+			name = ModelObjects;
 			sourceTree = "<group>";
 		};
 		C5159DB00072473D605D1B12 /* Pods */ = {
@@ -345,6 +352,7 @@
 				TargetAttributes = {
 					0F2904C21BF15838000F0F23 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = F8Z9YT6W9Z;
 					};
 					0F2904D61BF15838000F0F23 = {
 						CreatedOnToolsVersion = 7.1;
@@ -470,20 +478,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25B748C21C02272A004E9117 /* EntityManager.swift in Sources */,
+				2599FC101C027EDD00F392FC /* Wall.swift in Sources */,
+				25B748CA1C0227C6004E9117 /* GridManager.swift in Sources */,
 				252566251BF7E1F5006D014D /* GameScene.swift in Sources */,
+				2599FC141C02887D00F392FC /* BasicBloc.swift in Sources */,
 				252566231BF7E03E006D014D /* GameViewController.swift in Sources */,
-				252566331BF7EF7D006D014D /* EntityManager.swift in Sources */,
+				25B748C41C02272A004E9117 /* LevelManager.swift in Sources */,
 				2525662F1BF7ECAE006D014D /* SpriteComponent.swift in Sources */,
-				2585FE3A1BFB4788003EC30C /* ActionsManager.swift in Sources */,
 				0F2904C91BF15838000F0F23 /* ViewController.swift in Sources */,
 				252566311BF7EF64006D014D /* Player.swift in Sources */,
-				252566441BFD335E006D014D /* LevelObject.swift in Sources */,
-				252566461BFD33DF006D014D /* LevelComponent.swift in Sources */,
+				25B748C11C02272A004E9117 /* ActionsManager.swift in Sources */,
+				25B748C71C02273F004E9117 /* LevelComponent.swift in Sources */,
 				0F2904C71BF15838000F0F23 /* AppDelegate.swift in Sources */,
-				252566411BFD322C006D014D /* FileParserManager.swift in Sources */,
 				2585FE3E1BFB57E5003EC30C /* MoveComponent.swift in Sources */,
+				25B748C81C02273F004E9117 /* LevelObject.swift in Sources */,
+				25B748CC1C023630004E9117 /* GridComponent.swift in Sources */,
 				0F7BC61D1BF6894000DE3A5C /* LevelSelectorViewController.swift in Sources */,
-				252566481BFD40F6006D014D /* LevelManager.swift in Sources */,
+				2599FC121C02824300F392FC /* ColliderComponent.swift in Sources */,
+				25B748C31C02272A004E9117 /* FileParserManager.swift in Sources */,
 				2525662D1BF7EB15006D014D /* LevelEnum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -627,12 +640,15 @@
 			baseConfigurationReference = 02F29D360B6068932B38A69B /* Pods-TheGauntlet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 9;
 				INFOPLIST_FILE = TheGauntlet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.thegauntlet.TheGauntlet;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.thegauntlet.TheGauntletxdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -643,12 +659,15 @@
 			baseConfigurationReference = 63EBAD06DDABE42B988298DE /* Pods-TheGauntlet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 9;
 				INFOPLIST_FILE = TheGauntlet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.thegauntlet.TheGauntlet;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.thegauntlet.TheGauntletxdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
