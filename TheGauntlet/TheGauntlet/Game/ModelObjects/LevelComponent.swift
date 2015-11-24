@@ -17,6 +17,7 @@ enum ComponentType: Int {
   case End = 1
   case Wall = 2
   case BasicBloc = 3
+  case BasicGauntlet = 4
 }
 
 

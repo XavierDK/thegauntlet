@@ -66,37 +66,6 @@ class GameViewController: UIViewController, FileParserManager {
     }
   }
   
-  override func shouldAutorotate() -> Bool {
-    
-    return true
-  }
-  
-  
-  override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-    
-    let orientation = UIApplication.sharedApplication().statusBarOrientation
-
-    if let gameScene: GameScene = self.scene! as? GameScene {
-      
-      if toInterfaceOrientation.isLandscape && !orientation.isLandscape{
-        gameScene.size = CGSize(width: gameScene.size.height, height: gameScene.size.width)
-      }
-      else {
-        gameScene.size = CGSize(width: gameScene.size.width, height: gameScene.size.height)
-      }
-    }
-
-  }
-  
-//  override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-//    super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-//    
-//      }
-  
-//  override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-//    return UIInterfaceOrientationMask.All
-//  }
-  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }

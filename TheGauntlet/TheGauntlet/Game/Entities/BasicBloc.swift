@@ -26,5 +26,8 @@ class BasicBloc: GKEntity {
     
     let colliderComponent = ColliderComponent()
     addComponent(colliderComponent)
+    
+    let pushableComponent = PushableComponent()
+    addComponent(pushableComponent)
   }
 }

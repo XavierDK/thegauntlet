@@ -24,8 +24,7 @@ class GameScene: SKScene {
     super.init(size: size)
   
     self.anchorPoint = CGPointMake(0, 0)
-    self.entityManager = EntityManager(scene: self)
-    
+    self.entityManager = EntityManager(scene: self)    
   }
   
   required init?(coder aDecoder: NSCoder) {

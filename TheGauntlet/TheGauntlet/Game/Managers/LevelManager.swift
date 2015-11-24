@@ -19,6 +19,7 @@ class LevelManager {
   let playerSpriteName: String = "character"
   let wallSpriteName: String = "wall"
   let basicBlocSpriteName: String = "basic_bloc"
+  let basicGauntletSpriteName: String = "basic_gauntlet"
   let squareGridSpriteName: String = "square"
   
   
@@ -30,7 +31,7 @@ class LevelManager {
     gameScene.backgroundColor = UIColor.greenColor()
     //
     
-    gameScene.gridManager = GridManager(levelSize: levelObject.size)
+    gameScene.gridManager = GridManager(levelSize: levelObject.size, entityManager: gameScene.entityManager)
     
     self.addGridForSize(levelObject.size, gameScene: gameScene)
     
@@ -45,6 +46,8 @@ class LevelManager {
         self.addWallForComponent(levelComponent, gameScene:gameScene)
       case ComponentType.BasicBloc:
         self.addBasicBlocForComponent(levelComponent, gameScene:gameScene)
+      case ComponentType.BasicGauntlet:
+        self.addBasicGauntletForComponent(levelComponent, gameScene:gameScene)
       }
     }
     
@@ -94,6 +97,15 @@ class LevelManager {
     let basicBloc = BasicBloc(component: component, spriteNode: spriteNode, gridManager: gameScene.gridManager)
     gameScene.entityManager.add(basicBloc)
     gameScene.gridManager.addEntity(basicBloc, x: component.position.x, y: component.position.y)
+  }
+  
+  
+  func addBasicGauntletForComponent(component: LevelComponent, gameScene: GameScene) {
+    
+    let spriteNode = self.spriteNodeFor(component, imageNamed: basicGauntletSpriteName)
+    let basicGauntlet = Gauntlet(component: component, spriteNode: spriteNode, gridManager: gameScene.gridManager)
+    gameScene.entityManager.add(basicGauntlet)
+    gameScene.gridManager.addEntity(basicGauntlet, x: component.position.x, y: component.position.y)
   }
   
   
