@@ -14,7 +14,7 @@ class LevelManager {
   
   let entitySize: CGFloat = 20.0
   
-  let marginCase: Int = 2
+  let marginCase: Int = 0
   
   let playerSpriteName: String = "character"
   let wallSpriteName: String = "wall"

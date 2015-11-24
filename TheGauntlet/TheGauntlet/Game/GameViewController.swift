@@ -50,6 +50,8 @@ class GameViewController: UIViewController, FileParserManager {
     if let scene = scene {
       
       // Configure the view.
+      scene.scaleMode = .Fill
+      
       let skView = self.view as! SKView
       skView.showsFPS = true
       skView.showsNodeCount = true
@@ -58,19 +60,42 @@ class GameViewController: UIViewController, FileParserManager {
       skView.ignoresSiblingOrder = true
       
       /* Set the scale mode to scale to fit the window */
-      scene.scaleMode = .AspectFill
+      
       
       skView.presentScene(scene)
     }
   }
   
   override func shouldAutorotate() -> Bool {
+    
     return true
   }
   
-  override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-    return UIInterfaceOrientationMask.All
+  
+  override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+    
+    let orientation = UIApplication.sharedApplication().statusBarOrientation
+
+    if let gameScene: GameScene = self.scene! as? GameScene {
+      
+      if toInterfaceOrientation.isLandscape && !orientation.isLandscape{
+        gameScene.size = CGSize(width: gameScene.size.height, height: gameScene.size.width)
+      }
+      else {
+        gameScene.size = CGSize(width: gameScene.size.width, height: gameScene.size.height)
+      }
+    }
+
   }
+  
+//  override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+//    super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+//    
+//      }
+  
+//  override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+//    return UIInterfaceOrientationMask.All
+//  }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()

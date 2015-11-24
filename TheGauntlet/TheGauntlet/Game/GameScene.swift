@@ -17,12 +17,15 @@ class GameScene: SKScene {
   var entityManager: EntityManager!
   var actionsManager: ActionsManager = ActionsManager()
   var gridManager: GridManager!
+  let sceneCamera = SKCameraNode()
   
   override init(size: CGSize) {
     
     super.init(size: size)
+  
     self.anchorPoint = CGPointMake(0, 0)
     self.entityManager = EntityManager(scene: self)
+    
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -30,6 +33,12 @@ class GameScene: SKScene {
   }
   
   override func didMoveToView(view: SKView) {
+
+    self.addChild(self.sceneCamera)
+    self.sceneCamera.xScale = 1
+    self.sceneCamera.yScale = 1
+    self.scene?.scaleMode = .AspectFit
+    self.camera = self.sceneCamera
 
   }
   
@@ -59,6 +68,17 @@ class GameScene: SKScene {
   
   override func update(currentTime: NSTimeInterval) {
     self.entityManager.update(currentTime)
+    
+    let player = self.entityManager.player()
+    if let spriteComponent = player?.componentForClass(SpriteComponent.self) {
+      self.sceneCamera.position = CGPoint(x:spriteComponent.node.position.x - spriteComponent.node.size.width + spriteComponent.node.size.width ,
+        y: spriteComponent.node.position.y + spriteComponent.node.size.height)
+    }
+  }
+  
+  override func didChangeSize(oldSize: CGSize) {
+    
+    super.didChangeSize(oldSize)
   }
   
 }

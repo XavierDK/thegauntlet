@@ -10,6 +10,11 @@ import UIKit
 
 // UIViewController
 class LevelSelectorViewController: UITableViewController {
+  
+  override func shouldAutorotate() -> Bool {
+    
+    return true
+  }
 
 }
 
