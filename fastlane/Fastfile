@@ -93,7 +93,7 @@ platform :ios do
   desc "Deploiment Testflight"
   desc "Nettoyage des artefact de compilation"
   desc "Push sur git d'un version bump"
-  lane :alpha do
+  lane :beta do
     begin
       sigh
       clear_derived_data
@@ -128,10 +128,10 @@ platform :ios do
   end
 
   error do |lane, exception|
+    reset_git_repo
     slack(
       message: exception.message,
       success: false
     )
-    reset_git_repo
   end
 end
