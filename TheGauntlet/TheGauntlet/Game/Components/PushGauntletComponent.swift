@@ -12,18 +12,39 @@ import SpriteKit
 class PushGauntletComponent: GKComponent, GauntletComponent {
   
   override init() {
-
+    
     super.init()
   }
   
   func actionForGrid(gridManager: GridManager, newX: Int, newY: Int, direction: GridDirection) -> (Int, Int) {
     
-    let res = gridManager.checkComponentClass(PushableComponent.self, newX: newX+1, newY: newY)
+    var newObjX: Int = newX
+    var newObjY: Int = newY
     
-    if res.0, let pushableEntity = res.1 {
+    switch direction {
+    case .Up:
+      newObjY++
+    case .Down:
+      newObjY--
+    case .Left:
+      newObjX--
+    case .Right:
+      newObjX++
+    }
+    
+    if gridManager.checkLevelLimit(newX, newY: newY) {
+      let res = gridManager.checkComponentClass(PushableComponent.self, newX: newX, newY: newY)
       
-      if let pushableComponent = pushableEntity.componentForClass(PushableComponent.self) {
-        pushableComponent.push(direction)
+      if res.0, let pushableEntity = res.1 {
+        if gridManager.checkLevelLimit(newObjX, newY: newObjY)
+          && !gridManager.checkComponentClass(ColliderComponent.self, newX: newObjX, newY: newObjY).0 {
+            
+            if let pushableComponent = pushableEntity.componentForClass(PushableComponent.self) {
+              
+              gridManager.updateEntity(pushableEntity, newX: newObjX, newY: newObjY)
+              pushableComponent.push(direction)
+            }
+        }
       }
     }
     

@@ -27,7 +27,7 @@ class PushableComponent: GKComponent {
       case .Down:
         self.move(spriteComponent, x: 0, y: -spriteComponent.node.size.height)
       case .Left:
-        self.move(spriteComponent, x: spriteComponent.node.size.width, y: 0)
+        self.move(spriteComponent, x: -spriteComponent.node.size.width, y: 0)
       case .Right:
         self.move(spriteComponent, x: spriteComponent.node.size.width, y: 0)
       }
