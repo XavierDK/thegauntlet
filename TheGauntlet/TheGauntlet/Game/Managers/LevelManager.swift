@@ -94,7 +94,7 @@ class LevelManager {
   func addBasicBlocForComponent(component: LevelComponent, gameScene: GameScene) {
     
     let spriteNode = self.spriteNodeFor(component, imageNamed: basicBlocSpriteName)
-    let basicBloc = BasicBloc(component: component, spriteNode: spriteNode, gridManager: gameScene.gridManager)
+    let basicBloc = BasicBloc(component: component, spriteNode: spriteNode, actionsManager: gameScene.actionsManager, gridManager: gameScene.gridManager)
     gameScene.entityManager.add(basicBloc)
     gameScene.gridManager.addEntity(basicBloc, x: component.position.x, y: component.position.y)
   }

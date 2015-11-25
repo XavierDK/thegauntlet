@@ -15,7 +15,8 @@ class MoveComponent: GKComponent {
   let gridManager: GridManager
   
   let rotateDuration = 0.1
-  let moveDuration = 0.15
+  let moveDuration = 0.30
+  
   
   init(actionManager: ActionsManager, gridManager: GridManager) {
     
@@ -24,6 +25,7 @@ class MoveComponent: GKComponent {
     
     super.init()
   }
+  
   
   override func updateWithDeltaTime(seconds: NSTimeInterval) {
     
@@ -75,35 +77,54 @@ class MoveComponent: GKComponent {
     }
   }
   
+  
   func moveSpriteNode(angle: CGFloat, x: CGFloat, y: CGFloat, spriteNode: SKSpriteNode) {
     
     let bestAngle = MoveComponent.bestAngleForAngle(angle, spriteNode: spriteNode)
-    let actionRotate = SKAction.rotateByAngle(bestAngle * CGFloat(M_PI) / 180, duration: rotateDuration)
     
     let actionMove = SKAction.moveByX(x, y: y, duration: moveDuration)
     actionMove.timingMode = .EaseInEaseOut
+    let actionsToLaunch = self.actionManager.actionsToLauch()
     
-    spriteNode.runAction(SKAction.sequence([actionRotate, actionMove]))
+    let actionBlock = SKAction.runBlock { () -> Void in
+      
+      for actionToLaunch in actionsToLaunch {
+        actionToLaunch.node.runAction(actionToLaunch.action)
+      }
+      
+//      spriteNode
+      spriteNode.runAction(actionMove)
+      
+      self.actionManager.clearActionsToLauch()
+    }
     
-    print(spriteNode.position)
+    if bestAngle != 0 {
+      let actionRotate = SKAction.rotateByAngle(bestAngle * CGFloat(M_PI) / 180, duration: rotateDuration)
+      spriteNode.runAction(SKAction.sequence([actionRotate, actionBlock]))
+    }
+      
+    else {
+      spriteNode.runAction(actionBlock)
+    }
   }
   
   
   func rotateSpriteNode(angle: CGFloat, spriteNode: SKSpriteNode) {
     
     let bestAngle = MoveComponent.bestAngleForAngle(angle, spriteNode: spriteNode)
-    let actionRotate = SKAction.rotateByAngle(bestAngle * CGFloat(M_PI) / 180, duration: rotateDuration)
     
-    spriteNode.runAction(SKAction.sequence([actionRotate]))
-    
-    print(spriteNode.position)
+    if bestAngle != 0 {
+      let actionRotate = SKAction.rotateByAngle(bestAngle * CGFloat(M_PI) / 180, duration: rotateDuration)
+      
+      spriteNode.runAction(SKAction.sequence([actionRotate]))
+    }
   }
   
   
   class func bestAngleForAngle(angle: CGFloat, spriteNode: SKSpriteNode) -> CGFloat {
     
     let angleNode = round(spriteNode.zRotation * 180 / CGFloat(M_PI))
-
+    
     var angle = (angleNode - angle) * -1
     
     angle = round(angle) % 360
@@ -115,8 +136,8 @@ class MoveComponent: GKComponent {
       }
       angle = CGFloat(90 * direction)
     }
-
-    print(angle)
+    
+    //    print(angle)
     return angle
   }
   

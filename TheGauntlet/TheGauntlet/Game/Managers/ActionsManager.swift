@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 enum ActionType {
   
@@ -22,7 +23,7 @@ enum ActionType {
     let angle = atan2(v.dy, v.dx)
     let deg = angle * CGFloat(180 / M_PI) + 180
     
-//    print("Angle: \(deg), X: \(v.dx), Y: \(v.dy)")
+    //    print("Angle: \(deg), X: \(v.dx), Y: \(v.dy)")
     
     if abs(v.dx) + abs(v.dy) < 20 {
       return ActionTouchPressed
@@ -35,11 +36,11 @@ enum ActionType {
     else if (deg <= 315.0 && deg >= 225.0) {
       return ActionDownMove
     }
-    
+      
     else if (deg <= 225.0 && deg >= 135.0) {
       return ActionLeftMove
     }
-    
+      
     else if (deg <= 135.0 && deg >= 45.0) {
       return ActionUpMove
     }
@@ -67,10 +68,31 @@ struct ActionsStack {
 }
 
 
+struct ActionToLaunch: Hashable, Equatable {
+  
+  let node: SKNode
+  let action: SKAction
+  
+  var hashValue: Int {
+    return "\(node)\(action)".hashValue
+  }
+}
+
+func ==(lhs: ActionToLaunch, rhs: ActionToLaunch) -> Bool {
+  
+  if lhs.action == rhs.action && lhs.node == rhs.node {
+    return true
+  }
+  return false
+}
+
+
 class ActionsManager {
   
   var moveActionsStack: ActionsStack = ActionsStack()
   var actionsStack: ActionsStack = ActionsStack()
+  
+  var actionsToLaunch: Set<ActionToLaunch> = Set<ActionToLaunch>()
   
   var touchStart: CGPoint = CGPointZero
   
@@ -80,20 +102,24 @@ class ActionsManager {
     self.moveActionsStack = ActionsStack()
   }
   
+  
   func nextAction() -> ActionType? {
     
-      return self.actionsStack.pop()
+    return self.actionsStack.pop()
   }
+  
   
   func nextMoveAction() -> ActionType? {
     
     return self.moveActionsStack.pop()
   }
   
+  
   func touchBeganForLocation(location: CGPoint) {
     
     self.touchStart = location
   }
+  
   
   func touchEndedForLocation(location: CGPoint) {
     
@@ -109,6 +135,23 @@ class ActionsManager {
     }
     self.touchStart = CGPointZero
   }
-
+  
+  
+  func addActionToLaunch(action: SKAction, forNode node: SKNode) {
+    
+    self.actionsToLaunch.insert(ActionToLaunch(node: node, action: action))
+  }
+  
+  
+  func clearActionsToLauch() {
+    
+    self.actionsToLaunch.removeAll()
+  }
+  
+  
+  func actionsToLauch() -> Set<ActionToLaunch>{
+    
+    return self.actionsToLaunch
+  }
 }
 

@@ -11,9 +11,12 @@ import SpriteKit
 
 class PushableComponent: GKComponent {
   
-  let moveDuration = 0.15
+  let moveDuration = 0.30
+  let actionsManager: ActionsManager
   
-  override init() {
+  init(actionsManager: ActionsManager) {
+    
+    self.actionsManager = actionsManager
     super.init()
   }
   
@@ -39,6 +42,8 @@ class PushableComponent: GKComponent {
     let actionMove = SKAction.moveByX(x, y: y, duration: moveDuration)
     actionMove.timingMode = .EaseInEaseOut
     
-    spriteComponent.node.runAction(actionMove)
+    self.actionsManager.addActionToLaunch(actionMove, forNode: spriteComponent.node)
+    
+//    spriteComponent.node.runAction(actionMove)
   }
 }

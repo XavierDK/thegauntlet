@@ -11,7 +11,7 @@ import GameplayKit
 
 class BasicBloc: GKEntity {
   
-  init(component: LevelComponent, spriteNode: SKSpriteNode?, gridManager: GridManager) {
+  init(component: LevelComponent, spriteNode: SKSpriteNode?, actionsManager: ActionsManager, gridManager: GridManager) {
     super.init()
     
     guard let node = spriteNode else {
@@ -27,7 +27,7 @@ class BasicBloc: GKEntity {
     let colliderComponent = ColliderComponent()
     addComponent(colliderComponent)
     
-    let pushableComponent = PushableComponent()
+    let pushableComponent = PushableComponent(actionsManager: actionsManager)
     addComponent(pushableComponent)
   }
 }
