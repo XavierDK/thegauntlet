@@ -82,6 +82,23 @@ class MoveComponent: GKComponent {
     
     let bestAngle = MoveComponent.bestAngleForAngle(angle, spriteNode: spriteNode)
     
+    
+    // TEST ANIMATION!
+    
+    var walkFrames = [SKTexture]()
+    let playerAnimatedAtlas = SKTextureAtlas(named: "Player")
+
+    let numImages = playerAnimatedAtlas.textureNames.count;
+    for i in 1 ... numImages/2 {
+      let textureName = "player\(i)"
+      let texture = playerAnimatedAtlas.textureNamed(textureName)
+      walkFrames.append(texture)
+    }
+    
+    let actionAnimate = SKAction.animateWithTextures(walkFrames, timePerFrame: 0.1, resize: false, restore: false)
+    
+    //
+    
     let actionMove = SKAction.moveByX(x, y: y, duration: moveDuration)
     actionMove.timingMode = .EaseInEaseOut
     let actionsToLaunch = self.actionManager.actionsToLauch()
@@ -92,7 +109,7 @@ class MoveComponent: GKComponent {
         actionToLaunch.node.runAction(actionToLaunch.action)
       }
       
-//      spriteNode
+      spriteNode.runAction(actionAnimate)
       spriteNode.runAction(actionMove)
       
       self.actionManager.clearActionsToLauch()

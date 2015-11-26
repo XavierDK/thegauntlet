@@ -16,7 +16,7 @@ class LevelManager {
   
   let marginCase: Int = 0
   
-  let playerSpriteName: String = "character"
+  let playerSpriteName: String = "player1"
   let wallSpriteName: String = "wall"
   let basicBlocSpriteName: String = "basic_bloc"
   let basicGauntletSpriteName: String = "basic_gauntlet"
@@ -28,7 +28,7 @@ class LevelManager {
     let gameScene: GameScene = GameScene(size: CGSize(width: CGFloat(levelObject.size.width + marginCase * 2) * entitySize, height: CGFloat(levelObject.size.height + marginCase * 2) * entitySize))
     
     // TEST
-    gameScene.backgroundColor = UIColor.greenColor()
+    gameScene.backgroundColor = UIColor.whiteColor()
     //
     
     gameScene.gridManager = GridManager(levelSize: levelObject.size, entityManager: gameScene.entityManager)
