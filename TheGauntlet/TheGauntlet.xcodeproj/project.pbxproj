@@ -370,7 +370,7 @@
 				TargetAttributes = {
 					0F2904C21BF15838000F0F23 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = F8Z9YT6W9Z;
+						DevelopmentTeam = C4FTLCP442;
 					};
 					0F2904D61BF15838000F0F23 = {
 						CreatedOnToolsVersion = 7.1;
@@ -666,11 +666,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				INFOPLIST_FILE = TheGauntlet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.thegauntlet.TheGauntletxdk;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.thegauntlet.TheGauntlet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -685,11 +685,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				INFOPLIST_FILE = TheGauntlet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.thegauntlet.TheGauntletxdk;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.thegauntlet.TheGauntlet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
