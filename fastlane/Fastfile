@@ -44,7 +44,7 @@ platform :ios do
       message: "Commencement de la Build: #{version}",
       default_payloads: Array.new
     )
-    unit_test
+    # unit_test
   end
 
   desc "Create new screenshots for the App Store in all languages and device types"
