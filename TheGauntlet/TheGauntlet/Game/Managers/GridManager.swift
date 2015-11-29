@@ -101,9 +101,9 @@ class GridManager {
     if res.0, let object = res.1 {
       if let inventory = entity.componentForClass(InventoryComponent.self),
         let objectToGet = object.componentForClass(GetComponent.self) {
-        if let gauntlet = objectToGet.objectToGet as? GauntletComponent {
-          inventory.addGauntlet(gauntlet)
-        }
+          if let gauntlet = objectToGet.objectToGet as? GauntletComponent {
+            inventory.addGauntlet(gauntlet)
+          }
       }
       self.entityManager.remove(object)
     }

@@ -8,23 +8,19 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
-  
-  var lastUpdateTimeInterval: NSTimeInterval = 0
-  
-  var gameOver = false
+class GameScene: SKScene {    
   
   var entityManager: EntityManager!
   var actionsManager: ActionsManager = ActionsManager()
   var gridManager: GridManager!
-  let sceneCamera = SKCameraNode()
+  var interfaceManager: InterfaceManager!
   
   override init(size: CGSize) {
-    
+
     super.init(size: size)
   
     self.anchorPoint = CGPointMake(0, 0)
-    self.entityManager = EntityManager(scene: self)    
+    self.entityManager = EntityManager(scene: self)
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -32,13 +28,42 @@ class GameScene: SKScene {
   }
   
   override func didMoveToView(view: SKView) {
-
-    self.addChild(self.sceneCamera)
-    self.sceneCamera.xScale = 1
-    self.sceneCamera.yScale = 1
+   
+//    self.addChild(self.sceneCamera)
+//    self.sceneCamera.xScale = 0.1
+//    self.sceneCamera.yScale = 0.1
     self.scene?.scaleMode = .AspectFit
-    self.camera = self.sceneCamera
+    self.camera = self.interfaceManager.sceneCamera
 
+//    let lbl: SKLabelNode = SKLabelNode(fontNamed: "Arial")
+//    lbl.text = "Drag this label"
+//    lbl.fontSize = 5
+//    lbl.fontColor = UIColor.blackColor()
+//    lbl.position = CGPointMake(0, 0)
+//    lbl.zPosition = 99
+//    self.sceneCamera.addChild(lbl)    
+    
+    let backgroundCrop = SKCropNode()
+    let node = SKNode()
+    
+    let spr1 = SKSpriteNode(color: SKColor.blackColor(), size: CGSize(width: 40, height: 40))
+    spr1.position = CGPoint(x: 100, y: 100)
+    node.addChild(spr1)
+    
+    let spr2 = SKSpriteNode(color: SKColor.blackColor(), size: CGSize(width: 40, height: 40))
+    spr2.position = CGPoint(x: 150, y: 100)
+    node.addChild(spr2)
+    
+    backgroundCrop.maskNode = node
+    
+    let backgroundImage = SKSpriteNode(imageNamed: "basic_bloc")
+    backgroundImage.size = CGSize(width: self.frame.size.width, height: self.frame.size.height)
+    backgroundImage.position = CGPoint(x: CGRectGetMinY(self.frame), y: CGRectGetMinX(self.frame))
+    
+    backgroundCrop.zPosition = 99
+    backgroundCrop.addChild(backgroundImage)
+    
+    self.addChild(backgroundCrop)
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -70,8 +95,8 @@ class GameScene: SKScene {
     
     let player = self.entityManager.player()
     if let spriteComponent = player?.componentForClass(SpriteComponent.self) {
-      self.sceneCamera.position = CGPoint(x:spriteComponent.node.position.x - spriteComponent.node.size.width + spriteComponent.node.size.width ,
-        y: spriteComponent.node.position.y + spriteComponent.node.size.height)
+      self.interfaceManager.sceneCamera.position = CGPoint(x:spriteComponent.node.position.x,
+        y: spriteComponent.node.position.y )
     }
   }
   

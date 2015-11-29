@@ -1,44 +1,79 @@
 {
   "name": "__LEVEL_00__",
   "size": {
-    "width": 10,
-    "height": 15
+    "width": 9,
+    "height": 7
   },
   "components": [
                  {
                  "type": 0,
                  "position": {
                  "x": 0,
-                 "y": 0
+                 "y": 3
                  },
                  "angle": 90
                  },
                  {
                  "type": 1,
                  "position": {
-                 "x": 9,
-                 "y": 10
+                 "x": 8,
+                 "y": 3
                  }
                  },
                  {
                  "type": 4,
                  "position": {
-                 "x": 5,
-                 "y": 10
+                 "x": 2,
+                 "y": 5
                  }
                  },
                  {
                  "type": 2,
                  "position": {
-                 "x": 2,
+                 "x": 4,
+                 "y": 0
+                 }
+                 },
+                 {
+                 "type": 2,
+                 "position": {
+                 "x": 4,
+                 "y": 1
+                 }
+                 },
+                 {
+                 "type": 2,
+                 "position": {
+                 "x": 4,
                  "y": 2
+                 }
+                 },
+                 {
+                 "type": 2,
+                 "position": {
+                 "x": 4,
+                 "y": 4
+                 }
+                 },
+                 {
+                 "type": 2,
+                 "position": {
+                 "x": 4,
+                 "y": 5
+                 }
+                 },
+                 {
+                 "type": 2,
+                 "position": {
+                 "x": 4,
+                 "y": 6
                  }
                  },
                  {
                  "type": 3,
                  "position": {
-                 "x": 7,
-                 "y": 7
+                 "x": 2,
+                 "y": 3
                  }
                  }
                  ]

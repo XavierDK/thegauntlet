@@ -25,13 +25,15 @@ class LevelManager {
   
   func levelFromLevelObject(levelObject: LevelObject) -> GameScene {
     
-    let gameScene: GameScene = GameScene(size: CGSize(width: CGFloat(levelObject.size.width + marginCase * 2) * entitySize, height: CGFloat(levelObject.size.height + marginCase * 2) * entitySize))
+    let gameScene: GameScene = GameScene(size: UIScreen.mainScreen().bounds.size)
     
     // TEST
     gameScene.backgroundColor = UIColor.whiteColor()
     //
     
     gameScene.gridManager = GridManager(levelSize: levelObject.size, entityManager: gameScene.entityManager)
+    
+    gameScene.interfaceManager = InterfaceManager(levelSize: levelObject.size)
     
     self.addGridForSize(levelObject.size, gameScene: gameScene)
     

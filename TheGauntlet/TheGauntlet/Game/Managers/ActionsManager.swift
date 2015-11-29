@@ -124,13 +124,11 @@ class ActionsManager {
   func touchEndedForLocation(location: CGPoint) {
     
     let action = ActionType.actionForTouches(self.touchStart, touchEnd: location)
-    
     if action == .ActionTouchPressed {
       
       self.actionsStack.push(action)
     }
     else {
-      
       self.moveActionsStack.push(action)
     }
     self.touchStart = CGPointZero

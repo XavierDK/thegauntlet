@@ -16,6 +16,7 @@
 		0F2904DC1BF15838000F0F23 /* TheGauntletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2904DB1BF15838000F0F23 /* TheGauntletTests.swift */; };
 		0F2904E71BF15838000F0F23 /* TheGauntletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2904E61BF15838000F0F23 /* TheGauntletUITests.swift */; };
 		0F7BC61D1BF6894000DE3A5C /* LevelSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7BC61C1BF6894000DE3A5C /* LevelSelectorViewController.swift */; };
+		250940CE1C09FDCD00EB687F /* InterfaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250940CD1C09FDCD00EB687F /* InterfaceManager.swift */; };
 		252566231BF7E03E006D014D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252566221BF7E03E006D014D /* GameViewController.swift */; };
 		252566251BF7E1F5006D014D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252566241BF7E1F5006D014D /* GameScene.swift */; };
 		2525662D1BF7EB15006D014D /* LevelEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2525662C1BF7EB15006D014D /* LevelEnum.swift */; };
@@ -76,6 +77,7 @@
 		0F2904E81BF15838000F0F23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F7BC61C1BF6894000DE3A5C /* LevelSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectorViewController.swift; sourceTree = "<group>"; };
 		0F7BC61E1BF6B38000DE3A5C /* BacASable.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BacASable.playground; sourceTree = "<group>"; };
+		250940CD1C09FDCD00EB687F /* InterfaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfaceManager.swift; path = Game/Managers/InterfaceManager.swift; sourceTree = "<group>"; };
 		252566221BF7E03E006D014D /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = Game/GameViewController.swift; sourceTree = "<group>"; };
 		252566241BF7E1F5006D014D /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = Game/GameScene.swift; sourceTree = "<group>"; };
 		2525662C1BF7EB15006D014D /* LevelEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelEnum.swift; path = Game/Levels/LevelEnum.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				25B748BF1C02272A004E9117 /* FileParserManager.swift */,
 				25B748C01C02272A004E9117 /* LevelManager.swift */,
 				25B748C91C0227C6004E9117 /* GridManager.swift */,
+				250940CD1C09FDCD00EB687F /* InterfaceManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				25B748C71C02273F004E9117 /* LevelComponent.swift in Sources */,
 				0F2904C71BF15838000F0F23 /* AppDelegate.swift in Sources */,
 				2585FE3E1BFB57E5003EC30C /* MoveComponent.swift in Sources */,
+				250940CE1C09FDCD00EB687F /* InterfaceManager.swift in Sources */,
 				25B748C81C02273F004E9117 /* LevelObject.swift in Sources */,
 				2561F7D91C04630900145397 /* GauntletComponent.swift in Sources */,
 				25B748CC1C023630004E9117 /* GridComponent.swift in Sources */,
@@ -673,7 +677,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.thegauntlet.TheGauntlet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -692,7 +696,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.thegauntlet.TheGauntlet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

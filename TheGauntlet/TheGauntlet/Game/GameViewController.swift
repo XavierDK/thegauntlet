@@ -40,6 +40,7 @@ class GameViewController: UIViewController, FileParserManager {
   }
   
   override func loadView() {
+    
     let view = SKView(frame: UIScreen.mainScreen().bounds)
     self.view = view
   }
@@ -50,7 +51,7 @@ class GameViewController: UIViewController, FileParserManager {
     if let scene = scene {
       
       // Configure the view.
-      scene.scaleMode = .Fill
+      //      scene.scaleMode = .Fill
       
       let skView = self.view as! SKView
       skView.showsFPS = true
@@ -64,6 +65,21 @@ class GameViewController: UIViewController, FileParserManager {
       
       skView.presentScene(scene)
     }
+  }
+  
+  
+  override func viewWillLayoutSubviews() {
+    super.viewWillLayoutSubviews()
+
+    // Configure the view.
+//    
+//      // Create and configure the scene.
+//      SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
+//      scene.scaleMode = SKSceneScaleModeAspectFill;
+//      
+//      // Present the scene.
+//      [skView presentScene:scene];
+//    }
   }
   
   override func didReceiveMemoryWarning() {
