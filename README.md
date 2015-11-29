@@ -89,6 +89,15 @@ Définition :
   - 1 Monde
   - 20 Niveaux
 
+
+## Idée de Nom
+
+- Mr.Fox
+- Foxy
+- Hungry Fox
+- Angry Chicken
+- The Gauntlet
+
 ## IV) Scénario *(a voir plus tard)*
 
 - Animation entre les niveaux ?
