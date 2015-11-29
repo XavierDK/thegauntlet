@@ -22,8 +22,8 @@
   - est centré sur le joueur
   - arriver au bord du niveau elle ne plus centré sur le joueur mais sur le niveau afin d'en montrer le plus possible
   - elle ne montre qu'une partie du niveau en mode centrée sur le joueur
-  - elle a un monde ou on peut voir tout le niveau
-* caracter
+  - elle a un mode ou on peut voir tout le niveau (activable avec deux doigts)
+* le personage
   - se deplacer sur les cases autoriser de la grille
   - ramasser des objets
   - utiliser ces objets (pousser / sauter / voler / teleporter / transformer une case)

@@ -42,28 +42,28 @@ class GameScene: SKScene {
 //    lbl.position = CGPointMake(0, 0)
 //    lbl.zPosition = 99
 //    self.sceneCamera.addChild(lbl)    
-    
-    let backgroundCrop = SKCropNode()
-    let node = SKNode()
-    
-    let spr1 = SKSpriteNode(color: SKColor.blackColor(), size: CGSize(width: 40, height: 40))
-    spr1.position = CGPoint(x: 100, y: 100)
-    node.addChild(spr1)
-    
-    let spr2 = SKSpriteNode(color: SKColor.blackColor(), size: CGSize(width: 40, height: 40))
-    spr2.position = CGPoint(x: 150, y: 100)
-    node.addChild(spr2)
-    
-    backgroundCrop.maskNode = node
-    
-    let backgroundImage = SKSpriteNode(imageNamed: "basic_bloc")
-    backgroundImage.size = CGSize(width: self.frame.size.width, height: self.frame.size.height)
-    backgroundImage.position = CGPoint(x: CGRectGetMinY(self.frame), y: CGRectGetMinX(self.frame))
-    
-    backgroundCrop.zPosition = 99
-    backgroundCrop.addChild(backgroundImage)
-    
-    self.addChild(backgroundCrop)
+//    
+//    let backgroundCrop = SKCropNode()
+//    let node = SKNode()
+//    
+//    let spr1 = SKSpriteNode(color: SKColor.blackColor(), size: CGSize(width: 40, height: 40))
+//    spr1.position = CGPoint(x: 100, y: 100)
+//    node.addChild(spr1)
+//    
+//    let spr2 = SKSpriteNode(color: SKColor.blackColor(), size: CGSize(width: 40, height: 40))
+//    spr2.position = CGPoint(x: 150, y: 100)
+//    node.addChild(spr2)
+//    
+//    backgroundCrop.maskNode = node
+//    
+//    let backgroundImage = SKSpriteNode(imageNamed: "basic_bloc")
+//    backgroundImage.size = CGSize(width: self.frame.size.width, height: self.frame.size.height)
+//    backgroundImage.position = CGPoint(x: CGRectGetMinY(self.frame), y: CGRectGetMinX(self.frame))
+//    
+//    backgroundCrop.zPosition = 99
+//    backgroundCrop.addChild(backgroundImage)
+//    
+//    self.addChild(backgroundCrop)
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
