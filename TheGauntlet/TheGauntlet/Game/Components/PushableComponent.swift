@@ -11,7 +11,6 @@ import SpriteKit
 
 class PushableComponent: GKComponent {
   
-  let moveDuration = 0.30
   let actionsManager: ActionsManager
   
   init(actionsManager: ActionsManager) {
@@ -20,26 +19,26 @@ class PushableComponent: GKComponent {
     super.init()
   }
   
-  func push(direction: GridDirection) {
+  func push(direction: ComponentDirection) {
     
     if let spriteComponent = self.entity?.componentForClass(SpriteComponent.self) {
       
       switch direction {
       case .Up:
-        self.move(spriteComponent, x: 0, y: spriteComponent.node.size.height)
+        self.move(spriteComponent, x: 0, y: GameConstant.Entity.Size)
       case .Down:
-        self.move(spriteComponent, x: 0, y: -spriteComponent.node.size.height)
+        self.move(spriteComponent, x: 0, y: -GameConstant.Entity.Size)
       case .Left:
-        self.move(spriteComponent, x: -spriteComponent.node.size.width, y: 0)
+        self.move(spriteComponent, x: -GameConstant.Entity.Size, y: 0)
       case .Right:
-        self.move(spriteComponent, x: spriteComponent.node.size.width, y: 0)
+        self.move(spriteComponent, x: GameConstant.Entity.Size, y: 0)
       }
     }
   }
   
   func move(spriteComponent: SpriteComponent, x: CGFloat, y: CGFloat) {
     
-    let actionMove = SKAction.moveByX(x, y: y, duration: moveDuration)
+    let actionMove = SKAction.moveByX(x, y: y, duration: GameConstant.Entity.MoveDuration)
     actionMove.timingMode = .EaseInEaseOut
     
     self.actionsManager.addActionToLaunch(actionMove, forNode: spriteComponent.node)

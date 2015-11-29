@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class BasicBloc: GKEntity {
+class Bloc: GKEntity {
   
   init(component: LevelComponent, spriteNode: SKSpriteNode?, actionsManager: ActionsManager, gridManager: GridManager) {
     super.init()

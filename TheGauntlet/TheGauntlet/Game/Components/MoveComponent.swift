@@ -14,10 +14,6 @@ class MoveComponent: GKComponent {
   let actionManager: ActionsManager
   let gridManager: GridManager
   
-  let rotateDuration = 0.1
-  let moveDuration = 0.30
-  
-  
   init(actionManager: ActionsManager, gridManager: GridManager) {
     
     self.actionManager = actionManager
@@ -40,7 +36,7 @@ class MoveComponent: GKComponent {
       switch action {
       case .ActionDownMove:
         if self.gridManager.moveEntity(entity, direction: .Down) {
-          self.moveSpriteNode(0, x: 0, y: -spriteComponent.node.size.height, spriteNode: spriteComponent.node)
+          self.moveSpriteNode(0, x: 0, y: -GameConstant.Entity.Size, spriteNode: spriteComponent.node)
         }
         else {
           self.rotateSpriteNode(0, spriteNode: spriteComponent.node)
@@ -48,7 +44,7 @@ class MoveComponent: GKComponent {
         
       case .ActionLeftMove:
         if self.gridManager.moveEntity(entity, direction: .Left) {
-          self.moveSpriteNode(270, x: -spriteComponent.node.size.height, y: 0, spriteNode: spriteComponent.node)
+          self.moveSpriteNode(270, x: -GameConstant.Entity.Size, y: 0, spriteNode: spriteComponent.node)
         }
         else {
           self.rotateSpriteNode(270, spriteNode: spriteComponent.node)
@@ -56,7 +52,7 @@ class MoveComponent: GKComponent {
         
       case .ActionUpMove:
         if self.gridManager.moveEntity(entity, direction: .Up) {
-          self.moveSpriteNode(180, x: 0, y: spriteComponent.node.size.height, spriteNode: spriteComponent.node)
+          self.moveSpriteNode(180, x: 0, y: GameConstant.Entity.Size, spriteNode: spriteComponent.node)
         }
         else {
           self.rotateSpriteNode(180, spriteNode: spriteComponent.node)
@@ -64,7 +60,7 @@ class MoveComponent: GKComponent {
         
       case .ActionRightMove:
         if self.gridManager.moveEntity(entity, direction: .Right) {
-          self.moveSpriteNode(90, x: spriteComponent.node.size.height, y: 0, spriteNode: spriteComponent.node)
+          self.moveSpriteNode(90, x: GameConstant.Entity.Size, y: 0, spriteNode: spriteComponent.node)
         }
         else {
           self.rotateSpriteNode(90, spriteNode: spriteComponent.node)
@@ -99,7 +95,7 @@ class MoveComponent: GKComponent {
     
     //
     
-    let actionMove = SKAction.moveByX(x, y: y, duration: moveDuration)
+    let actionMove = SKAction.moveByX(x, y: y, duration: GameConstant.Entity.MoveDuration)
     actionMove.timingMode = .EaseInEaseOut
     let actionsToLaunch = self.actionManager.actionsToLauch()
     
@@ -116,7 +112,7 @@ class MoveComponent: GKComponent {
     }
     
     if bestAngle != 0 {
-      let actionRotate = SKAction.rotateByAngle(bestAngle * CGFloat(M_PI) / 180, duration: rotateDuration)
+      let actionRotate = SKAction.rotateByAngle(bestAngle * CGFloat(M_PI) / 180, duration: GameConstant.Entity.RotateDuration)
       spriteNode.runAction(SKAction.sequence([actionRotate, actionBlock]))
     }
       
@@ -131,7 +127,7 @@ class MoveComponent: GKComponent {
     let bestAngle = MoveComponent.bestAngleForAngle(angle, spriteNode: spriteNode)
     
     if bestAngle != 0 {
-      let actionRotate = SKAction.rotateByAngle(bestAngle * CGFloat(M_PI) / 180, duration: rotateDuration)
+      let actionRotate = SKAction.rotateByAngle(bestAngle * CGFloat(M_PI) / 180, duration: GameConstant.Entity.RotateDuration)
       
       spriteNode.runAction(SKAction.sequence([actionRotate]))
     }

@@ -20,7 +20,7 @@ struct LevelSize: Mappable {
   
   mutating func mapping(map: Map) {
     
-    width <- map["width"]
+    width  <- map["width"]
     height <- map["height"]
   }
 }

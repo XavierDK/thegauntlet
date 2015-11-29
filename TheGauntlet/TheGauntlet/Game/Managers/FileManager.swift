@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 import ObjectMapper
 
-enum FileParserError: ErrorType {
+
+enum FileError: ErrorType {
   
   case NotFound(String)
   case BadFormat(String)
@@ -19,22 +20,22 @@ enum FileParserError: ErrorType {
 }
 
 
-protocol FileParserManager {
+protocol FileManager {
   
   func levelObjectFromLevelName(levelName: String) throws -> LevelObject
   func jsonStringFromLevelName(levelName: String) throws -> String
   func checkLevelValidityForLevelObject(levelObject: LevelObject) throws -> LevelObject
-  func alertErrorForError(error: FileParserError)
+  func alertErrorForError(error: FileError)
 }
 
 
-extension FileParserManager {
+extension FileManager {
   
   func levelObjectFromLevelName(levelName: String) throws -> LevelObject {
     
     let jsonStr = try jsonStringFromLevelName(levelName)
     guard var levelObject = Mapper<LevelObject>().map(jsonStr) else {
-      throw FileParserError.BadFormat("Level file failed to be parsed")
+      throw FileError.BadFormat("Level file failed to be parsed")
     }
     levelObject = try self.checkLevelValidityForLevelObject(levelObject)
     return levelObject
@@ -43,16 +44,16 @@ extension FileParserManager {
   func jsonStringFromLevelName(levelName: String) throws -> String {
     
     guard let path = NSBundle.mainBundle().pathForResource(levelName, ofType: "json") else {
-      throw FileParserError.NotFound("Level file not found")
+      throw FileError.NotFound("Level file not found")
     }
     guard let jsonStr = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String? else {
-      throw FileParserError.Empty("Level file is empty")
+      throw FileError.Empty("Level file is empty")
     }
     
     return jsonStr
   }
   
-  func alertErrorForError(error: FileParserError) {
+  func alertErrorForError(error: FileError) {
     
     let message: String?
     switch error {
@@ -76,40 +77,40 @@ extension FileParserManager {
   func checkLevelValidityForLevelObject(var levelObject: LevelObject) throws -> LevelObject {
     
     if levelObject.name == nil {
-      throw FileParserError.MissingValue("Level name is missing")
+      throw FileError.MissingValue("Level name is missing")
     }
     if levelObject.size == nil {
-      throw FileParserError.MissingValue("Level size is missing")
+      throw FileError.MissingValue("Level size is missing")
     }
     if levelObject.size.width == nil {
-      throw FileParserError.MissingValue("Level size width is missing")
+      throw FileError.MissingValue("Level size width is missing")
     }
     if levelObject.size.height == nil {
-      throw FileParserError.MissingValue("Level size height is missing")
+      throw FileError.MissingValue("Level size height is missing")
     }
     if levelObject.components == nil {
-      throw FileParserError.MissingValue("Level componenets are missing")
+      throw FileError.MissingValue("Level componenets are missing")
     }
     
     for index in 0..<levelObject.components.count {
       
       if levelObject.components[index].type == nil {
-        throw FileParserError.MissingValue("Component type is missing")
+        throw FileError.MissingValue("Component type is missing")
       }
       if levelObject.components[index].position == nil {
-        throw FileParserError.MissingValue("Component position is missing")
+        throw FileError.MissingValue("Component position is missing")
       }
       if levelObject.components[index].position.x == nil {
-        throw FileParserError.MissingValue("Component position x is missing")
+        throw FileError.MissingValue("Component position x is missing")
       }
       if levelObject.components[index].position.y == nil {
-        throw FileParserError.MissingValue("Component position y is missing")
+        throw FileError.MissingValue("Component position y is missing")
       }
       if levelObject.components[index].position.z == nil {
         levelObject.components[index].position.z = 3
       }
       if levelObject.components[index].angle == nil {
-        levelObject.components[index].angle = ComponentAngle.Top
+        levelObject.components[index].angle = ComponentDirection.Up
       }
     }
     return levelObject

@@ -15,11 +15,16 @@ class InterfaceManager {
   
   init(levelSize: LevelSize) {
     
+    //    let lbl: SKLabelNode = SKLabelNode(fontNamed: "Arial")
+    //    lbl.text = "Drag this label"
+    //    lbl.fontSize = 5
+    //    lbl.fontColor = UIColor.blackColor()
+    //    lbl.position = CGPointMake(0, 0)
+    //    lbl.zPosition = 99
+    //    self.sceneCamera.addChild(lbl)
+    
     self.sceneCamera = SKCameraNode()
-   // self.addChild(self.sceneCamera)
-    self.sceneCamera.xScale = 0.4
-    self.sceneCamera.yScale = 0.4
-//    self.scene?.scaleMode = .AspectFit
-    //self.camera = self.sceneCamera
+    self.sceneCamera.xScale = GameConstant.Entity.Size / GameConstant.Level.Zoom
+    self.sceneCamera.yScale = GameConstant.Entity.Size / GameConstant.Level.Zoom
   }
 }

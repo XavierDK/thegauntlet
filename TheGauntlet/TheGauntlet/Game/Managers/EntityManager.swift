@@ -7,18 +7,16 @@
 //
 
 import Foundation
-
-import Foundation
 import SpriteKit
 import GameplayKit
+
 
 class EntityManager
 {
   var entities = Set<GKEntity>()
   let scene: SKScene
   var toRemove = Set<GKEntity>()
-  
-  
+    
   lazy var componentSystems: [GKComponentSystem] = {
     let moveSystem = GKComponentSystem(componentClass: MoveComponent.self)
     return [moveSystem]
@@ -29,7 +27,6 @@ class EntityManager
   {
     self.scene = scene
   }
-  
   
   func add(entity: GKEntity)
   {
@@ -46,7 +43,6 @@ class EntityManager
     }
   }
   
-  
   func remove(entity: GKEntity)
   {
     if let spriteNode = entity.componentForClass(SpriteComponent.self)?.node
@@ -56,7 +52,6 @@ class EntityManager
     entities.remove(entity)
     toRemove.insert(entity)
   }
-  
   
   func update(deltaTime: CFTimeInterval) {
     
@@ -71,7 +66,6 @@ class EntityManager
     }
     toRemove.removeAll()
   }
-  
   
   func player() -> Player? {
     for entity in self.entities {

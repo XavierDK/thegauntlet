@@ -12,17 +12,6 @@ import SpriteKit
 
 class LevelManager {
   
-  let entitySize: CGFloat = 20.0
-  
-  let marginCase: Int = 0
-  
-  let playerSpriteName: String = "player1"
-  let wallSpriteName: String = "wall"
-  let basicBlocSpriteName: String = "basic_bloc"
-  let basicGauntletSpriteName: String = "basic_gauntlet"
-  let squareGridSpriteName: String = "square"
-  
-  
   func levelFromLevelObject(levelObject: LevelObject) -> GameScene {
     
     let gameScene: GameScene = GameScene(size: UIScreen.mainScreen().bounds.size)
@@ -35,7 +24,9 @@ class LevelManager {
     
     gameScene.interfaceManager = InterfaceManager(levelSize: levelObject.size)
     
-    self.addGridForSize(levelObject.size, gameScene: gameScene)
+    if GameConstant.Debug.Enable {
+      self.addGridForSize(levelObject.size, gameScene: gameScene)
+    }
     
     for levelComponent in levelObject.components {
       
@@ -46,10 +37,10 @@ class LevelManager {
         break
       case ComponentType.Wall:
         self.addWallForComponent(levelComponent, gameScene:gameScene)
-      case ComponentType.BasicBloc:
-        self.addBasicBlocForComponent(levelComponent, gameScene:gameScene)
-      case ComponentType.BasicGauntlet:
-        self.addBasicGauntletForComponent(levelComponent, gameScene:gameScene)
+      case ComponentType.Bloc:
+        self.addBlockForComponent(levelComponent, gameScene:gameScene)
+      case ComponentType.Gauntlet:
+        self.addGauntletForComponent(levelComponent, gameScene:gameScene)
       }
     }
     
@@ -63,60 +54,55 @@ class LevelManager {
     
     for j in 0 ..< size.height {
       for i in 0 ..< size.width {
-        let spriteNode: SKSpriteNode = SKSpriteNode(imageNamed: squareGridSpriteName)
+        let spriteNode: SKSpriteNode = SKSpriteNode(imageNamed: GameConstant.Sprites.Grid)
         spriteNode.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        spriteNode.size = CGSize(width: entitySize, height: entitySize)
-        spriteNode.position.x = CGFloat(i + marginCase) * entitySize + entitySize / 2
-        spriteNode.position.y = CGFloat(j + marginCase) * entitySize + entitySize / 2
+        spriteNode.size = CGSize(width: GameConstant.Entity.Size, height: GameConstant.Entity.Size)
+        spriteNode.position.x = CGFloat(i + GameConstant.Level.Margin) * GameConstant.Entity.Size + GameConstant.Entity.Size / 2
+        spriteNode.position.y = CGFloat(j + GameConstant.Level.Margin) * GameConstant.Entity.Size + GameConstant.Entity.Size / 2
         spriteNode.zPosition = CGFloat(2)
         gameScene.addChild(spriteNode)
       }
     }
   }
   
-  
   func addPlayerForComponent(component: LevelComponent, gameScene: GameScene) {
     
-    let spriteNode = self.spriteNodeFor(component, imageNamed: playerSpriteName)
+    let spriteNode = self.spriteNodeFor(component, imageNamed: GameConstant.Sprites.Player)
     let player = Player(component: component, spriteNode: spriteNode, actionsManager: gameScene.actionsManager, gridManager: gameScene.gridManager)
     gameScene.entityManager.add(player)
     gameScene.gridManager.addEntity(player, x: component.position.x, y: component.position.y)
   }
   
-  
   func addWallForComponent(component: LevelComponent, gameScene: GameScene) {
     
-    let spriteNode = self.spriteNodeFor(component, imageNamed: wallSpriteName)
+    let spriteNode = self.spriteNodeFor(component, imageNamed: GameConstant.Sprites.Wall)
     let wall = Wall(component: component, spriteNode: spriteNode, gridManager: gameScene.gridManager)
     gameScene.entityManager.add(wall)
     gameScene.gridManager.addEntity(wall, x: component.position.x, y: component.position.y)
   }
   
-  
-  func addBasicBlocForComponent(component: LevelComponent, gameScene: GameScene) {
+  func addBlockForComponent(component: LevelComponent, gameScene: GameScene) {
     
-    let spriteNode = self.spriteNodeFor(component, imageNamed: basicBlocSpriteName)
-    let basicBloc = BasicBloc(component: component, spriteNode: spriteNode, actionsManager: gameScene.actionsManager, gridManager: gameScene.gridManager)
+    let spriteNode = self.spriteNodeFor(component, imageNamed: GameConstant.Sprites.Block)
+    let basicBloc = Bloc(component: component, spriteNode: spriteNode, actionsManager: gameScene.actionsManager, gridManager: gameScene.gridManager)
     gameScene.entityManager.add(basicBloc)
     gameScene.gridManager.addEntity(basicBloc, x: component.position.x, y: component.position.y)
   }
   
-  
-  func addBasicGauntletForComponent(component: LevelComponent, gameScene: GameScene) {
+  func addGauntletForComponent(component: LevelComponent, gameScene: GameScene) {
     
-    let spriteNode = self.spriteNodeFor(component, imageNamed: basicGauntletSpriteName)
+    let spriteNode = self.spriteNodeFor(component, imageNamed: GameConstant.Sprites.Gauntlet)
     let basicGauntlet = Gauntlet(component: component, spriteNode: spriteNode, gridManager: gameScene.gridManager)
     gameScene.entityManager.add(basicGauntlet)
     gameScene.gridManager.addEntity(basicGauntlet, x: component.position.x, y: component.position.y)
   }
   
-  
   func spriteNodeFor(component: LevelComponent, imageNamed: String) -> SKSpriteNode {
     
     let spriteNode: SKSpriteNode = SKSpriteNode(imageNamed: imageNamed)
-    spriteNode.size = CGSize(width: entitySize, height: entitySize)
-    spriteNode.position.x = CGFloat(component.position.x + marginCase) * entitySize + entitySize / 2
-    spriteNode.position.y = CGFloat(component.position.y + marginCase) * entitySize + entitySize / 2
+    spriteNode.size = CGSize(width: GameConstant.Entity.Size, height: GameConstant.Entity.Size)
+    spriteNode.position.x = CGFloat(component.position.x + GameConstant.Level.Margin) * GameConstant.Entity.Size + GameConstant.Entity.Size / 2
+    spriteNode.position.y = CGFloat(component.position.y + GameConstant.Level.Margin) * GameConstant.Entity.Size + GameConstant.Entity.Size / 2
     spriteNode.zPosition = CGFloat(component.position.z)
     spriteNode.zRotation = CGFloat(component.angle.rawValue) / CGFloat(180) * CGFloat(M_PI)
     

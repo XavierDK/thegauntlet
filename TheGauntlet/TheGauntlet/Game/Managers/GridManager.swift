@@ -9,13 +9,6 @@
 import Foundation
 import GameKit
 
-enum GridDirection {
-  case Up
-  case Right
-  case Down
-  case Left
-}
-
 class GridManager {
   
   var grid: Array<Array<Set<GKEntity>>>
@@ -61,7 +54,7 @@ class GridManager {
   }
   
   
-  func moveEntity(entity: GKEntity, direction: GridDirection) -> Bool {
+  func moveEntity(entity: GKEntity, direction: ComponentDirection) -> Bool {
     
     guard let gridComponent = entity.componentForClass(GridComponent.self) else {
       return false

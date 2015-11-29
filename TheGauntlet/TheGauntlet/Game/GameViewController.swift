@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController, FileParserManager {
+class GameViewController: UIViewController, FileManager {
   
   let levelManager: LevelManager = LevelManager()
   var scene: SKScene?
@@ -23,7 +23,7 @@ class GameViewController: UIViewController, FileParserManager {
       let levelObject = try self.levelObjectFromLevelName(levelName)
       self.scene = self.levelManager.levelFromLevelObject(levelObject)
     }
-    catch let error as FileParserError {
+    catch let error as FileError {
       self.alertErrorForError(error)
     }
     catch {

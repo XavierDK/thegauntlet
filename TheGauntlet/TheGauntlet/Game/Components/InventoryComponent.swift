@@ -18,8 +18,7 @@ class InventoryComponent: GKComponent {
     
     self.gauntlets = [GauntletComponent]()
     super.init()
-  }
-  
+  }  
   
   func addGauntlet(gauntlet: GauntletComponent) {
     

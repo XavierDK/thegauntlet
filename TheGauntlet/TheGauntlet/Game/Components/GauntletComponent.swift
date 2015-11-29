@@ -11,5 +11,5 @@ import SpriteKit
 
 protocol GauntletComponent {
   
-  func actionForGrid(gridManager: GridManager, newX: Int, newY: Int, direction: GridDirection) -> (Int, Int)
+  func actionForGrid(gridManager: GridManager, newX: Int, newY: Int, direction: ComponentDirection) -> (Int, Int)
 }

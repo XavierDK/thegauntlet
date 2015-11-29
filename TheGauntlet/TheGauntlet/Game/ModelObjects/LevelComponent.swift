@@ -16,16 +16,16 @@ enum ComponentType: Int {
   case Start = 0
   case End = 1
   case Wall = 2
-  case BasicBloc = 3
-  case BasicGauntlet = 4
+  case Bloc = 3
+  case Gauntlet = 4
 }
 
 
-enum ComponentAngle: Int {
+enum ComponentDirection: Int {
   
-  case Top = 180
+  case Up = 180
   case Right = 90
-  case Bottom = 0
+  case Down = 0
   case Left = 270
 }
 
@@ -52,7 +52,7 @@ struct LevelComponent: Mappable {
   
   var type: ComponentType!
   var position: ComponentPosition!
-  var angle: ComponentAngle!
+  var angle: ComponentDirection!
   
   init?(_ map: Map) {
   }
@@ -72,12 +72,12 @@ struct LevelComponent: Mappable {
     })
     type <- (map["type"], typeTransform)
     
-    let angleTransform = TransformOf<ComponentAngle, Int>(fromJSON: { (value: Int?) -> ComponentAngle? in
+    let angleTransform = TransformOf<ComponentDirection, Int>(fromJSON: { (value: Int?) -> ComponentDirection? in
       if let value = value {
-        return ComponentAngle(rawValue: value)
+        return ComponentDirection(rawValue: value)
       }
       return nil
-      }, toJSON: { (value: ComponentAngle?) -> Int? in
+      }, toJSON: { (value: ComponentDirection?) -> Int? in
         if let value = value {
           return value.rawValue
         }

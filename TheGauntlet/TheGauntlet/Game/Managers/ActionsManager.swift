@@ -91,10 +91,9 @@ class ActionsManager {
   
   var moveActionsStack: ActionsStack = ActionsStack()
   var actionsStack: ActionsStack = ActionsStack()
-  
   var actionsToLaunch: Set<ActionToLaunch> = Set<ActionToLaunch>()
-  
   var touchStart: CGPoint = CGPointZero
+  
   
   func resetStacks() {
     
@@ -102,24 +101,20 @@ class ActionsManager {
     self.moveActionsStack = ActionsStack()
   }
   
-  
   func nextAction() -> ActionType? {
     
     return self.actionsStack.pop()
   }
-  
   
   func nextMoveAction() -> ActionType? {
     
     return self.moveActionsStack.pop()
   }
   
-  
   func touchBeganForLocation(location: CGPoint) {
     
     self.touchStart = location
   }
-  
   
   func touchEndedForLocation(location: CGPoint) {
     
@@ -134,18 +129,15 @@ class ActionsManager {
     self.touchStart = CGPointZero
   }
   
-  
   func addActionToLaunch(action: SKAction, forNode node: SKNode) {
     
     self.actionsToLaunch.insert(ActionToLaunch(node: node, action: action))
   }
   
-  
   func clearActionsToLauch() {
     
     self.actionsToLaunch.removeAll()
   }
-  
   
   func actionsToLauch() -> Set<ActionToLaunch>{
     
