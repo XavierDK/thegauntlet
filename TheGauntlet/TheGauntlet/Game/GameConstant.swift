@@ -25,8 +25,8 @@ struct GameConstant {
   
   struct Level {
     
-    static let Margin: Int = 3
-    static let Zoom: CGFloat = 90
+    static let Margin: Int = 1
+    static let Zoom: CGFloat = 70
   }
   
   enum Levels: String {

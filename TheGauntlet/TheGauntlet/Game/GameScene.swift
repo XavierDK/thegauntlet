@@ -60,25 +60,24 @@ class GameScene: SKScene {
         self.actionsManager.touchBeganForLocation(location)
       }
     }
-    
-    else {
-      print("OK")
-    }
   }
   
   override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
     
     if touches.count > 1 {
-      
-      self.touchType = .Camera
-      self.actionsManager.resetTouch()      
+      self.actionsManager.resetTouch()
     }
     
+    if touches.count == 2 {
+      self.touchType = .Camera
+      self.interfaceManager.moveCameraForTouches(touches)
+    }
   }
   
   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
 
     if touches.count == 1 {
+      
       if self.touchType == .Action {
         let touch = touches.first
         
@@ -89,15 +88,19 @@ class GameScene: SKScene {
       }
     }
     
+    self.actionsManager.resetTouch()
+    self.interfaceManager.resetMovingCamera()
     self.touchType = nil
   }
   
   override func update(currentTime: NSTimeInterval) {
     self.entityManager.update(currentTime)
     
-    let player = self.entityManager.player()
-    if let spriteComponent = player?.componentForClass(SpriteComponent.self) {
-      self.interfaceManager.updatePositionForNode(spriteComponent.node)
+    if self.touchType != .Camera {
+      let player = self.entityManager.player()
+      if let spriteComponent = player?.componentForClass(SpriteComponent.self) {
+        self.interfaceManager.updatePositionForNode(spriteComponent.node)
+      }
     }
   }
   
