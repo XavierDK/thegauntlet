@@ -25,7 +25,7 @@ struct GameConstant {
   
   struct Level {
     
-    static let Margin: Int = 2
+    static let Margin: Int = 3
     static let Zoom: CGFloat = 90
   }
   
