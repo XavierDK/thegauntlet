@@ -27,4 +27,10 @@ class InterfaceManager {
     self.sceneCamera.xScale = GameConstant.Entity.Size / GameConstant.Level.Zoom
     self.sceneCamera.yScale = GameConstant.Entity.Size / GameConstant.Level.Zoom
   }
+  
+  func updatePositionForNode(node: SKSpriteNode) {
+  
+    self.sceneCamera.position = CGPoint(x:node.position.x,
+      y: node.position.y)
+  }
 }

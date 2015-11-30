@@ -14,6 +14,8 @@ class MoveComponent: GKComponent {
   let actionManager: ActionsManager
   let gridManager: GridManager
   
+  var lastTime: NSTimeInterval?
+  
   init(actionManager: ActionsManager, gridManager: GridManager) {
     
     self.actionManager = actionManager
@@ -25,6 +27,12 @@ class MoveComponent: GKComponent {
   
   override func updateWithDeltaTime(seconds: NSTimeInterval) {
     
+    if let lastTime = self.lastTime {
+      if seconds - lastTime < GameConstant.Entity.MoveDuration {
+        return
+      }
+    }
+    
     guard let entity = entity else {
       return
     }
@@ -32,44 +40,50 @@ class MoveComponent: GKComponent {
       return
     }
     
-    while let action = self.actionManager.nextMoveAction() {
-      switch action {
-      case .ActionDownMove:
-        if self.gridManager.moveEntity(entity, direction: .Down) {
-          self.moveSpriteNode(0, x: 0, y: -GameConstant.Entity.Size, spriteNode: spriteComponent.node)
+    if spriteComponent.node.actionForKey(GameConstant.Player.Actions.Move) == nil
+    && spriteComponent.node.actionForKey(GameConstant.Player.Actions.Rotate) == nil {
+      if let action = self.actionManager.nextMoveAction() {
+        switch action {
+        case .ActionDownMove:
+          if self.gridManager.moveEntity(entity, direction: .Down) {
+            self.lastTime = seconds
+            self.moveSpriteNode(0, x: 0, y: -GameConstant.Entity.Size, spriteNode: spriteComponent.node)
+          }
+          else {
+            self.rotateSpriteNode(0, spriteNode: spriteComponent.node)
+          }
+          
+        case .ActionLeftMove:
+          if self.gridManager.moveEntity(entity, direction: .Left) {
+            self.lastTime = seconds
+            self.moveSpriteNode(270, x: -GameConstant.Entity.Size, y: 0, spriteNode: spriteComponent.node)
+          }
+          else {
+            self.rotateSpriteNode(270, spriteNode: spriteComponent.node)
+          }
+          
+        case .ActionUpMove:
+          if self.gridManager.moveEntity(entity, direction: .Up) {
+            self.lastTime = seconds
+            self.moveSpriteNode(180, x: 0, y: GameConstant.Entity.Size, spriteNode: spriteComponent.node)
+          }
+          else {
+            self.rotateSpriteNode(180, spriteNode: spriteComponent.node)
+          }
+          
+        case .ActionRightMove:
+          if self.gridManager.moveEntity(entity, direction: .Right) {
+            self.lastTime = seconds
+            self.moveSpriteNode(90, x: GameConstant.Entity.Size, y: 0, spriteNode: spriteComponent.node)
+          }
+          else {
+            self.rotateSpriteNode(90, spriteNode: spriteComponent.node)
+          }
+          
+        default:
+          break
         }
-        else {
-          self.rotateSpriteNode(0, spriteNode: spriteComponent.node)
-        }
-        
-      case .ActionLeftMove:
-        if self.gridManager.moveEntity(entity, direction: .Left) {
-          self.moveSpriteNode(270, x: -GameConstant.Entity.Size, y: 0, spriteNode: spriteComponent.node)
-        }
-        else {
-          self.rotateSpriteNode(270, spriteNode: spriteComponent.node)
-        }
-        
-      case .ActionUpMove:
-        if self.gridManager.moveEntity(entity, direction: .Up) {
-          self.moveSpriteNode(180, x: 0, y: GameConstant.Entity.Size, spriteNode: spriteComponent.node)
-        }
-        else {
-          self.rotateSpriteNode(180, spriteNode: spriteComponent.node)
-        }
-        
-      case .ActionRightMove:
-        if self.gridManager.moveEntity(entity, direction: .Right) {
-          self.moveSpriteNode(90, x: GameConstant.Entity.Size, y: 0, spriteNode: spriteComponent.node)
-        }
-        else {
-          self.rotateSpriteNode(90, spriteNode: spriteComponent.node)
-        }
-        
-      default:
-        break
       }
-      
     }
   }
   
@@ -83,7 +97,7 @@ class MoveComponent: GKComponent {
     
     var walkFrames = [SKTexture]()
     let playerAnimatedAtlas = SKTextureAtlas(named: "Player")
-
+    
     let numImages = playerAnimatedAtlas.textureNames.count;
     for i in 1 ... numImages/2 {
       let textureName = "player\(i)"
@@ -91,7 +105,7 @@ class MoveComponent: GKComponent {
       walkFrames.append(texture)
     }
     
-    let actionAnimate = SKAction.animateWithTextures(walkFrames, timePerFrame: 0.1, resize: false, restore: false)
+    let actionAnimate = SKAction.animateWithTextures(walkFrames, timePerFrame: GameConstant.Entity.MoveDuration/Double(walkFrames.count), resize: false, restore: false)
     
     //
     
@@ -112,12 +126,13 @@ class MoveComponent: GKComponent {
     }
     
     if bestAngle != 0 {
-      let actionRotate = SKAction.rotateByAngle(bestAngle * CGFloat(M_PI) / 180, duration: GameConstant.Entity.RotateDuration)
-      spriteNode.runAction(SKAction.sequence([actionRotate, actionBlock]))
+      let rotateDuration = (abs(bestAngle) > 90) ? (GameConstant.Entity.RotateDuration*2) : (GameConstant.Entity.RotateDuration)
+      let actionRotate = SKAction.rotateByAngle(bestAngle * CGFloat(M_PI) / 180, duration: rotateDuration)
+      spriteNode.runAction(SKAction.sequence([actionRotate, actionBlock]), withKey: GameConstant.Player.Actions.Move)
     }
       
     else {
-      spriteNode.runAction(actionBlock)
+      spriteNode.runAction(actionBlock, withKey: GameConstant.Player.Actions.Move)
     }
   }
   
@@ -127,9 +142,11 @@ class MoveComponent: GKComponent {
     let bestAngle = MoveComponent.bestAngleForAngle(angle, spriteNode: spriteNode)
     
     if bestAngle != 0 {
-      let actionRotate = SKAction.rotateByAngle(bestAngle * CGFloat(M_PI) / 180, duration: GameConstant.Entity.RotateDuration)
       
-      spriteNode.runAction(SKAction.sequence([actionRotate]))
+      let rotateDuration = (abs(bestAngle) > 90) ? (GameConstant.Entity.RotateDuration*2) : (GameConstant.Entity.RotateDuration)
+      let actionRotate = SKAction.rotateByAngle(bestAngle * CGFloat(M_PI) / 180, duration: rotateDuration)
+      
+      spriteNode.runAction(SKAction.sequence([actionRotate]), withKey: GameConstant.Player.Actions.Rotate)
     }
   }
   

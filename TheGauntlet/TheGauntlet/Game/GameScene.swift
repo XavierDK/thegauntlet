@@ -8,53 +8,88 @@
 
 import SpriteKit
 
-class GameScene: SKScene {    
+enum TouchType {
+  case Action
+  case Camera
+  case Inventory
+}
+
+class GameScene: SKScene {
   
   var entityManager: EntityManager!
   var actionsManager: ActionsManager = ActionsManager()
   var gridManager: GridManager!
   var interfaceManager: InterfaceManager!
   
-  override init(size: CGSize) {
-
-    super.init(size: size)
+  var touchType: TouchType?
   
+  
+  override init(size: CGSize) {
+    
+    super.init(size: size)
+    
     self.anchorPoint = CGPointMake(0, 0)
     self.entityManager = EntityManager(scene: self)
   }
   
   required init?(coder aDecoder: NSCoder) {
-      fatalError("init(coder:) has not been implemented")
+    fatalError("init(coder:) has not been implemented")
   }
   
   override func didMoveToView(view: SKView) {
-   
+    
     self.scene?.scaleMode = .AspectFit
     self.camera = self.interfaceManager.sceneCamera
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     
-    let touch = touches.first
+    if self.touchType != nil {
+      
+      self.actionsManager.resetTouch()
+      self.touchType = nil
+    }
     
-    if let touch = touch {
-      let location = touch.locationInNode(self)
-      self.actionsManager.touchBeganForLocation(location)
+    if touches.count == 1 {
+      
+      self.touchType = .Action
+      let touch = touches.first
+      
+      if let touch = touch {
+        let location = touch.locationInNode(self)
+        self.actionsManager.touchBeganForLocation(location)
+      }
+    }
+    
+    else {
+      print("OK")
     }
   }
   
   override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
     
+    if touches.count > 1 {
+      
+      self.touchType = .Camera
+      self.actionsManager.resetTouch()      
+    }
+    
   }
   
   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    
-    let touch = touches.first
-    
-    if let touch = touch {
-      let location = touch.locationInNode(self)
-      self.actionsManager.touchEndedForLocation(location)
+
+    if touches.count == 1 {
+      if self.touchType == .Action {
+        let touch = touches.first
+        
+        if let touch = touch {
+          let location = touch.locationInNode(self)
+          self.actionsManager.touchEndedForLocation(location)
+        }
+      }
     }
+    
+    self.touchType = nil
   }
   
   override func update(currentTime: NSTimeInterval) {
@@ -62,8 +97,7 @@ class GameScene: SKScene {
     
     let player = self.entityManager.player()
     if let spriteComponent = player?.componentForClass(SpriteComponent.self) {
-      self.interfaceManager.sceneCamera.position = CGPoint(x:spriteComponent.node.position.x,
-        y: spriteComponent.node.position.y )
+      self.interfaceManager.updatePositionForNode(spriteComponent.node)
     }
   }
   
@@ -71,5 +105,4 @@ class GameScene: SKScene {
     
     super.didChangeSize(oldSize)
   }
-  
 }

@@ -43,6 +43,8 @@ class GameViewController: UIViewController, FileManager {
     
     let view = SKView(frame: UIScreen.mainScreen().bounds)
     self.view = view
+    
+    self.view.multipleTouchEnabled = true
   }
   
   override func viewDidLoad() {

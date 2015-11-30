@@ -63,7 +63,7 @@ struct ActionsStack {
     if items.count == 0 {
       return nil
     }
-    return items.removeLast()
+    return items.removeFirst()
   }
 }
 
@@ -111,6 +111,11 @@ class ActionsManager {
     return self.moveActionsStack.pop()
   }
   
+  func resetTouch() {
+    
+    self.touchStart = CGPointZero
+  }
+  
   func touchBeganForLocation(location: CGPoint) {
     
     self.touchStart = location
@@ -124,7 +129,9 @@ class ActionsManager {
       self.actionsStack.push(action)
     }
     else {
-      self.moveActionsStack.push(action)
+      if self.moveActionsStack.items.count < GameConstant.Player.Actions.MaxStackActions - 1 {
+        self.moveActionsStack.push(action)
+      }
     }
     self.touchStart = CGPointZero
   }

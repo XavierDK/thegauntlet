@@ -19,7 +19,7 @@ struct GameConstant {
   struct Entity {
     
     static let Size: CGFloat = 40.0
-    static let MoveDuration: Double = 0.3
+    static let MoveDuration: Double = 0.25
     static let RotateDuration: Double = 0.1
   }
   
@@ -51,5 +51,16 @@ struct GameConstant {
     static let Block: String = "basic_bloc"
     static let Gauntlet: String = "basic_gauntlet"
     static let Grid: String = "square"
+  }
+  
+  struct Player {
+    
+    struct Actions {
+      
+      static let MaxStackActions: Int = 3
+      
+      static let Move: String = "PlayerMove"
+      static let Rotate: String = "PlayerRotate"
+    }
   }
 }
