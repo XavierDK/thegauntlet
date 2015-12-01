@@ -16,6 +16,26 @@
 		0F2904DC1BF15838000F0F23 /* TheGauntletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2904DB1BF15838000F0F23 /* TheGauntletTests.swift */; };
 		0F2904E71BF15838000F0F23 /* TheGauntletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2904E61BF15838000F0F23 /* TheGauntletUITests.swift */; };
 		0F7BC61D1BF6894000DE3A5C /* LevelSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7BC61C1BF6894000DE3A5C /* LevelSelectorViewController.swift */; };
+		1FCAE7B31C0E3A8D005F7AC6 /* BaseImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7A81C0E3A8D005F7AC6 /* BaseImageModel.swift */; };
+		1FCAE7B41C0E3A8D005F7AC6 /* BaseLevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7A91C0E3A8D005F7AC6 /* BaseLevelModel.swift */; };
+		1FCAE7B51C0E3A8D005F7AC6 /* CreatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7AA1C0E3A8D005F7AC6 /* CreatorModel.swift */; };
+		1FCAE7B61C0E3A8D005F7AC6 /* JSONModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7AB1C0E3A8D005F7AC6 /* JSONModelParser.swift */; };
+		1FCAE7B71C0E3A8D005F7AC6 /* level001.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAE7AC1C0E3A8D005F7AC6 /* level001.json */; };
+		1FCAE7B81C0E3A8D005F7AC6 /* LevelEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7AD1C0E3A8D005F7AC6 /* LevelEnums.swift */; };
+		1FCAE7B91C0E3A8D005F7AC6 /* LevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7AE1C0E3A8D005F7AC6 /* LevelModel.swift */; };
+		1FCAE7BA1C0E3A8D005F7AC6 /* MappableValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7AF1C0E3A8D005F7AC6 /* MappableValidator.swift */; };
+		1FCAE7BB1C0E3A8D005F7AC6 /* PositionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7B01C0E3A8D005F7AC6 /* PositionModel.swift */; };
+		1FCAE7BC1C0E3A8D005F7AC6 /* world001.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAE7B11C0E3A8D005F7AC6 /* world001.json */; };
+		1FCAE7BD1C0E3A8D005F7AC6 /* WorldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7B21C0E3A8D005F7AC6 /* WorldModel.swift */; };
+		1FCAE7C31C0E3B7F005F7AC6 /* ActionableActionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7BE1C0E3B7F005F7AC6 /* ActionableActionModel.swift */; };
+		1FCAE7C41C0E3B7F005F7AC6 /* CustomOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7BF1C0E3B7F005F7AC6 /* CustomOperator.swift */; };
+		1FCAE7C51C0E3B7F005F7AC6 /* EditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7C01C0E3B7F005F7AC6 /* EditorModel.swift */; };
+		1FCAE7C61C0E3B7F005F7AC6 /* ElementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7C11C0E3B7F005F7AC6 /* ElementModel.swift */; };
+		1FCAE7C71C0E3B7F005F7AC6 /* LevelSizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7C21C0E3B7F005F7AC6 /* LevelSizeModel.swift */; };
+		1FCAE7C91C0E4ECF005F7AC6 /* level002.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAE7C81C0E4ECF005F7AC6 /* level002.json */; };
+		1FCAE7CB1C0E4F5D005F7AC6 /* level003.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAE7CA1C0E4F5D005F7AC6 /* level003.json */; };
+		1FCAE7CD1C0E5215005F7AC6 /* indexes.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAE7CC1C0E5215005F7AC6 /* indexes.json */; };
+		1FCAE7CF1C0E5268005F7AC6 /* LevelAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAE7CE1C0E5268005F7AC6 /* LevelAssets.xcassets */; };
 		250940CE1C09FDCD00EB687F /* InterfaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250940CD1C09FDCD00EB687F /* InterfaceManager.swift */; };
 		250940D01C0B656E00EB687F /* GameConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250940CF1C0B656E00EB687F /* GameConstant.swift */; };
 		252566231BF7E03E006D014D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252566221BF7E03E006D014D /* GameViewController.swift */; };
@@ -76,7 +96,26 @@
 		0F2904E61BF15838000F0F23 /* TheGauntletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGauntletUITests.swift; sourceTree = "<group>"; };
 		0F2904E81BF15838000F0F23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F7BC61C1BF6894000DE3A5C /* LevelSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectorViewController.swift; sourceTree = "<group>"; };
-		0F7BC61E1BF6B38000DE3A5C /* BacASable.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BacASable.playground; sourceTree = "<group>"; };
+		1FCAE7A81C0E3A8D005F7AC6 /* BaseImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseImageModel.swift; sourceTree = "<group>"; };
+		1FCAE7A91C0E3A8D005F7AC6 /* BaseLevelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLevelModel.swift; sourceTree = "<group>"; };
+		1FCAE7AA1C0E3A8D005F7AC6 /* CreatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorModel.swift; sourceTree = "<group>"; };
+		1FCAE7AB1C0E3A8D005F7AC6 /* JSONModelParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONModelParser.swift; sourceTree = "<group>"; };
+		1FCAE7AC1C0E3A8D005F7AC6 /* level001.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level001.json; sourceTree = "<group>"; };
+		1FCAE7AD1C0E3A8D005F7AC6 /* LevelEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelEnums.swift; sourceTree = "<group>"; };
+		1FCAE7AE1C0E3A8D005F7AC6 /* LevelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelModel.swift; sourceTree = "<group>"; };
+		1FCAE7AF1C0E3A8D005F7AC6 /* MappableValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappableValidator.swift; sourceTree = "<group>"; };
+		1FCAE7B01C0E3A8D005F7AC6 /* PositionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionModel.swift; sourceTree = "<group>"; };
+		1FCAE7B11C0E3A8D005F7AC6 /* world001.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = world001.json; sourceTree = "<group>"; };
+		1FCAE7B21C0E3A8D005F7AC6 /* WorldModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldModel.swift; sourceTree = "<group>"; };
+		1FCAE7BE1C0E3B7F005F7AC6 /* ActionableActionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionableActionModel.swift; sourceTree = "<group>"; };
+		1FCAE7BF1C0E3B7F005F7AC6 /* CustomOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOperator.swift; sourceTree = "<group>"; };
+		1FCAE7C01C0E3B7F005F7AC6 /* EditorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorModel.swift; sourceTree = "<group>"; };
+		1FCAE7C11C0E3B7F005F7AC6 /* ElementModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementModel.swift; sourceTree = "<group>"; };
+		1FCAE7C21C0E3B7F005F7AC6 /* LevelSizeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSizeModel.swift; sourceTree = "<group>"; };
+		1FCAE7C81C0E4ECF005F7AC6 /* level002.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level002.json; sourceTree = "<group>"; };
+		1FCAE7CA1C0E4F5D005F7AC6 /* level003.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level003.json; sourceTree = "<group>"; };
+		1FCAE7CC1C0E5215005F7AC6 /* indexes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = indexes.json; sourceTree = "<group>"; };
+		1FCAE7CE1C0E5268005F7AC6 /* LevelAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = LevelAssets.xcassets; path = Model/LevelAssets.xcassets; sourceTree = "<group>"; };
 		250940CD1C09FDCD00EB687F /* InterfaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfaceManager.swift; path = Game/Managers/InterfaceManager.swift; sourceTree = "<group>"; };
 		250940CF1C0B656E00EB687F /* GameConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameConstant.swift; path = Game/GameConstant.swift; sourceTree = "<group>"; };
 		252566221BF7E03E006D014D /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = Game/GameViewController.swift; sourceTree = "<group>"; };
@@ -157,10 +196,10 @@
 		0F2904C51BF15838000F0F23 /* TheGauntlet */ = {
 			isa = PBXGroup;
 			children = (
+				1FCAE7A61C0E3A8D005F7AC6 /* LevelEditor */,
 				2525661D1BF7DA19006D014D /* Misc */,
 				2525661C1BF7DA0D006D014D /* Game */,
 				2525661B1BF7DA04006D014D /* Menu */,
-				0F7BC61E1BF6B38000DE3A5C /* BacASable.playground */,
 				0F2904CD1BF15838000F0F23 /* Assets.xcassets */,
 			);
 			path = TheGauntlet;
@@ -182,6 +221,50 @@
 				0F2904E81BF15838000F0F23 /* Info.plist */,
 			);
 			path = TheGauntletUITests;
+			sourceTree = "<group>";
+		};
+		1FCAE7A61C0E3A8D005F7AC6 /* LevelEditor */ = {
+			isa = PBXGroup;
+			children = (
+				1FCAE7CE1C0E5268005F7AC6 /* LevelAssets.xcassets */,
+				1FCAE7D01C0E536D005F7AC6 /* JSON */,
+				1FCAE7A71C0E3A8D005F7AC6 /* Model */,
+			);
+			path = LevelEditor;
+			sourceTree = "<group>";
+		};
+		1FCAE7A71C0E3A8D005F7AC6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1FCAE7AB1C0E3A8D005F7AC6 /* JSONModelParser.swift */,
+				1FCAE7BF1C0E3B7F005F7AC6 /* CustomOperator.swift */,
+				1FCAE7AD1C0E3A8D005F7AC6 /* LevelEnums.swift */,
+				1FCAE7AF1C0E3A8D005F7AC6 /* MappableValidator.swift */,
+				1FCAE7BE1C0E3B7F005F7AC6 /* ActionableActionModel.swift */,
+				1FCAE7C01C0E3B7F005F7AC6 /* EditorModel.swift */,
+				1FCAE7C11C0E3B7F005F7AC6 /* ElementModel.swift */,
+				1FCAE7C21C0E3B7F005F7AC6 /* LevelSizeModel.swift */,
+				1FCAE7A81C0E3A8D005F7AC6 /* BaseImageModel.swift */,
+				1FCAE7A91C0E3A8D005F7AC6 /* BaseLevelModel.swift */,
+				1FCAE7AA1C0E3A8D005F7AC6 /* CreatorModel.swift */,
+				1FCAE7B01C0E3A8D005F7AC6 /* PositionModel.swift */,
+				1FCAE7AE1C0E3A8D005F7AC6 /* LevelModel.swift */,
+				1FCAE7B21C0E3A8D005F7AC6 /* WorldModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1FCAE7D01C0E536D005F7AC6 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				1FCAE7CC1C0E5215005F7AC6 /* indexes.json */,
+				1FCAE7CA1C0E4F5D005F7AC6 /* level003.json */,
+				1FCAE7C81C0E4ECF005F7AC6 /* level002.json */,
+				1FCAE7AC1C0E3A8D005F7AC6 /* level001.json */,
+				1FCAE7B11C0E3A8D005F7AC6 /* world001.json */,
+			);
+			name = JSON;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		211D9A332117D08775AE5D64 /* Frameworks */ = {
@@ -402,9 +485,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FCAE7CB1C0E4F5D005F7AC6 /* level003.json in Resources */,
+				1FCAE7BC1C0E3A8D005F7AC6 /* world001.json in Resources */,
+				1FCAE7CD1C0E5215005F7AC6 /* indexes.json in Resources */,
+				1FCAE7B71C0E3A8D005F7AC6 /* level001.json in Resources */,
 				0F2904D11BF15838000F0F23 /* LaunchScreen.storyboard in Resources */,
+				1FCAE7CF1C0E5268005F7AC6 /* LevelAssets.xcassets in Resources */,
 				2525663E1BFD2FC3006D014D /* __LEVEL_00__.json in Resources */,
 				0F2904CE1BF15838000F0F23 /* Assets.xcassets in Resources */,
+				1FCAE7C91C0E4ECF005F7AC6 /* level002.json in Resources */,
 				0F2904CC1BF15838000F0F23 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,16 +580,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FCAE7C51C0E3B7F005F7AC6 /* EditorModel.swift in Sources */,
+				1FCAE7B51C0E3A8D005F7AC6 /* CreatorModel.swift in Sources */,
+				1FCAE7C31C0E3B7F005F7AC6 /* ActionableActionModel.swift in Sources */,
 				2561F7DB1C04640700145397 /* GetComponent.swift in Sources */,
+				1FCAE7BB1C0E3A8D005F7AC6 /* PositionModel.swift in Sources */,
+				1FCAE7B41C0E3A8D005F7AC6 /* BaseLevelModel.swift in Sources */,
 				2561F7D51C04616400145397 /* InventoryComponent.swift in Sources */,
 				2561F7DD1C0480E700145397 /* PushGauntletComponent.swift in Sources */,
+				1FCAE7C71C0E3B7F005F7AC6 /* LevelSizeModel.swift in Sources */,
 				25B748C21C02272A004E9117 /* EntityManager.swift in Sources */,
+				1FCAE7B61C0E3A8D005F7AC6 /* JSONModelParser.swift in Sources */,
 				2599FC101C027EDD00F392FC /* Wall.swift in Sources */,
 				25B748CA1C0227C6004E9117 /* GridManager.swift in Sources */,
 				252566251BF7E1F5006D014D /* GameScene.swift in Sources */,
+				1FCAE7C41C0E3B7F005F7AC6 /* CustomOperator.swift in Sources */,
 				2561F7D71C04622C00145397 /* Gauntlet.swift in Sources */,
+				1FCAE7B81C0E3A8D005F7AC6 /* LevelEnums.swift in Sources */,
+				1FCAE7C61C0E3B7F005F7AC6 /* ElementModel.swift in Sources */,
 				2599FC141C02887D00F392FC /* Bloc.swift in Sources */,
 				252566231BF7E03E006D014D /* GameViewController.swift in Sources */,
+				1FCAE7B31C0E3A8D005F7AC6 /* BaseImageModel.swift in Sources */,
+				1FCAE7BD1C0E3A8D005F7AC6 /* WorldModel.swift in Sources */,
 				25B748C41C02272A004E9117 /* LevelManager.swift in Sources */,
 				2525662F1BF7ECAE006D014D /* SpriteComponent.swift in Sources */,
 				0F2904C91BF15838000F0F23 /* ViewController.swift in Sources */,
@@ -508,6 +609,7 @@
 				2561F7DF1C0483CF00145397 /* PushableComponent.swift in Sources */,
 				252566311BF7EF64006D014D /* Player.swift in Sources */,
 				25B748C11C02272A004E9117 /* ActionsManager.swift in Sources */,
+				1FCAE7BA1C0E3A8D005F7AC6 /* MappableValidator.swift in Sources */,
 				25B748C71C02273F004E9117 /* LevelComponent.swift in Sources */,
 				0F2904C71BF15838000F0F23 /* AppDelegate.swift in Sources */,
 				2585FE3E1BFB57E5003EC30C /* MoveComponent.swift in Sources */,
@@ -516,6 +618,7 @@
 				2561F7D91C04630900145397 /* GauntletComponent.swift in Sources */,
 				25B748CC1C023630004E9117 /* GridComponent.swift in Sources */,
 				0F7BC61D1BF6894000DE3A5C /* LevelSelectorViewController.swift in Sources */,
+				1FCAE7B91C0E3A8D005F7AC6 /* LevelModel.swift in Sources */,
 				2599FC121C02824300F392FC /* ColliderComponent.swift in Sources */,
 				25B748C31C02272A004E9117 /* FileManager.swift in Sources */,
 			);

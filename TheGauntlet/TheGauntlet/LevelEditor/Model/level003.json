@@ -1,0 +1,19 @@
+{
+    "baseLevelModel" : { "name" : "Level #3", "levelFilename" : "level003", "image" : { "imageId" : 31, "imageOrientation" : 90 }, "position" : { "x" : 1, "y" : 2, "z" : 3, "orientation" : 90 } },
+    "soundId" : 0,
+    "worldId" : 1,
+    "editor" : { "version" : "1.0.0", "name" : "ppp" },
+    "creator" : {
+        "name" : "Lazarus",
+        "twitter" : "@Lazarus",
+        "youtube" : "Lazarus"
+    },
+    "created" : "01/01/1986",
+    "updated" : "02/01/1986",
+    "backgroundImage" : { "imageId" : 0, "imageOrientation" : 90 },
+    "size" : { "width" : 5, "height" : 5 },
+    "elements" : [
+                  { "basetype" : 1, "specifictype" : 2, "position" : { "x" : 0, "y" : 0, "z" : 0, "orientation" : 90 } },
+                  { "basetype" : 1, "specifictype" : 1, "position" : { "x" : 4, "y" : 4, "z" : 0, "orientation" : 90 } }
+                  ]
+}

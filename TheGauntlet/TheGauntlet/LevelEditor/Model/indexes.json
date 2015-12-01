@@ -1,0 +1,28 @@
+{
+  "images" : [
+    { "id" : 0, "imageName" : "" },
+    { "id" : 1, "imageName" : "Boulder" },
+    { "id" : 2, "imageName" : "Cracked" },
+    { "id" : 3, "imageName" : "Tree" },
+    { "id" : 4, "imageName" : "TreeFire" },
+    { "id" : 5, "imageName" : "Wall" },
+    { "id" : 6, "imageName" : "Action" },
+    { "id" : 7, "imageName" : "Ephemeral" },
+    { "id" : 8, "imageName" : "Hole" },
+    { "id" : 9, "imageName" : "Muddy" },
+    { "id" : 10, "imageName" : "Simple" },
+    { "id" : 11, "imageName" : "lvl1" },
+    { "id" : 12, "imageName" : "lvl2" },
+    { "id" : 13, "imageName" : "lvl3" },
+    { "id" : 14, "imageName" : "Axe" },
+    { "id" : 15, "imageName" : "Glove" },
+    { "id" : 16, "imageName" : "Hammer" },
+    { "id" : 17, "imageName" : "Rope" },
+    { "id" : 18, "imageName" : "WaterSeal" },
+    { "id" : 19, "imageName" : "UserIn" },
+    { "id" : 20, "imageName" : "UserOut" }
+  ],
+  "sound" : [
+    { "id" : 0, "soundFilename" : "" }
+  ]
+}

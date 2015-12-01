@@ -10,26 +10,45 @@ import UIKit
 
 // UIViewController
 class LevelSelectorViewController: UITableViewController {
-  
+    // n'instancier qu'une fois avec du lazy ou un let
+    var worldModel : WorldModel? {
+        let worldPath = NSBundle.mainBundle().pathForResource("world001", ofType: "json")
+        do {
+            let tmpWorldModel : WorldModel = try WorldModel().objectForFile(worldPath!)
+            print(tmpWorldModel.debugDescription)
+            return tmpWorldModel
+        } catch {
+            print(error);
+            return nil
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
 }
 
 // UITableViewDelegate
 extension LevelSelectorViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      let gameViewController = GameViewController(levelName: GameConstant.Levels.levelForIndex(indexPath.row).rawValue)
-      self.navigationController?.pushViewController(gameViewController, animated: true)
+        //        let level : BaseLevelModel = (worldModel?.levels[indexPath.row])!
+        //        let gameViewController = GameViewController(levelName: level.name)
+        let gameViewController = GameViewController(levelName: GameConstant.Levels.levelForIndex(indexPath.row).rawValue)
+        self.navigationController?.pushViewController(gameViewController, animated: true)
     }
 }
 
 // UITableViewDataSource
 extension LevelSelectorViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return (worldModel?.levels.count)!
     }
-
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let level : BaseLevelModel = (worldModel?.levels[indexPath.row])!
         let cell = tableView.dequeueReusableCellWithIdentifier(CustomDumbCell.cellIdentifier(), forIndexPath: indexPath) as! CustomDumbCell
-        cell.mainlabel.text = "Niveau \(indexPath.row)"
+        cell.mainlabel.text = level.name
         return cell
     }
 }
