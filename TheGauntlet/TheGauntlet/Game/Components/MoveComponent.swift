@@ -15,6 +15,7 @@ class MoveComponent: GKComponent {
   let gridManager: GridManager
   
   var lastTime: NSTimeInterval?
+  var moveTime: CGFloat = 0
   
   init(actionManager: ActionsManager, gridManager: GridManager) {
     
@@ -28,7 +29,7 @@ class MoveComponent: GKComponent {
   override func updateWithDeltaTime(seconds: NSTimeInterval) {
     
     if let lastTime = self.lastTime {
-      if seconds - lastTime < GameConstant.Entity.MoveDuration {
+      if CGFloat(seconds - lastTime) < self.moveTime {
         return
       }
     }
@@ -36,12 +37,11 @@ class MoveComponent: GKComponent {
     guard let entity = entity else {
       return
     }
+    
     guard let spriteComponent = entity.componentForClass(SpriteComponent.self) else {
       return
     }
     
-    if spriteComponent.node.actionForKey(GameConstant.Player.Actions.Move) == nil
-    && spriteComponent.node.actionForKey(GameConstant.Player.Actions.Rotate) == nil {
       if let action = self.actionManager.nextMoveAction() {
         switch action {
         case .ActionDownMove:
@@ -83,7 +83,6 @@ class MoveComponent: GKComponent {
         default:
           break
         }
-      }
     }
   }
   
@@ -126,13 +125,15 @@ class MoveComponent: GKComponent {
     }
     
     if bestAngle != 0 {
-      let rotateDuration = (abs(bestAngle) > 90) ? (GameConstant.Entity.RotateDuration*2) : (GameConstant.Entity.RotateDuration)
+      let rotateDuration = (abs(bestAngle) > 90) ? (GameConstant.Entity.RotateDuration * 2) : (GameConstant.Entity.RotateDuration)
       let actionRotate = SKAction.rotateByAngle(bestAngle * CGFloat(M_PI) / 180, duration: rotateDuration)
-      spriteNode.runAction(SKAction.sequence([actionRotate, actionBlock]), withKey: GameConstant.Player.Actions.Move)
+      spriteNode.runAction(SKAction.sequence([actionRotate, actionBlock]))
+      self.moveTime = CGFloat(rotateDuration + GameConstant.Entity.MoveDuration)
     }
       
     else {
-      spriteNode.runAction(actionBlock, withKey: GameConstant.Player.Actions.Move)
+      spriteNode.runAction(actionBlock)
+      self.moveTime = CGFloat(GameConstant.Entity.MoveDuration)
     }
   }
   
@@ -143,10 +144,11 @@ class MoveComponent: GKComponent {
     
     if bestAngle != 0 {
       
-      let rotateDuration = (abs(bestAngle) > 90) ? (GameConstant.Entity.RotateDuration*2) : (GameConstant.Entity.RotateDuration)
+      let rotateDuration = (abs(bestAngle) > 90) ? (GameConstant.Entity.RotateDuration * 2) : (GameConstant.Entity.RotateDuration)
       let actionRotate = SKAction.rotateByAngle(bestAngle * CGFloat(M_PI) / 180, duration: rotateDuration)
       
-      spriteNode.runAction(SKAction.sequence([actionRotate]), withKey: GameConstant.Player.Actions.Rotate)
+      spriteNode.runAction(SKAction.sequence([actionRotate]))
+      self.moveTime = CGFloat(rotateDuration)
     }
   }
   

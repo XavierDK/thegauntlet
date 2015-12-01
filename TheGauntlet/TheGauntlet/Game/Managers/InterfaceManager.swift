@@ -11,7 +11,7 @@ import GameplayKit
 
 class InterfaceManager {
   
-  let sceneCamera: SKCameraNode
+  let camera: SKCameraNode
   let levelSize: LevelSize
   var lastLocation: CGPoint
   
@@ -28,24 +28,24 @@ class InterfaceManager {
     //    lbl.zPosition = 99
     //    self.sceneCamera.addChild(lbl)
     
-    self.sceneCamera = SKCameraNode()
-    self.sceneCamera.xScale = GameConstant.Entity.Size / GameConstant.Level.Zoom
-    self.sceneCamera.yScale = GameConstant.Entity.Size / GameConstant.Level.Zoom
+    self.camera = SKCameraNode()
+    self.camera.xScale = GameConstant.Entity.Size / GameConstant.Level.Zoom
+    self.camera.yScale = GameConstant.Entity.Size / GameConstant.Level.Zoom
   }
   
   
   // MARK: Camera
   
-  func updatePositionForNode(node: SKSpriteNode) {
+  func updatePositionForPosition(position: CGPoint, andIsAction isAction: Bool = true) {
     
     let halfCamX: CGFloat = (UIScreen.mainScreen().bounds.size.width / GameConstant.Entity.Size / 2) * (GameConstant.Entity.Size / GameConstant.Level.Zoom)
     let halfCamY: CGFloat = (UIScreen.mainScreen().bounds.size.height / GameConstant.Entity.Size / 2) * (GameConstant.Entity.Size / GameConstant.Level.Zoom)
     
-    let playerX: CGFloat = node.position.x / GameConstant.Entity.Size
-    let playerY: CGFloat = node.position.y / GameConstant.Entity.Size
+    let playerX: CGFloat = position.x / GameConstant.Entity.Size
+    let playerY: CGFloat = position.y / GameConstant.Entity.Size
     
-    var posX: CGFloat = node.position.x
-    var posY: CGFloat = node.position.y
+    var posX: CGFloat = position.x
+    var posY: CGFloat = position.y
     
     if playerX - halfCamX  < 0 {
       posX = halfCamX * GameConstant.Entity.Size
@@ -71,7 +71,12 @@ class InterfaceManager {
       posY = (CGFloat(self.levelSize.height) / 2 + CGFloat(GameConstant.Level.Margin)) * GameConstant.Entity.Size
     }
     
-    self.sceneCamera.position = CGPoint(x:posX, y: posY)
+    if isAction {
+      self.camera.runAction(SKAction.moveTo(CGPoint(x:posX, y: posY), duration: 0.15))
+    }
+    else {
+      self.camera.position = CGPoint(x:posX, y: posY)
+    }
   }
   
   func moveCameraForTouches(touches: Set<UITouch>) {
@@ -79,9 +84,12 @@ class InterfaceManager {
     let location: CGPoint = self.middleLocationForTouches(touches)
     
     if self.lastLocation != CGPointZero && location != CGPointZero {
-      let posX: CGFloat = self.sceneCamera.position.x + self.lastLocation.x - location.x
-      let posY: CGFloat = self.sceneCamera.position.y - (self.lastLocation.y - location.y)
-      self.sceneCamera.position = CGPoint(x: posX, y: posY)
+      let posX: CGFloat = self.camera.position.x + self.lastLocation.x - location.x
+      let posY: CGFloat = self.camera.position.y + (self.lastLocation.y - location.y)
+      
+      self.updatePositionForPosition(CGPoint(x: posX, y: posY), andIsAction: false)
+      
+//      self.camera.position = CGPoint(x: posX, y: posY)
     }
     
     self.lastLocation = location
@@ -95,8 +103,8 @@ class InterfaceManager {
     if let firstTouch = firstTouch,
       let secondTouch = secondTouch {
         
-        let firstLocation = firstTouch.locationInNode(self.sceneCamera)
-        let secondLocation = secondTouch.locationInNode(self.sceneCamera)
+        let firstLocation = firstTouch.locationInNode(self.camera)
+        let secondLocation = secondTouch.locationInNode(self.camera)
         
         return CGPoint(x: (firstLocation.x + secondLocation.x) / 2 * 1.5, y: (firstLocation.y + secondLocation.y) / 2 * 1.5)
     }
@@ -104,8 +112,8 @@ class InterfaceManager {
     return CGPointZero
   }
   
-  func resetMovingCamera() {
-    
+  func resetCamera() {
+
     self.lastLocation = CGPointZero
   }
 }

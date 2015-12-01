@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import UIKit
 
 enum TouchType {
   case Action
@@ -22,6 +23,10 @@ class GameScene: SKScene {
   var interfaceManager: InterfaceManager!
   
   var touchType: TouchType?
+  
+  var pinchGesture: UIPinchGestureRecognizer!
+  var panGesture: UIPanGestureRecognizer!
+  var swipeGesture: UISwipeGestureRecognizer!
   
   
   override init(size: CGSize) {
@@ -39,67 +44,119 @@ class GameScene: SKScene {
   override func didMoveToView(view: SKView) {
     
     self.scene?.scaleMode = .AspectFit
-    self.camera = self.interfaceManager.sceneCamera
+    self.camera = self.interfaceManager.camera
+    self.addChild(self.interfaceManager.camera)
+    
+    self.pinchGesture = UIPinchGestureRecognizer(target: self, action: "pinchAction:")
+    self.view?.addGestureRecognizer(self.pinchGesture)
+    
+    self.panGesture = UIPanGestureRecognizer(target: self, action: "panAction:")
+    self.panGesture.minimumNumberOfTouches = 2
+    self.panGesture.maximumNumberOfTouches = 2
+    self.view?.addGestureRecognizer(self.panGesture)
+    
+    self.swipeGesture = UISwipeGestureRecognizer(target: self, action: "swipeAction:")
+    self.swipeGesture.direction = .Up
+    self.view?.addGestureRecognizer(self.swipeGesture)
+    
+    self.swipeGesture = UISwipeGestureRecognizer(target: self, action: "swipeAction:")
+    self.swipeGesture.direction = .Down
+    self.view?.addGestureRecognizer(self.swipeGesture)
+    
+    self.swipeGesture = UISwipeGestureRecognizer(target: self, action: "swipeAction:")
+    self.swipeGesture.direction = .Left
+    self.view?.addGestureRecognizer(self.swipeGesture)
+    
+    self.swipeGesture = UISwipeGestureRecognizer(target: self, action: "swipeAction:")
+    self.swipeGesture.direction = .Right
+    self.view?.addGestureRecognizer(self.swipeGesture)
+  }
+  
+  func pinchAction(sender: UIPinchGestureRecognizer) {
+    
+    print("PINCH!")
+  }
+  
+  func panAction(sender: UIPanGestureRecognizer) {
+    
+//    print("PAN!")
+  }
+  
+  func swipeAction(sender: UISwipeGestureRecognizer) {
+
+    self.actionsManager.addActionForDirection(sender.direction)
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     
-    if self.touchType != nil {
-      
-      self.actionsManager.resetTouch()
-      self.touchType = nil
-    }
-    
-    if touches.count == 1 {
-      
-      self.touchType = .Action
-      let touch = touches.first
-      
-      if let touch = touch {
-        let location = touch.locationInNode(self)
-        self.actionsManager.touchBeganForLocation(location)
-      }
-    }
+//    if self.touchType != nil {
+//    
+//      self.actionsManager.resetTouch()
+//      self.touchType = nil
+//    }
+//    
+//    if touches.count == 1 {
+//      
+//      self.touchType = .Action
+//      let touch = touches.first
+//      
+//      if let touch = touch {
+//        let location = touch.locationInNode(self)
+//        self.actionsManager.touchBeganForLocation(location)
+//      }
+//    }
+//    
+//    if touches.count > 2 {
+//      self.interfaceManager.resetCamera()
+//      self.actionsManager.resetTouch()
+//      self.touchType = nil
+//    }
   }
   
   override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
     
-    if touches.count > 1 {
-      self.actionsManager.resetTouch()
-    }
-    
-    if touches.count == 2 {
-      self.touchType = .Camera
-      self.interfaceManager.moveCameraForTouches(touches)
-    }
+//    if touches.count > 2 {
+//      
+//      self.interfaceManager.resetCamera()
+//      self.actionsManager.resetTouch()
+//      self.touchType = nil
+//    }
+//    
+//    if touches.count == 2 {
+//
+//      self.touchType = .Camera
+//      self.interfaceManager.moveCameraForTouches(touches)
+//    }
   }
   
   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-
-    if touches.count == 1 {
-      
-      if self.touchType == .Action {
-        let touch = touches.first
-        
-        if let touch = touch {
-          let location = touch.locationInNode(self)
-          self.actionsManager.touchEndedForLocation(location)
-        }
-      }
-    }
     
-    self.actionsManager.resetTouch()
-    self.interfaceManager.resetMovingCamera()
-    self.touchType = nil
+//    if touches.count == 1 {
+//      
+//      if self.touchType == .Action {
+//        let touch = touches.first
+//        
+//        if let touch = touch {
+//          let location = touch.locationInNode(self)
+//          self.actionsManager.touchEndedForLocation(location)
+//        }
+//      }
+//    }
+//    
+//    self.actionsManager.resetTouch()
+//    
+//    self.interfaceManager.resetCamera()
+//    self.touchType = nil
   }
   
   override func update(currentTime: NSTimeInterval) {
+    
     self.entityManager.update(currentTime)
     
     if self.touchType != .Camera {
       let player = self.entityManager.player()
       if let spriteComponent = player?.componentForClass(SpriteComponent.self) {
-        self.interfaceManager.updatePositionForNode(spriteComponent.node)
+        self.interfaceManager.updatePositionForPosition(spriteComponent.node.position)
       }
     }
   }

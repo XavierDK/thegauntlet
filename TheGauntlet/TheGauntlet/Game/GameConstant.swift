@@ -58,9 +58,6 @@ struct GameConstant {
     struct Actions {
       
       static let MaxStackActions: Int = 3
-      
-      static let Move: String = "PlayerMove"
-      static let Rotate: String = "PlayerRotate"
     }
   }
 }

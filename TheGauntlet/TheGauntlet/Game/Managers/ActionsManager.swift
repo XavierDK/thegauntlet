@@ -17,36 +17,56 @@ enum ActionType {
   case ActionDownMove
   case ActionTouchPressed
   
-  static func actionForTouches(touchStart: CGPoint, touchEnd: CGPoint) -> ActionType {
+//  static func actionForTouches(touchStart: CGPoint, touchEnd: CGPoint) -> ActionType {
+//    
+//    let v = CGVector(dx: touchStart.x - touchEnd.x, dy: touchStart.y - touchEnd.y)
+//    let angle = atan2(v.dy, v.dx)
+//    let deg = angle * CGFloat(180 / M_PI) + 180
+//    
+//    //    print("Angle: \(deg), X: \(v.dx), Y: \(v.dy)")
+//    
+//    if abs(v.dx) + abs(v.dy) < 20 {
+//      return ActionTouchPressed
+//    }
+//      
+//    else if (deg <= 45.0 || deg >= 315.0) {
+//      return ActionRightMove
+//    }
+//      
+//    else if (deg <= 315.0 && deg >= 225.0) {
+//      return ActionDownMove
+//    }
+//      
+//    else if (deg <= 225.0 && deg >= 135.0) {
+//      return ActionLeftMove
+//    }
+//      
+//    else if (deg <= 135.0 && deg >= 45.0) {
+//      return ActionUpMove
+//    }
+//    
+//    return ActionTouchPressed
+//  }
+  
+  
+  static func actionForSwipeDirection(direction: UISwipeGestureRecognizerDirection) -> ActionType {
     
-    let v = CGVector(dx: touchStart.x - touchEnd.x, dy: touchStart.y - touchEnd.y)
-    let angle = atan2(v.dy, v.dx)
-    let deg = angle * CGFloat(180 / M_PI) + 180
-    
-    //    print("Angle: \(deg), X: \(v.dx), Y: \(v.dy)")
-    
-    if abs(v.dx) + abs(v.dy) < 20 {
-      return ActionTouchPressed
-    }
+    switch direction {
       
-    else if (deg <= 45.0 || deg >= 315.0) {
-      return ActionRightMove
-    }
+    case UISwipeGestureRecognizerDirection.Up:
+      return .ActionUpMove
+    case UISwipeGestureRecognizerDirection.Down:
+      return .ActionDownMove
+    case UISwipeGestureRecognizerDirection.Left:
+      return .ActionLeftMove
+    case UISwipeGestureRecognizerDirection.Right:
+      return .ActionRightMove
       
-    else if (deg <= 315.0 && deg >= 225.0) {
-      return ActionDownMove
+    default:
+      return .ActionTouchPressed
     }
-      
-    else if (deg <= 225.0 && deg >= 135.0) {
-      return ActionLeftMove
-    }
-      
-    else if (deg <= 135.0 && deg >= 45.0) {
-      return ActionUpMove
-    }
-    
-    return ActionTouchPressed
   }
+  
 }
 
 
@@ -92,7 +112,7 @@ class ActionsManager {
   var moveActionsStack: ActionsStack = ActionsStack()
   var actionsStack: ActionsStack = ActionsStack()
   var actionsToLaunch: Set<ActionToLaunch> = Set<ActionToLaunch>()
-  var touchStart: CGPoint = CGPointZero
+//  var touchStart: CGPoint = CGPointZero
   
   
   func resetStacks() {
@@ -111,19 +131,10 @@ class ActionsManager {
     return self.moveActionsStack.pop()
   }
   
-  func resetTouch() {
+  func addActionForDirection(direction: UISwipeGestureRecognizerDirection) {
     
-    self.touchStart = CGPointZero
-  }
-  
-  func touchBeganForLocation(location: CGPoint) {
+    let action = ActionType.actionForSwipeDirection(direction)
     
-    self.touchStart = location
-  }
-  
-  func touchEndedForLocation(location: CGPoint) {
-    
-    let action = ActionType.actionForTouches(self.touchStart, touchEnd: location)
     if action == .ActionTouchPressed {
       
       self.actionsStack.push(action)
@@ -133,8 +144,33 @@ class ActionsManager {
         self.moveActionsStack.push(action)
       }
     }
-    self.touchStart = CGPointZero
+
   }
+  
+//  func resetTouch() {
+//    
+//    self.touchStart = CGPointZero
+//  }
+//  
+//  func touchBeganForLocation(location: CGPoint) {
+//    
+//    self.touchStart = location
+//  }
+//  
+//  func touchEndedForLocation(location: CGPoint) {
+//    
+//    let action = ActionType.actionForTouches(self.touchStart, touchEnd: location)
+//    if action == .ActionTouchPressed {
+//      
+//      self.actionsStack.push(action)
+//    }
+//    else {
+//      if self.moveActionsStack.items.count < GameConstant.Player.Actions.MaxStackActions - 1 {
+//        self.moveActionsStack.push(action)
+//      }
+//    }
+//    self.touchStart = CGPointZero
+//  }
   
   func addActionToLaunch(action: SKAction, forNode node: SKNode) {
     
