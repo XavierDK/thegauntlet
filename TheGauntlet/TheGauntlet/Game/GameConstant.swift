@@ -27,7 +27,7 @@ struct GameConstant {
     
     static let Margin: Int = 1
     static let Zoom: CGFloat = 60
-    static let MinZoom: CGFloat = 40
+    static let MinZoom: CGFloat = 20
     static let MaxZoom: CGFloat = 80
   }
     
