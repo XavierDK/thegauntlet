@@ -14,11 +14,15 @@ class InterfaceManager {
   let camera: SKCameraNode
   let levelSize: LevelSize
   var lastLocation: CGPoint
+  var actualZoom: CGFloat
+  var temporaryZoom: CGFloat
   
   init(levelSize: LevelSize) {
     
     self.levelSize = levelSize
     self.lastLocation = CGPointZero
+    self.actualZoom = GameConstant.Level.Zoom
+    self.temporaryZoom = self.actualZoom
     
     //    let lbl: SKLabelNode = SKLabelNode(fontNamed: "Arial")
     //    lbl.text = "Drag this label"
@@ -29,17 +33,17 @@ class InterfaceManager {
     //    self.sceneCamera.addChild(lbl)
     
     self.camera = SKCameraNode()
-    self.camera.xScale = GameConstant.Entity.Size / GameConstant.Level.Zoom
-    self.camera.yScale = GameConstant.Entity.Size / GameConstant.Level.Zoom
+    self.camera.xScale = GameConstant.Entity.Size / self.actualZoom
+    self.camera.yScale = GameConstant.Entity.Size / self.actualZoom
   }
   
   
   // MARK: Camera
   
-  func updatePositionForPosition(position: CGPoint, andIsAction isAction: Bool = true) {
+  func updatePositionForPosition(position: CGPoint, andIsAction isAction: Bool = true, andDuration duration: NSTimeInterval = 0.15) {
     
-    let halfCamX: CGFloat = (UIScreen.mainScreen().bounds.size.width / GameConstant.Entity.Size / 2) * (GameConstant.Entity.Size / GameConstant.Level.Zoom)
-    let halfCamY: CGFloat = (UIScreen.mainScreen().bounds.size.height / GameConstant.Entity.Size / 2) * (GameConstant.Entity.Size / GameConstant.Level.Zoom)
+    let halfCamX: CGFloat = (UIScreen.mainScreen().bounds.size.width / GameConstant.Entity.Size / 2) * self.camera.xScale
+    let halfCamY: CGFloat = (UIScreen.mainScreen().bounds.size.height / GameConstant.Entity.Size / 2) * self.camera.yScale
     
     let playerX: CGFloat = position.x / GameConstant.Entity.Size
     let playerY: CGFloat = position.y / GameConstant.Entity.Size
@@ -72,7 +76,7 @@ class InterfaceManager {
     }
     
     if isAction {
-      self.camera.runAction(SKAction.moveTo(CGPoint(x:posX, y: posY), duration: 0.15))
+      self.camera.runAction(SKAction.moveTo(CGPoint(x:posX, y: posY), duration: duration))
     }
     else {
       self.camera.position = CGPoint(x:posX, y: posY)
@@ -88,8 +92,6 @@ class InterfaceManager {
       let posY: CGFloat = self.camera.position.y + (self.lastLocation.y - location.y)
       
       self.updatePositionForPosition(CGPoint(x: posX, y: posY), andIsAction: false)
-      
-//      self.camera.position = CGPoint(x: posX, y: posY)
     }
     
     self.lastLocation = location
@@ -106,7 +108,7 @@ class InterfaceManager {
         let firstLocation = firstTouch.locationInNode(self.camera)
         let secondLocation = secondTouch.locationInNode(self.camera)
         
-        return CGPoint(x: (firstLocation.x + secondLocation.x) / 2 * 1.5, y: (firstLocation.y + secondLocation.y) / 2 * 1.5)
+        return CGPoint(x: (firstLocation.x + secondLocation.x) / 2, y: (firstLocation.y + secondLocation.y) / 2)
     }
     
     return CGPointZero
@@ -115,5 +117,25 @@ class InterfaceManager {
   func resetCamera() {
 
     self.lastLocation = CGPointZero
+  }
+  
+  func updateZoomForScale(scale: CGFloat) {
+    
+    self.temporaryZoom = self.actualZoom * scale
+    
+    if self.temporaryZoom < GameConstant.Level.MinZoom {
+      self.temporaryZoom = GameConstant.Level.MinZoom
+    }
+    
+    if self.temporaryZoom > GameConstant.Level.MaxZoom {
+      self.temporaryZoom = GameConstant.Level.MaxZoom
+    }
+    
+    self.camera.xScale = GameConstant.Entity.Size / self.temporaryZoom
+    self.camera.yScale = GameConstant.Entity.Size / self.temporaryZoom
+  }
+  
+  func endUpdateZoom() {
+    self.actualZoom = self.temporaryZoom
   }
 }
