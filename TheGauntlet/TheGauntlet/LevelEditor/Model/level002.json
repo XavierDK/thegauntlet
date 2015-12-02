@@ -13,7 +13,7 @@
     "backgroundImage" : { "imageId" : 0, "imageOrientation" : 90 },
     "size" : { "width" : 50, "height" : 50 },
     "elements" : [
-                  { "basetype" : 1, "specifictype" : 2, "position" : { "x" : 2, "y" : 3, "z" : 31, "orientation" : 90 } },
+                  { "basetype" : 1, "specifictype" : 2, "position" : { "x" : 2, "y" : 3, "z" : 9, "orientation" : 90 } },
                   { "basetype" : 1, "specifictype" : 1, "position" : { "x" : 15, "y" : 3, "z" : 31, "orientation" : 90 } }
                   ]
 }

@@ -81,7 +81,7 @@
                   { "basetype" : 2, "specifictype" : 2, "position" : { "x" : 2, "y" : 4, "z" : 1, "orientation" : 90 } },
                   { "basetype" : 2, "specifictype" : 2, "position" : { "x" : 3, "y" : 4, "z" : 1, "orientation" : 90 } },
                   
-                  { "basetype" : 1, "specifictype" : 2, "position" : { "x" : 2, "y" : 3, "z" : 31, "orientation" : 90 } },
+                  { "basetype" : 1, "specifictype" : 2, "position" : { "x" : 2, "y" : 3, "z" : 9, "orientation" : 90 } },
                   { "basetype" : 1, "specifictype" : 1, "position" : { "x" : 15, "y" : 3, "z" : 31, "orientation" : 90 } },
 
                   { "basetype" : 3, "specifictype" : 2, "position" : { "x" : 6, "y" : 3, "z" : 11, "orientation" : 90 } },

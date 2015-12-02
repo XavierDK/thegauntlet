@@ -33,12 +33,12 @@ class LevelManager {
       switch basetype {
       case BaseType.User:
         let specifictype = SpecificTypeUser(rawValue: anElement.specifictype)!
-        self.addCaseEntityInGameScene(anElement, gameScene:gameScene)
         switch specifictype {
         case SpecificTypeUser.In:
           self.addPlayerForComponent(anElement, gameScene: gameScene)
           break
         case SpecificTypeUser.Out:
+          self.addCaseEntityInGameScene(anElement, gameScene:gameScene)
           break
         }
       case BaseType.Case:
