@@ -30,28 +30,9 @@ struct GameConstant {
     static let MinZoom: CGFloat = 40
     static let MaxZoom: CGFloat = 80
   }
-  
-  enum Levels: String {
     
-    case Level00 = "__LEVEL_00__"
-    
-    static func levelForIndex(index: Int) -> Levels {
-      
-      switch index {
-      case 0:
-        return Level00
-      default:
-        return Level00
-      }
-    }
-  }
-  
-  struct Sprites {
-    
+  struct Sprites {    
     static let Player: String = "player1"
-    static let Wall: String = "wall"
-    static let Block: String = "basic_bloc"
-    static let Gauntlet: String = "basic_gauntlet"
     static let Grid: String = "square"
   }
   

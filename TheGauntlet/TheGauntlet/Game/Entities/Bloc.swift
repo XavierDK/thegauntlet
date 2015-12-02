@@ -11,7 +11,7 @@ import GameplayKit
 
 class Bloc: GKEntity {
   
-  init(component: LevelComponent, spriteNode: SKSpriteNode?, actionsManager: ActionsManager, gridManager: GridManager) {
+  init(component: ElementModel, spriteNode: SKSpriteNode?, actionsManager: ActionsManager, gridManager: GridManager) {
     super.init()
     
     guard let node = spriteNode else {

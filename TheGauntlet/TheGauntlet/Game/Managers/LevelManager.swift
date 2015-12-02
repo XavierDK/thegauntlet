@@ -12,7 +12,7 @@ import SpriteKit
 
 class LevelManager {
   
-  func levelFromLevelObject(levelObject: LevelObject) -> GameScene {
+  func levelFromLevelObject(levelObject: LevelModel) -> GameScene {
     
     let gameScene: GameScene = GameScene(size: UIScreen.mainScreen().bounds.size)
     
@@ -28,29 +28,119 @@ class LevelManager {
       self.addGridForSize(levelObject.size, gameScene: gameScene)
     }
     
-    for levelComponent in levelObject.components {
-      
-      switch levelComponent.type! {
-      case ComponentType.Start:
-        self.addPlayerForComponent(levelComponent, gameScene:gameScene)
-      case ComponentType.End:
-        break
-      case ComponentType.Wall:
-        self.addWallForComponent(levelComponent, gameScene:gameScene)
-      case ComponentType.Bloc:
-        self.addBlockForComponent(levelComponent, gameScene:gameScene)
-      case ComponentType.Gauntlet:
-        self.addGauntletForComponent(levelComponent, gameScene:gameScene)
+    for anElement in levelObject.elements {
+      let basetype = BaseType(rawValue: anElement.basetype)!
+      let specifictype = SpecificTypeUser(rawValue: anElement.specifictype)!
+      if basetype == BaseType.User && specifictype == SpecificTypeUser.In {
+        self.addPlayerForComponent(anElement, gameScene: gameScene)
       }
+      self.addElementInGameScene(anElement, gameScene:gameScene)
     }
     
     return gameScene
   }
   
+  
+  func spriteNameForElement(anElement: ElementModel) -> String {
+    let indexes : Array<String> = [
+      "Boulder", // 0
+      "Cracked",
+      "Tree",
+      "TreeFire",
+      "Wall",
+      "Action", // 5
+      "Ephemeral",
+      "Hole",
+      "Muddy",
+      "Simple",
+      "lvl1", // 10
+      "lvl2",
+      "lvl3",
+      "Axe",
+      "Glove",
+      "Hammer", // 15
+      "Rope",
+      "WaterSeal",
+      "UserIn",
+      "UserOut"
+    ]
+    
+    let basetype = BaseType(rawValue: anElement.basetype)!
+    switch basetype {
+    case BaseType.User:
+      let specifictype = SpecificTypeUser(rawValue: anElement.specifictype)!
+      switch specifictype {
+      case SpecificTypeUser.In:
+        return indexes[18]
+      case SpecificTypeUser.Out:
+        return indexes[19]
+      }
+    case BaseType.Case:
+      let specifictype = SpecificTypeCase(rawValue: anElement.specifictype)!
+      switch specifictype {
+      case SpecificTypeCase.Simple:
+        return indexes[9]
+      case SpecificTypeCase.Muddy:
+        return indexes[8]
+      case SpecificTypeCase.Ephemeral:
+        return indexes[6]
+      case SpecificTypeCase.Actionable:
+        return indexes[5]
+      case SpecificTypeCase.Hole:
+        return indexes[7]
+      }
+    case BaseType.Block:
+      let specifictype = SpecificTypeBlock(rawValue: anElement.specifictype)!
+      switch specifictype {
+      case SpecificTypeBlock.Boulder:
+        return indexes[0]
+      case SpecificTypeBlock.BoulderCracked:
+        return indexes[1]
+      case SpecificTypeBlock.Tree:
+        return indexes[2]
+      case SpecificTypeBlock.BurningTree:
+        return indexes[3]
+      case SpecificTypeBlock.Wall:
+        return indexes[4]
+      }
+    case BaseType.Item:
+      let specifictype = SpecificTypeItem(rawValue: anElement.specifictype)!
+      switch specifictype {
+      case SpecificTypeItem.Rope:
+        return indexes[16]
+      case SpecificTypeBlock.Hammer:
+        return indexes[15]
+      case SpecificTypeBlock.Axe:
+        return indexes[13]
+      case SpecificTypeBlock.WaterSeal:
+        return indexes[17]
+      case SpecificTypeBlock.Glove:
+        return indexes[14]
+      }
+    }
+  }
+  
+  
+  func addElementInGameScene(element: ElementModel, gameScene: GameScene) {
+    let spriteNode = self.spriteNodeFor(element, imageNamed:self.spriteNameForElement(element))
+    let player = Player(component: element, spriteNode: spriteNode, actionsManager: gameScene.actionsManager, gridManager: gameScene.gridManager)
+    gameScene.entityManager.add(player)
+    gameScene.gridManager.addEntity(player, x: element.position.x, y: element.position.y)
+  }
+  
+  func addPlayerForComponent(component: ElementModel, gameScene: GameScene) {
+    
+    let spriteNode = self.spriteNodeFor(component, imageNamed: GameConstant.Sprites.Player)
+    let player = Player(component: component, spriteNode: spriteNode, actionsManager: gameScene.actionsManager, gridManager: gameScene.gridManager)
+    gameScene.entityManager.add(player)
+    gameScene.gridManager.addEntity(player, x: component.position.x, y: component.position.y)
+  }
+
+  
   //
   // DEBUG CONSUM A LOT OF NODE
   //
-  func addGridForSize(size: LevelSize, gameScene: GameScene) {
+  func addGridForSize(size: LevelSizeModel, gameScene: GameScene) {
     
     for j in 0 ..< size.height {
       for i in 0 ..< size.width {
@@ -65,46 +155,14 @@ class LevelManager {
     }
   }
   
-  func addPlayerForComponent(component: LevelComponent, gameScene: GameScene) {
-    
-    let spriteNode = self.spriteNodeFor(component, imageNamed: GameConstant.Sprites.Player)
-    let player = Player(component: component, spriteNode: spriteNode, actionsManager: gameScene.actionsManager, gridManager: gameScene.gridManager)
-    gameScene.entityManager.add(player)
-    gameScene.gridManager.addEntity(player, x: component.position.x, y: component.position.y)
-  }
-  
-  func addWallForComponent(component: LevelComponent, gameScene: GameScene) {
-    
-    let spriteNode = self.spriteNodeFor(component, imageNamed: GameConstant.Sprites.Wall)
-    let wall = Wall(component: component, spriteNode: spriteNode, gridManager: gameScene.gridManager)
-    gameScene.entityManager.add(wall)
-    gameScene.gridManager.addEntity(wall, x: component.position.x, y: component.position.y)
-  }
-  
-  func addBlockForComponent(component: LevelComponent, gameScene: GameScene) {
-    
-    let spriteNode = self.spriteNodeFor(component, imageNamed: GameConstant.Sprites.Block)
-    let basicBloc = Bloc(component: component, spriteNode: spriteNode, actionsManager: gameScene.actionsManager, gridManager: gameScene.gridManager)
-    gameScene.entityManager.add(basicBloc)
-    gameScene.gridManager.addEntity(basicBloc, x: component.position.x, y: component.position.y)
-  }
-  
-  func addGauntletForComponent(component: LevelComponent, gameScene: GameScene) {
-    
-    let spriteNode = self.spriteNodeFor(component, imageNamed: GameConstant.Sprites.Gauntlet)
-    let basicGauntlet = Gauntlet(component: component, spriteNode: spriteNode, gridManager: gameScene.gridManager)
-    gameScene.entityManager.add(basicGauntlet)
-    gameScene.gridManager.addEntity(basicGauntlet, x: component.position.x, y: component.position.y)
-  }
-  
-  func spriteNodeFor(component: LevelComponent, imageNamed: String) -> SKSpriteNode {
+  func spriteNodeFor(component: ElementModel, imageNamed: String) -> SKSpriteNode {
     
     let spriteNode: SKSpriteNode = SKSpriteNode(imageNamed: imageNamed)
     spriteNode.size = CGSize(width: GameConstant.Entity.Size, height: GameConstant.Entity.Size)
     spriteNode.position.x = CGFloat(component.position.x + GameConstant.Level.Margin) * GameConstant.Entity.Size + GameConstant.Entity.Size / 2
     spriteNode.position.y = CGFloat(component.position.y + GameConstant.Level.Margin) * GameConstant.Entity.Size + GameConstant.Entity.Size / 2
     spriteNode.zPosition = CGFloat(component.position.z)
-    spriteNode.zRotation = CGFloat(component.angle.rawValue) / CGFloat(180) * CGFloat(M_PI)
+    spriteNode.zRotation = CGFloat(component.position.orientation.rawValue) / CGFloat(180) * CGFloat(M_PI)
     
     return spriteNode
   }

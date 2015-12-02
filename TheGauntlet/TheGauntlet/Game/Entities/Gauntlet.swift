@@ -11,7 +11,7 @@ import GameplayKit
 
 class Gauntlet: GKEntity {
   
-  init(component: LevelComponent, spriteNode: SKSpriteNode?, gridManager: GridManager) {
+  init(component: ElementModel, spriteNode: SKSpriteNode?, gridManager: GridManager) {
     super.init()
     
     guard let node = spriteNode else {

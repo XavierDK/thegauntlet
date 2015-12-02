@@ -12,12 +12,12 @@ import GameplayKit
 class InterfaceManager {
   
   let camera: SKCameraNode
-  let levelSize: LevelSize
+  let levelSize: LevelSizeModel
   var lastLocation: CGPoint
   var actualZoom: CGFloat
   var temporaryZoom: CGFloat
   
-  init(levelSize: LevelSize) {
+  init(levelSize: LevelSizeModel) {
     
     self.levelSize = levelSize
     self.lastLocation = CGPointZero

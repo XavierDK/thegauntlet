@@ -1,5 +1,5 @@
 {
-    "baseLevelModel" : { "name" : "Level #2", "levelFilename" : "level002", "image" : { "imageId" : 31, "imageOrientation" : 90 }, "position" : { "x" : 1, "y" : 2, "z" : 3, "orientation" : 90 } },
+    "baseLevelModel" : { "name" : "Prairie en Vue", "levelFilename" : "level002", "image" : { "imageId" : 31, "imageOrientation" : 90 }, "position" : { "x" : 1, "y" : 2, "z" : 3, "orientation" : 90 } },
     "soundId" : 0,
     "worldId" : 1,
     "editor" : { "version" : "1.0.0", "name" : "ppp" },
@@ -13,7 +13,7 @@
     "backgroundImage" : { "imageId" : 0, "imageOrientation" : 90 },
     "size" : { "width" : 50, "height" : 50 },
     "elements" : [
-                  { "basetype" : 1, "specifictype" : 2, "position" : { "x" : 2, "y" : 3, "z" : 0, "orientation" : 90 } },
-                  { "basetype" : 1, "specifictype" : 1, "position" : { "x" : 15, "y" : 3, "z" : 0, "orientation" : 90 } }
+                  { "basetype" : 1, "specifictype" : 2, "position" : { "x" : 2, "y" : 3, "z" : 31, "orientation" : 90 } },
+                  { "basetype" : 1, "specifictype" : 1, "position" : { "x" : 15, "y" : 3, "z" : 31, "orientation" : 90 } }
                   ]
 }

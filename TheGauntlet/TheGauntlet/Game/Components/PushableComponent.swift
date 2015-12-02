@@ -19,7 +19,7 @@ class PushableComponent: GKComponent {
     super.init()
   }
   
-  func push(direction: ComponentDirection) {
+  func push(direction: Orientation) {
     
     if let spriteComponent = self.entity?.componentForClass(SpriteComponent.self) {
       
