@@ -10,29 +10,30 @@ import Foundation
 import ObjectMapper
 
 struct BaseImageModel {
-    var imageId : Int!
-    var imageOrientation : Orientation?
+  var imageId : Int!
+  var imageOrientation : Orientation?
 }
 
 extension BaseImageModel : Mappable {
-    
-    init?(_ map: Map) { }
-    
-    mutating func mapping(map: Map) {
-        imageId  <- map["imageId"]
-        imageOrientation  <- map["imageOrientation"]
-    }
-
-    func checkMappedDataValidity() throws -> Bool {
-        return true
-    }
+  
+  init?(_ map: Map) { }
+  
+  mutating func mapping(map: Map) {
+    imageId  <- map["imageId"]
+    imageOrientation  <- map["imageOrientation"]
+  }
+  
+  func checkMappedDataValidity() throws -> Bool {
+    return true
+  }
+  
 }
 
 extension BaseImageModel : CustomDebugStringConvertible {
-    var debugDescription : String {
-        var output : String = String()
-        output.appendContentsOf("imageId: \(self.imageId), ")
-        output.appendContentsOf("imageOrientation: \(self.imageOrientation)")
-        return output
-    }
+  var debugDescription : String {
+    var output : String = String()
+    output.appendContentsOf("imageId: \(self.imageId), ")
+    output.appendContentsOf("imageOrientation: \(self.imageOrientation)")
+    return output
+  }
 }

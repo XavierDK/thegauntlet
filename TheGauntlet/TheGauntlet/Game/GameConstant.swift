@@ -31,10 +31,10 @@ struct GameConstant {
     
   struct Sprites {
     
-    static let Player: String = "player1"
-    static let Wall: String = "wall"
-    static let Block: String = "basic_bloc"
-    static let Gauntlet: String = "basic_gauntlet"
+//    static let Player: String = "player1"
+//    static let Wall: String = "wall"
+//    static let Block: String = "basic_bloc"
+//    static let Gauntlet: String = "basic_gauntlet"
     static let Grid: String = "square"
   }
   
