@@ -21,6 +21,7 @@
 		1F4C0D2B1C0F188E00ED37F6 /* level002.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAE7C81C0E4ECF005F7AC6 /* level002.json */; };
 		1F4C0D2C1C0F188E00ED37F6 /* level001.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAE7AC1C0E3A8D005F7AC6 /* level001.json */; };
 		1F4C0D2D1C0F188E00ED37F6 /* world001.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAE7B11C0E3A8D005F7AC6 /* world001.json */; };
+		1FA40B051C0F4A2200BFED73 /* CaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA40B041C0F4A2200BFED73 /* CaseEntity.swift */; };
 		1FCAE7B31C0E3A8D005F7AC6 /* BaseImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7A81C0E3A8D005F7AC6 /* BaseImageModel.swift */; };
 		1FCAE7B41C0E3A8D005F7AC6 /* BaseLevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7A91C0E3A8D005F7AC6 /* BaseLevelModel.swift */; };
 		1FCAE7B51C0E3A8D005F7AC6 /* CreatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7AA1C0E3A8D005F7AC6 /* CreatorModel.swift */; };
@@ -92,6 +93,7 @@
 		0F2904E61BF15838000F0F23 /* TheGauntletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGauntletUITests.swift; sourceTree = "<group>"; };
 		0F2904E81BF15838000F0F23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F7BC61C1BF6894000DE3A5C /* LevelSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectorViewController.swift; sourceTree = "<group>"; };
+		1FA40B041C0F4A2200BFED73 /* CaseEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseEntity.swift; sourceTree = "<group>"; };
 		1FCAE7A81C0E3A8D005F7AC6 /* BaseImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseImageModel.swift; sourceTree = "<group>"; };
 		1FCAE7A91C0E3A8D005F7AC6 /* BaseLevelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLevelModel.swift; sourceTree = "<group>"; };
 		1FCAE7AA1C0E3A8D005F7AC6 /* CreatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorModel.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				252566301BF7EF64006D014D /* Player.swift */,
+				1FA40B041C0F4A2200BFED73 /* CaseEntity.swift */,
 				2599FC0F1C027EDD00F392FC /* Wall.swift */,
 				2599FC131C02887D00F392FC /* Bloc.swift */,
 				2561F7D61C04622C00145397 /* Gauntlet.swift */,
@@ -577,6 +580,7 @@
 				2561F7D71C04622C00145397 /* Gauntlet.swift in Sources */,
 				1FCAE7B81C0E3A8D005F7AC6 /* LevelEnums.swift in Sources */,
 				1FCAE7C61C0E3B7F005F7AC6 /* ElementModel.swift in Sources */,
+				1FA40B051C0F4A2200BFED73 /* CaseEntity.swift in Sources */,
 				2599FC141C02887D00F392FC /* Bloc.swift in Sources */,
 				252566231BF7E03E006D014D /* GameViewController.swift in Sources */,
 				1FCAE7B31C0E3A8D005F7AC6 /* BaseImageModel.swift in Sources */,
