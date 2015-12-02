@@ -29,6 +29,11 @@ class LevelManager {
     }
     
     for anElement in levelObject.elements {
+      let basetype = BaseType(rawValue: anElement.basetype)!
+      let specifictype = SpecificTypeUser(rawValue: anElement.specifictype)!
+      if basetype == BaseType.User && specifictype == SpecificTypeUser.In {
+        self.addPlayerForComponent(anElement, gameScene: gameScene)
+      }
       self.addElementInGameScene(anElement, gameScene:gameScene)
     }
     
@@ -56,7 +61,7 @@ class LevelManager {
       "Hammer", // 15
       "Rope",
       "WaterSeal",
-      "player1",
+      "UserIn",
       "UserOut"
     ]
     
@@ -122,6 +127,15 @@ class LevelManager {
     gameScene.entityManager.add(player)
     gameScene.gridManager.addEntity(player, x: element.position.x, y: element.position.y)
   }
+  
+  func addPlayerForComponent(component: ElementModel, gameScene: GameScene) {
+    
+    let spriteNode = self.spriteNodeFor(component, imageNamed: GameConstant.Sprites.Player)
+    let player = Player(component: component, spriteNode: spriteNode, actionsManager: gameScene.actionsManager, gridManager: gameScene.gridManager)
+    gameScene.entityManager.add(player)
+    gameScene.gridManager.addEntity(player, x: component.position.x, y: component.position.y)
+  }
+
   
   //
   // DEBUG CONSUM A LOT OF NODE
