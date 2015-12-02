@@ -4,7 +4,8 @@
   "levels" : [
     { "name" : "Lisiere de foret", "levelFilename" : "level001", "image" : { "imageId" : 31, "imageOrientation" : 90 }, "position" : { "x" : 1, "y" : 2, "z" : 3, "orientation" : 90 } },
               { "name" : "Prairie en Vue", "levelFilename" : "level002", "image" : { "imageId" : 32, "imageOrientation" : 90 }, "position" : { "x" : 2, "y" : 3, "z" : 4, "orientation" : 90 } },
-              { "name" : "Basse Court", "levelFilename" : "level003", "image" : { "imageId" : 32, "imageOrientation" : 90 }, "position" : { "x" : 2, "y" : 3, "z" : 4, "orientation" : 90 } }
+              { "name" : "Basse Court", "levelFilename" : "level003", "image" : { "imageId" : 32, "imageOrientation" : 90 }, "position" : { "x" : 2, "y" : 3, "z" : 4, "orientation" : 90 } },
+              { "name" : "Jardin d'Hiver", "levelFilename" : "level004", "image" : { "imageId" : 32, "imageOrientation" : 90 }, "position" : { "x" : 2, "y" : 3, "z" : 4, "orientation" : 90 } }
   ],
   "soundID" : 32,
   "creator" : {

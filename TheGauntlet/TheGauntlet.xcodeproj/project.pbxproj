@@ -22,6 +22,7 @@
 		1F4C0D2C1C0F188E00ED37F6 /* level001.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAE7AC1C0E3A8D005F7AC6 /* level001.json */; };
 		1F4C0D2D1C0F188E00ED37F6 /* world001.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAE7B11C0E3A8D005F7AC6 /* world001.json */; };
 		1FA40B051C0F4A2200BFED73 /* CaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA40B041C0F4A2200BFED73 /* CaseEntity.swift */; };
+		1FA40B071C0F94A300BFED73 /* level004.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FA40B061C0F94A300BFED73 /* level004.json */; };
 		1FCAE7B31C0E3A8D005F7AC6 /* BaseImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7A81C0E3A8D005F7AC6 /* BaseImageModel.swift */; };
 		1FCAE7B41C0E3A8D005F7AC6 /* BaseLevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7A91C0E3A8D005F7AC6 /* BaseLevelModel.swift */; };
 		1FCAE7B51C0E3A8D005F7AC6 /* CreatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7AA1C0E3A8D005F7AC6 /* CreatorModel.swift */; };
@@ -94,6 +95,7 @@
 		0F2904E81BF15838000F0F23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F7BC61C1BF6894000DE3A5C /* LevelSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectorViewController.swift; sourceTree = "<group>"; };
 		1FA40B041C0F4A2200BFED73 /* CaseEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseEntity.swift; sourceTree = "<group>"; };
+		1FA40B061C0F94A300BFED73 /* level004.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level004.json; sourceTree = "<group>"; };
 		1FCAE7A81C0E3A8D005F7AC6 /* BaseImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseImageModel.swift; sourceTree = "<group>"; };
 		1FCAE7A91C0E3A8D005F7AC6 /* BaseLevelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLevelModel.swift; sourceTree = "<group>"; };
 		1FCAE7AA1C0E3A8D005F7AC6 /* CreatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorModel.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				1FCAE7CC1C0E5215005F7AC6 /* indexes.json */,
+				1FA40B061C0F94A300BFED73 /* level004.json */,
 				1FCAE7CA1C0E4F5D005F7AC6 /* level003.json */,
 				1FCAE7C81C0E4ECF005F7AC6 /* level002.json */,
 				1FCAE7AC1C0E3A8D005F7AC6 /* level001.json */,
@@ -475,6 +478,7 @@
 				0F2904CE1BF15838000F0F23 /* Assets.xcassets in Resources */,
 				1F4C0D2B1C0F188E00ED37F6 /* level002.json in Resources */,
 				1F4C0D2D1C0F188E00ED37F6 /* world001.json in Resources */,
+				1FA40B071C0F94A300BFED73 /* level004.json in Resources */,
 				1F4C0D2C1C0F188E00ED37F6 /* level001.json in Resources */,
 				0F2904CC1BF15838000F0F23 /* Main.storyboard in Resources */,
 			);

@@ -96,10 +96,7 @@ extension LevelModel : CustomDebugStringConvertible {
                     case BaseType.Case:
                         let specifictype = SpecificTypeCase(rawValue: anElement.specifictype)!
                         switch specifictype {
-                        case SpecificTypeCase.Simple, SpecificTypeCase.Muddy, SpecificTypeCase.Ephemeral, SpecificTypeCase.Actionable:
-                            output.appendContentsOf("-")
-                            break
-                        case SpecificTypeCase.Hole:
+                        case SpecificTypeCase.Simple, SpecificTypeCase.Hole, SpecificTypeCase.Muddy, SpecificTypeCase.Ephemeral, SpecificTypeCase.Actionable:
                             output.appendContentsOf("@")
                             break
                         }
