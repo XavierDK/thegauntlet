@@ -1,5 +1,5 @@
 {
-    "baseLevelModel" : { "name" : "Level #1", "levelFilename" : "level001", "image" : { "imageId" : 31, "imageOrientation" : 90 }, "position" : { "x" : 1, "y" : 2, "z" : 3, "orientation" : 90 } },
+    "baseLevelModel" : { "name" : "Lisiere de foret", "levelFilename" : "level001", "image" : { "imageId" : 31, "imageOrientation" : 90 }, "position" : { "x" : 1, "y" : 2, "z" : 3, "orientation" : 90 } },
     "soundId" : 0,
     "worldId" : 1,
     "editor" : { "version" : "1.0.0", "name" : "ppp" },
