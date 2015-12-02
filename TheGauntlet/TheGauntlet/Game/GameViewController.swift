@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController, FileManager {
+class GameViewController: UIViewController {
   
   let levelManager: LevelManager = LevelManager()
   var scene: SKScene?
@@ -19,12 +19,15 @@ class GameViewController: UIViewController, FileManager {
     
     super.init(nibName:nil, bundle:nil)
     
+    let levelPath = NSBundle.mainBundle().pathForResource(levelName, ofType: "json")
+
     do {
-      let levelObject = try self.levelObjectFromLevelName(levelName)
-      self.scene = self.levelManager.levelFromLevelObject(levelObject)
+        let lvlModel : LevelModel = try LevelModel().objectForFile(levelPath!)
+        print(lvlModel.debugDescription)
+        self.scene = self.levelManager.levelFromLevelObject(lvlModel)
     }
-    catch let error as FileError {
-      self.alertErrorForError(error)
+    catch let error as JSONModelParserError {
+      LevelModel().alertErrorForError(error)
     }
     catch {
       let alert = UIAlertController(title: "Error", message: "An error occured", preferredStyle: .Alert)

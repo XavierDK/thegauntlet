@@ -16,7 +16,7 @@ class PushGauntletComponent: GKComponent, GauntletComponent {
     super.init()
   }
   
-  func actionForGrid(gridManager: GridManager, newX: Int, newY: Int, direction: ComponentDirection) -> (Int, Int) {
+  func actionForGrid(gridManager: GridManager, newX: Int, newY: Int, direction: Orientation) -> (Int, Int) {
     
     var newObjX: Int = newX
     var newObjY: Int = newY

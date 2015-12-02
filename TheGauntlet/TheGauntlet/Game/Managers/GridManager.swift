@@ -12,10 +12,10 @@ import GameKit
 class GridManager {
   
   var grid: Array<Array<Set<GKEntity>>>
-  let levelSize: LevelSize
+  let levelSize: LevelSizeModel
   let entityManager: EntityManager
   
-  init(levelSize: LevelSize, entityManager: EntityManager) {
+  init(levelSize: LevelSizeModel, entityManager: EntityManager) {
     self.grid = Array<Array<Set<GKEntity>>>()
     self.levelSize = levelSize
     self.entityManager = entityManager
@@ -54,7 +54,7 @@ class GridManager {
   }
   
   
-  func moveEntity(entity: GKEntity, direction: ComponentDirection) -> Bool {
+  func moveEntity(entity: GKEntity, direction: Orientation) -> Bool {
     
     guard let gridComponent = entity.componentForClass(GridComponent.self) else {
       return false

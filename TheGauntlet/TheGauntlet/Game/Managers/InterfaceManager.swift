@@ -12,10 +12,10 @@ import GameplayKit
 class InterfaceManager {
   
   let camera: SKCameraNode
-  let levelSize: LevelSize
+  let levelSize: LevelSizeModel
   var lastLocation: CGPoint
   
-  init(levelSize: LevelSize) {
+  init(levelSize: LevelSizeModel) {
     
     self.levelSize = levelSize
     self.lastLocation = CGPointZero

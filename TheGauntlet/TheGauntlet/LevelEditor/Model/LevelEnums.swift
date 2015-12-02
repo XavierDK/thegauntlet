@@ -18,9 +18,9 @@ enum ImageGroupName : Int {
 }
 
 enum Orientation: Int {
-    case Top = 180
+    case Up = 180
     case Right = 90
-    case Bottom = 0
+    case Down = 0
     case Left = 270
 }
 
