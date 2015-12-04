@@ -38,12 +38,14 @@
 		1FCAE7C61C0E3B7F005F7AC6 /* ElementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7C11C0E3B7F005F7AC6 /* ElementModel.swift */; };
 		1FCAE7C71C0E3B7F005F7AC6 /* LevelSizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7C21C0E3B7F005F7AC6 /* LevelSizeModel.swift */; };
 		1FCAE7CF1C0E5268005F7AC6 /* LevelAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAE7CE1C0E5268005F7AC6 /* LevelAssets.xcassets */; };
-		250940CE1C09FDCD00EB687F /* InterfaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250940CD1C09FDCD00EB687F /* InterfaceManager.swift */; };
+		250940CE1C09FDCD00EB687F /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250940CD1C09FDCD00EB687F /* CameraManager.swift */; };
 		250940D01C0B656E00EB687F /* GameConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250940CF1C0B656E00EB687F /* GameConstant.swift */; };
 		252566231BF7E03E006D014D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252566221BF7E03E006D014D /* GameViewController.swift */; };
 		252566251BF7E1F5006D014D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252566241BF7E1F5006D014D /* GameScene.swift */; };
 		2525662F1BF7ECAE006D014D /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2525662E1BF7ECAE006D014D /* SpriteComponent.swift */; };
 		252566311BF7EF64006D014D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252566301BF7EF64006D014D /* Player.swift */; };
+		252A63E31C103AE70064926D /* InterfaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A63E21C103AE70064926D /* InterfaceManager.swift */; };
+		252A63E61C103B2C0064926D /* XDKRotatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A63E51C103B2C0064926D /* XDKRotatingPanel.swift */; };
 		2561F7D51C04616400145397 /* InventoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561F7D41C04616400145397 /* InventoryComponent.swift */; };
 		2561F7D71C04622C00145397 /* Gauntlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561F7D61C04622C00145397 /* Gauntlet.swift */; };
 		2561F7D91C04630900145397 /* GauntletComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561F7D81C04630900145397 /* GauntletComponent.swift */; };
@@ -116,12 +118,14 @@
 		1FCAE7CA1C0E4F5D005F7AC6 /* level003.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level003.json; sourceTree = "<group>"; };
 		1FCAE7CC1C0E5215005F7AC6 /* indexes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = indexes.json; sourceTree = "<group>"; };
 		1FCAE7CE1C0E5268005F7AC6 /* LevelAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = LevelAssets.xcassets; path = Model/LevelAssets.xcassets; sourceTree = "<group>"; };
-		250940CD1C09FDCD00EB687F /* InterfaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = InterfaceManager.swift; path = Game/Managers/InterfaceManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		250940CD1C09FDCD00EB687F /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = CameraManager.swift; path = Game/Managers/CameraManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		250940CF1C0B656E00EB687F /* GameConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameConstant.swift; path = Game/GameConstant.swift; sourceTree = "<group>"; };
 		252566221BF7E03E006D014D /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = Game/GameViewController.swift; sourceTree = "<group>"; };
 		252566241BF7E1F5006D014D /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = Game/GameScene.swift; sourceTree = "<group>"; };
 		2525662E1BF7ECAE006D014D /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpriteComponent.swift; path = Game/Components/SpriteComponent.swift; sourceTree = "<group>"; };
 		252566301BF7EF64006D014D /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Player.swift; path = Game/Entities/Player.swift; sourceTree = "<group>"; };
+		252A63E21C103AE70064926D /* InterfaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfaceManager.swift; path = Game/Managers/InterfaceManager.swift; sourceTree = "<group>"; };
+		252A63E51C103B2C0064926D /* XDKRotatingPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XDKRotatingPanel.swift; path = Game/UI/XDKRotatingPanel.swift; sourceTree = "<group>"; };
 		2561F7D41C04616400145397 /* InventoryComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InventoryComponent.swift; path = Game/Components/InventoryComponent.swift; sourceTree = "<group>"; };
 		2561F7D61C04622C00145397 /* Gauntlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gauntlet.swift; path = Game/Entities/Gauntlet.swift; sourceTree = "<group>"; };
 		2561F7D81C04630900145397 /* GauntletComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GauntletComponent.swift; path = Game/Components/GauntletComponent.swift; sourceTree = "<group>"; };
@@ -288,7 +292,7 @@
 				25B748BB1C02267B004E9117 /* Managers */,
 				2525661F1BF7DAED006D014D /* Components */,
 				2525661E1BF7DAD3006D014D /* Entities */,
-				252566201BF7DB06006D014D /* Levels */,
+				252A63E41C103B0F0064926D /* UI */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -334,11 +338,12 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
-		252566201BF7DB06006D014D /* Levels */ = {
+		252A63E41C103B0F0064926D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				252A63E51C103B2C0064926D /* XDKRotatingPanel.swift */,
 			);
-			name = Levels;
+			name = UI;
 			sourceTree = "<group>";
 		};
 		25B748BB1C02267B004E9117 /* Managers */ = {
@@ -348,7 +353,8 @@
 				25B748BE1C02272A004E9117 /* EntityManager.swift */,
 				25B748C01C02272A004E9117 /* LevelManager.swift */,
 				25B748C91C0227C6004E9117 /* GridManager.swift */,
-				250940CD1C09FDCD00EB687F /* InterfaceManager.swift */,
+				250940CD1C09FDCD00EB687F /* CameraManager.swift */,
+				252A63E21C103AE70064926D /* InterfaceManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -576,6 +582,7 @@
 				2561F7DD1C0480E700145397 /* PushGauntletComponent.swift in Sources */,
 				1FCAE7C71C0E3B7F005F7AC6 /* LevelSizeModel.swift in Sources */,
 				25B748C21C02272A004E9117 /* EntityManager.swift in Sources */,
+				252A63E61C103B2C0064926D /* XDKRotatingPanel.swift in Sources */,
 				1FCAE7B61C0E3A8D005F7AC6 /* JSONModelParser.swift in Sources */,
 				2599FC101C027EDD00F392FC /* Wall.swift in Sources */,
 				25B748CA1C0227C6004E9117 /* GridManager.swift in Sources */,
@@ -595,11 +602,12 @@
 				250940D01C0B656E00EB687F /* GameConstant.swift in Sources */,
 				2561F7DF1C0483CF00145397 /* PushableComponent.swift in Sources */,
 				252566311BF7EF64006D014D /* Player.swift in Sources */,
+				252A63E31C103AE70064926D /* InterfaceManager.swift in Sources */,
 				25B748C11C02272A004E9117 /* ActionsManager.swift in Sources */,
 				1FCAE7BA1C0E3A8D005F7AC6 /* MappableValidator.swift in Sources */,
 				0F2904C71BF15838000F0F23 /* AppDelegate.swift in Sources */,
 				2585FE3E1BFB57E5003EC30C /* MoveComponent.swift in Sources */,
-				250940CE1C09FDCD00EB687F /* InterfaceManager.swift in Sources */,
+				250940CE1C09FDCD00EB687F /* CameraManager.swift in Sources */,
 				2561F7D91C04630900145397 /* GauntletComponent.swift in Sources */,
 				25B748CC1C023630004E9117 /* GridComponent.swift in Sources */,
 				0F7BC61D1BF6894000DE3A5C /* LevelSelectorViewController.swift in Sources */,

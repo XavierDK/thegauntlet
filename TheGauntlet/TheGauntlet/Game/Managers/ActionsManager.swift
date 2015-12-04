@@ -140,7 +140,7 @@ class ActionsManager {
       self.actionsStack.push(action)
     }
     else {
-      if self.moveActionsStack.items.count < GameConstant.Player.Actions.MaxStackActions - 1 {
+      if self.moveActionsStack.items.count < GameConstant.Actions.MaxStackActions - 1 {
         self.moveActionsStack.push(action)
       }
     }

@@ -22,7 +22,7 @@ class LevelManager {
     
     gameScene.gridManager = GridManager(levelSize: levelObject.size, entityManager: gameScene.entityManager)
     
-    gameScene.interfaceManager = InterfaceManager(levelSize: levelObject.size)
+    gameScene.cameraManager = CameraManager(levelSize: levelObject.size)
     
     if GameConstant.Debug.Enable {
       self.addGridForSize(levelObject.size, gameScene: gameScene)

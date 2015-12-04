@@ -30,17 +30,14 @@ struct GameConstant {
     static let MinZoom: CGFloat = 20
     static let MaxZoom: CGFloat = 80
   }
-    
-  struct Sprites {    
+  
+  struct Sprites {
     static let Player: String = "player1"
     static let Grid: String = "square"
   }
   
-  struct Player {
+  struct Actions {
     
-    struct Actions {
-      
-      static let MaxStackActions: Int = 3
-    }
+    static let MaxStackActions: Int = 3
   }
 }

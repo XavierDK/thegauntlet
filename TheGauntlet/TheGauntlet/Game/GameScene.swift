@@ -15,7 +15,7 @@ class GameScene: SKScene, UIGestureRecognizerDelegate {
   var entityManager: EntityManager!
   var actionsManager: ActionsManager = ActionsManager()
   var gridManager: GridManager!
-  var interfaceManager: InterfaceManager!
+  var cameraManager: CameraManager!
   
   var cameraActivated: Bool = false
   var zoomActivated: Bool = false
@@ -35,8 +35,8 @@ class GameScene: SKScene, UIGestureRecognizerDelegate {
   override func didMoveToView(view: SKView) {
     
     self.scene?.scaleMode = .AspectFit
-    self.camera = self.interfaceManager.camera
-    self.addChild(self.interfaceManager.camera)
+    self.camera = self.cameraManager.camera
+    self.addChild(self.cameraManager.camera)
     
     let pinchGesture = UIPinchGestureRecognizer(target: self, action: "pinchAction:")
     pinchGesture.delegate = self
@@ -61,6 +61,11 @@ class GameScene: SKScene, UIGestureRecognizerDelegate {
     swipeGesture.direction = .Right
     swipeGesture.delegate = self
     self.view?.addGestureRecognizer(swipeGesture)
+    
+    let panel = XDKMagicPanel(frame: self.view!.bounds)
+    panel.layer.zPosition = 999
+    self.view?.addSubview(panel)
+    panel.loadPanel()
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -71,19 +76,19 @@ class GameScene: SKScene, UIGestureRecognizerDelegate {
     if touches.count > 2 {
       
       self.cameraActivated = false
-      self.interfaceManager.resetCamera()
+      self.cameraManager.resetCamera()
     }
     
     if touches.count == 2 {
       
       self.cameraActivated = true
-      self.interfaceManager.moveCameraForTouches(touches)
+      self.cameraManager.moveCameraForTouches(touches)
     }
   }
   
   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
     
-    self.interfaceManager.resetCamera()
+    self.cameraManager.resetCamera()
     self.cameraActivated = false
   }
   
@@ -96,10 +101,10 @@ class GameScene: SKScene, UIGestureRecognizerDelegate {
       if let spriteComponent = player?.componentForClass(SpriteComponent.self) {
         
         if self.zoomActivated {
-          self.interfaceManager.updatePositionForPosition(spriteComponent.node.position, andIsAction: true, andDuration: 0.1)
+          self.cameraManager.updatePositionForPosition(spriteComponent.node.position, andIsAction: true, andDuration: 0.1)
         }
         else {
-          self.interfaceManager.updatePositionForPosition(spriteComponent.node.position)
+          self.cameraManager.updatePositionForPosition(spriteComponent.node.position)
         }
       }
     }
@@ -119,10 +124,10 @@ class GameScene: SKScene, UIGestureRecognizerDelegate {
     
     self.zoomActivated = true
     
-    self.interfaceManager.updateZoomForScale(sender.scale)
+    self.cameraManager.updateZoomForScale(sender.scale)
     
     if sender.state == .Ended {
-      self.interfaceManager.endUpdateZoom()
+      self.cameraManager.endUpdateZoom()
       self.zoomActivated = false
     }
   }
