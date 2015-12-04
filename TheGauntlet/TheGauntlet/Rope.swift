@@ -1,17 +1,17 @@
 //
-//  BasicBloc.swift
+//  Rope.swift
 //  TheGauntlet
 //
-//  Created by Xavier De Koninck on 23/11/2015.
+//  Created by jeff on 03/12/2015.
 //  Copyright © 2015 Jeffrey Macko. All rights reserved.
 //
 
 import SpriteKit
 import GameplayKit
 
-class Bloc: GKEntity {
+class Rope: GKEntity {
   
-  init(component: ElementModel, spriteNode: SKSpriteNode?, actionsManager: ActionsManager, gridManager: GridManager) {
+  init(component: ElementModel, spriteNode: SKSpriteNode?, gridManager: GridManager) {
     super.init()
     
     guard let node = spriteNode else {
@@ -24,10 +24,7 @@ class Bloc: GKEntity {
     let gridComponent = GridComponent(gridManager: gridManager, x: component.position.x, y: component.position.y)
     addComponent(gridComponent)
     
-    let colliderComponent = ColliderComponent()
-    addComponent(colliderComponent)
-    
-    let pushableComponent = PushableComponent(actionsManager: actionsManager)
-    addComponent(pushableComponent)
+    let getComponent = GetComponent(objectToGet: PushGauntletComponent())
+    addComponent(getComponent)
   }
 }

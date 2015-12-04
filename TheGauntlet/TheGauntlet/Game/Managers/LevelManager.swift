@@ -52,16 +52,16 @@ class LevelManager {
         let specifictype = SpecificTypeBlock(rawValue: anElement.specifictype)!
         switch specifictype {
         case SpecificTypeBlock.Boulder:
-          self.addBlockForComponent(anElement, gameScene: gameScene)
+          self.addBoulderForComponent(anElement, gameScene: gameScene)
           break
         case SpecificTypeBlock.BoulderCracked:
-          self.addCaseEntityInGameScene(anElement, gameScene:gameScene)
+          self.addBoulderCrackedForComponent(anElement, gameScene: gameScene)
           break
         case SpecificTypeBlock.Tree:
-          self.addCaseEntityInGameScene(anElement, gameScene:gameScene)
+          self.addTreeForComponent(anElement, gameScene: gameScene)
           break
         case SpecificTypeBlock.BurningTree:
-          self.addCaseEntityInGameScene(anElement, gameScene:gameScene)
+          self.addBurningTreeForComponent(anElement, gameScene: gameScene)
           break
         case SpecificTypeBlock.Wall:
           self.addWallForComponent(anElement, gameScene: gameScene)
@@ -71,19 +71,19 @@ class LevelManager {
         let specifictype = SpecificTypeItem(rawValue: anElement.specifictype)!
         switch specifictype {
         case SpecificTypeItem.Rope:
-          self.addCaseEntityInGameScene(anElement, gameScene:gameScene)
+          self.addRopeForComponent(anElement, gameScene: gameScene)
           break
         case SpecificTypeBlock.Hammer:
-          self.addCaseEntityInGameScene(anElement, gameScene:gameScene)
+          self.addHammerForComponent(anElement, gameScene: gameScene)
           break
         case SpecificTypeBlock.Axe:
-          self.addCaseEntityInGameScene(anElement, gameScene:gameScene)
+          self.addAxeForComponent(anElement, gameScene: gameScene)
           break
         case SpecificTypeBlock.WaterSeal:
-          self.addCaseEntityInGameScene(anElement, gameScene:gameScene)
+          self.addWaterSealForComponent(anElement, gameScene: gameScene)
           break
         case SpecificTypeBlock.Glove:
-          self.addGauntletForComponent(anElement, gameScene: gameScene)
+          self.addGloveForComponent(anElement, gameScene: gameScene)
           break
         }
       }
@@ -181,21 +181,6 @@ class LevelManager {
     gameScene.gridManager.addEntity(player, x: element.position.x, y: element.position.y)
   }
   
-  func addElementInGameScene(element: ElementModel, gameScene: GameScene) {
-    let spriteNode = self.spriteNodeFor(element, imageNamed:self.spriteNameForElement(element))
-    let player = Player(component: element, spriteNode: spriteNode, actionsManager: gameScene.actionsManager, gridManager: gameScene.gridManager)
-    gameScene.entityManager.add(player)
-    gameScene.gridManager.addEntity(player, x: element.position.x, y: element.position.y)
-  }
-  
-  func addPlayerForComponent(component: ElementModel, gameScene: GameScene) {
-    
-    let spriteNode = self.spriteNodeFor(component, imageNamed: GameConstant.Sprites.Player)
-    let player = Player(component: component, spriteNode: spriteNode, actionsManager: gameScene.actionsManager, gridManager: gameScene.gridManager)
-    gameScene.entityManager.add(player)
-    gameScene.gridManager.addEntity(player, x: component.position.x, y: component.position.y)
-  }
-  
   func addWallForComponent(component: ElementModel, gameScene: GameScene) {
     
     let spriteNode = self.spriteNodeFor(component, imageNamed: self.spriteNameForElement(component))
@@ -204,22 +189,89 @@ class LevelManager {
     gameScene.gridManager.addEntity(wall, x: component.position.x, y: component.position.y)
   }
   
-  func addBlockForComponent(component: ElementModel, gameScene: GameScene) {
-    
+  func addBoulderForComponent(component: ElementModel, gameScene: GameScene) {
     let spriteNode = self.spriteNodeFor(component, imageNamed: self.spriteNameForElement(component))
-    let basicBloc = Bloc(component: component, spriteNode: spriteNode, actionsManager: gameScene.actionsManager, gridManager: gameScene.gridManager)
+    let basicBloc = Boulder(component: component, spriteNode: spriteNode, actionsManager: gameScene.actionsManager, gridManager: gameScene.gridManager)
     gameScene.entityManager.add(basicBloc)
     gameScene.gridManager.addEntity(basicBloc, x: component.position.x, y: component.position.y)
   }
   
-  func addGauntletForComponent(component: ElementModel, gameScene: GameScene) {
-    
+  func addBoulderCrackedForComponent(component: ElementModel, gameScene: GameScene) {
     let spriteNode = self.spriteNodeFor(component, imageNamed: self.spriteNameForElement(component))
-    let basicGauntlet = Gauntlet(component: component, spriteNode: spriteNode, gridManager: gameScene.gridManager)
+    let basicBloc = BoulderCracked(component: component, spriteNode: spriteNode, actionsManager: gameScene.actionsManager, gridManager: gameScene.gridManager)
+    gameScene.entityManager.add(basicBloc)
+    gameScene.gridManager.addEntity(basicBloc, x: component.position.x, y: component.position.y)
+  }
+  
+  func addTreeForComponent(component: ElementModel, gameScene: GameScene) {
+    let spriteNode = self.spriteNodeFor(component, imageNamed: self.spriteNameForElement(component))
+    let basicBloc = Tree(component: component, spriteNode: spriteNode, gridManager: gameScene.gridManager)
+    gameScene.entityManager.add(basicBloc)
+    gameScene.gridManager.addEntity(basicBloc, x: component.position.x, y: component.position.y)
+  }
+  
+  func addBurningTreeForComponent(component: ElementModel, gameScene: GameScene) {
+    let spriteNode = self.spriteNodeFor(component, imageNamed: self.spriteNameForElement(component))
+    let basicBloc = BurningTree(component: component, spriteNode: spriteNode, gridManager: gameScene.gridManager)
+    gameScene.entityManager.add(basicBloc)
+    gameScene.gridManager.addEntity(basicBloc, x: component.position.x, y: component.position.y)
+  }
+  
+  func addGloveForComponent(component: ElementModel, gameScene: GameScene) {
+    let spriteNode = self.spriteNodeFor(component, imageNamed: self.spriteNameForElement(component))
+    let basicGauntlet = Glove(component: component, spriteNode: spriteNode, gridManager: gameScene.gridManager)
+    gameScene.entityManager.add(basicGauntlet)
+    gameScene.gridManager.addEntity(basicGauntlet, x: component.position.x, y: component.position.y)
+  }
+  
+  func addRopeForComponent(component: ElementModel, gameScene: GameScene) {
+    let spriteNode = self.spriteNodeFor(component, imageNamed: self.spriteNameForElement(component))
+    let basicGauntlet = Rope(component: component, spriteNode: spriteNode, gridManager: gameScene.gridManager)
     gameScene.entityManager.add(basicGauntlet)
     gameScene.gridManager.addEntity(basicGauntlet, x: component.position.x, y: component.position.y)
   }
 
+  func addHammerForComponent(component: ElementModel, gameScene: GameScene) {
+    let spriteNode = self.spriteNodeFor(component, imageNamed: self.spriteNameForElement(component))
+    let basicGauntlet = Hammer(component: component, spriteNode: spriteNode, gridManager: gameScene.gridManager)
+    gameScene.entityManager.add(basicGauntlet)
+    gameScene.gridManager.addEntity(basicGauntlet, x: component.position.x, y: component.position.y)
+  }
+
+  
+  func addAxeForComponent(component: ElementModel, gameScene: GameScene) {
+    let spriteNode = self.spriteNodeFor(component, imageNamed: self.spriteNameForElement(component))
+    let basicGauntlet = Axe(component: component, spriteNode: spriteNode, gridManager: gameScene.gridManager)
+    gameScene.entityManager.add(basicGauntlet)
+    gameScene.gridManager.addEntity(basicGauntlet, x: component.position.x, y: component.position.y)
+  }
+
+  func addWaterSealForComponent(component: ElementModel, gameScene: GameScene) {
+    let spriteNode = self.spriteNodeFor(component, imageNamed: self.spriteNameForElement(component))
+    let basicGauntlet = WaterSeal(component: component, spriteNode: spriteNode, gridManager: gameScene.gridManager)
+    gameScene.entityManager.add(basicGauntlet)
+    gameScene.gridManager.addEntity(basicGauntlet, x: component.position.x, y: component.position.y)
+  }
+
+  func addPlayerForComponent(component: ElementModel, gameScene: GameScene) {
+    
+    let spriteNode = self.spriteNodeFor(component, imageNamed: GameConstant.Sprites.Player)
+    let player = Player(component: component, spriteNode: spriteNode, actionsManager: gameScene.actionsManager, gridManager: gameScene.gridManager)
+    gameScene.entityManager.add(player)
+    gameScene.gridManager.addEntity(player, x: component.position.x, y: component.position.y)
+  }
+  
+  func spriteNodeFor(component: ElementModel, imageNamed: String) -> SKSpriteNode {
+    
+    let spriteNode: SKSpriteNode = SKSpriteNode(imageNamed: imageNamed)
+    spriteNode.size = CGSize(width: GameConstant.Entity.Size, height: GameConstant.Entity.Size)
+    spriteNode.position.x = CGFloat(component.position.x + GameConstant.Level.Margin) * GameConstant.Entity.Size + GameConstant.Entity.Size / 2
+    spriteNode.position.y = CGFloat(component.position.y + GameConstant.Level.Margin) * GameConstant.Entity.Size + GameConstant.Entity.Size / 2
+    spriteNode.zPosition = CGFloat(component.position.z)
+    spriteNode.zRotation = CGFloat(component.position.orientation.rawValue) / CGFloat(180) * CGFloat(M_PI)
+    
+    return spriteNode
+  }
   
   //
   // DEBUG CONSUM A LOT OF NODE
@@ -237,17 +289,5 @@ class LevelManager {
         gameScene.addChild(spriteNode)
       }
     }
-  }
-  
-  func spriteNodeFor(component: ElementModel, imageNamed: String) -> SKSpriteNode {
-    
-    let spriteNode: SKSpriteNode = SKSpriteNode(imageNamed: imageNamed)
-    spriteNode.size = CGSize(width: GameConstant.Entity.Size, height: GameConstant.Entity.Size)
-    spriteNode.position.x = CGFloat(component.position.x + GameConstant.Level.Margin) * GameConstant.Entity.Size + GameConstant.Entity.Size / 2
-    spriteNode.position.y = CGFloat(component.position.y + GameConstant.Level.Margin) * GameConstant.Entity.Size + GameConstant.Entity.Size / 2
-    spriteNode.zPosition = CGFloat(component.position.z)
-    spriteNode.zRotation = CGFloat(component.position.orientation.rawValue) / CGFloat(180) * CGFloat(M_PI)
-    
-    return spriteNode
   }
 }

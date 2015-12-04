@@ -1,15 +1,15 @@
 //
-//  Gauntlet.swift
+//  Axe.swift
 //  TheGauntlet
 //
-//  Created by Xavier De Koninck on 24/11/2015.
+//  Created by jeff on 03/12/2015.
 //  Copyright © 2015 Jeffrey Macko. All rights reserved.
 //
 
 import SpriteKit
 import GameplayKit
 
-class Gauntlet: GKEntity {
+class Axe: GKEntity {
   
   init(component: ElementModel, spriteNode: SKSpriteNode?, gridManager: GridManager) {
     super.init()

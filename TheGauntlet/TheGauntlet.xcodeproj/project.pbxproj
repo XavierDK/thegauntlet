@@ -21,6 +21,14 @@
 		1F4C0D2B1C0F188E00ED37F6 /* level002.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAE7C81C0E4ECF005F7AC6 /* level002.json */; };
 		1F4C0D2C1C0F188E00ED37F6 /* level001.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAE7AC1C0E3A8D005F7AC6 /* level001.json */; };
 		1F4C0D2D1C0F188E00ED37F6 /* world001.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FCAE7B11C0E3A8D005F7AC6 /* world001.json */; };
+		1F7167751C1040BE0007CFDC /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7167741C1040BE0007CFDC /* Tree.swift */; };
+		1F7167771C106B9C0007CFDC /* BurningTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7167761C106B9C0007CFDC /* BurningTree.swift */; };
+		1F7167791C106CAE0007CFDC /* BoulderCracked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7167781C106CAE0007CFDC /* BoulderCracked.swift */; };
+		1F71677C1C106DBF0007CFDC /* Glove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F71677B1C106DBF0007CFDC /* Glove.swift */; };
+		1F71677E1C106DC60007CFDC /* Rope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F71677D1C106DC60007CFDC /* Rope.swift */; };
+		1F7167801C106DCD0007CFDC /* Hammer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F71677F1C106DCD0007CFDC /* Hammer.swift */; };
+		1F7167821C106DD30007CFDC /* Axe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7167811C106DD30007CFDC /* Axe.swift */; };
+		1F7167841C106DDC0007CFDC /* WaterSeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7167831C106DDC0007CFDC /* WaterSeal.swift */; };
 		1FA40B051C0F4A2200BFED73 /* CaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA40B041C0F4A2200BFED73 /* CaseEntity.swift */; };
 		1FA40B071C0F94A300BFED73 /* level004.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FA40B061C0F94A300BFED73 /* level004.json */; };
 		1FCAE7B31C0E3A8D005F7AC6 /* BaseImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7A81C0E3A8D005F7AC6 /* BaseImageModel.swift */; };
@@ -47,7 +55,6 @@
 		252A63E31C103AE70064926D /* InterfaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A63E21C103AE70064926D /* InterfaceManager.swift */; };
 		252A63E61C103B2C0064926D /* XDKRotatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A63E51C103B2C0064926D /* XDKRotatingPanel.swift */; };
 		2561F7D51C04616400145397 /* InventoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561F7D41C04616400145397 /* InventoryComponent.swift */; };
-		2561F7D71C04622C00145397 /* Gauntlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561F7D61C04622C00145397 /* Gauntlet.swift */; };
 		2561F7D91C04630900145397 /* GauntletComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561F7D81C04630900145397 /* GauntletComponent.swift */; };
 		2561F7DB1C04640700145397 /* GetComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561F7DA1C04640700145397 /* GetComponent.swift */; };
 		2561F7DD1C0480E700145397 /* PushGauntletComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2561F7DC1C0480E700145397 /* PushGauntletComponent.swift */; };
@@ -55,7 +62,7 @@
 		2585FE3E1BFB57E5003EC30C /* MoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2585FE3D1BFB57E5003EC30C /* MoveComponent.swift */; };
 		2599FC101C027EDD00F392FC /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599FC0F1C027EDD00F392FC /* Wall.swift */; };
 		2599FC121C02824300F392FC /* ColliderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599FC111C02824300F392FC /* ColliderComponent.swift */; };
-		2599FC141C02887D00F392FC /* Bloc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599FC131C02887D00F392FC /* Bloc.swift */; };
+		2599FC141C02887D00F392FC /* Boulder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599FC131C02887D00F392FC /* Boulder.swift */; };
 		25B748C11C02272A004E9117 /* ActionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B748BD1C02272A004E9117 /* ActionsManager.swift */; };
 		25B748C21C02272A004E9117 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B748BE1C02272A004E9117 /* EntityManager.swift */; };
 		25B748C41C02272A004E9117 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B748C01C02272A004E9117 /* LevelManager.swift */; };
@@ -96,6 +103,14 @@
 		0F2904E61BF15838000F0F23 /* TheGauntletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGauntletUITests.swift; sourceTree = "<group>"; };
 		0F2904E81BF15838000F0F23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F7BC61C1BF6894000DE3A5C /* LevelSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectorViewController.swift; sourceTree = "<group>"; };
+		1F7167741C1040BE0007CFDC /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
+		1F7167761C106B9C0007CFDC /* BurningTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BurningTree.swift; sourceTree = "<group>"; };
+		1F7167781C106CAE0007CFDC /* BoulderCracked.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoulderCracked.swift; sourceTree = "<group>"; };
+		1F71677B1C106DBF0007CFDC /* Glove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Glove.swift; sourceTree = "<group>"; };
+		1F71677D1C106DC60007CFDC /* Rope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rope.swift; sourceTree = "<group>"; };
+		1F71677F1C106DCD0007CFDC /* Hammer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hammer.swift; sourceTree = "<group>"; };
+		1F7167811C106DD30007CFDC /* Axe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Axe.swift; sourceTree = "<group>"; };
+		1F7167831C106DDC0007CFDC /* WaterSeal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterSeal.swift; sourceTree = "<group>"; };
 		1FA40B041C0F4A2200BFED73 /* CaseEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseEntity.swift; sourceTree = "<group>"; };
 		1FA40B061C0F94A300BFED73 /* level004.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level004.json; sourceTree = "<group>"; };
 		1FCAE7A81C0E3A8D005F7AC6 /* BaseImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseImageModel.swift; sourceTree = "<group>"; };
@@ -127,7 +142,6 @@
 		252A63E21C103AE70064926D /* InterfaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfaceManager.swift; path = Game/Managers/InterfaceManager.swift; sourceTree = "<group>"; };
 		252A63E51C103B2C0064926D /* XDKRotatingPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XDKRotatingPanel.swift; path = Game/UI/XDKRotatingPanel.swift; sourceTree = "<group>"; };
 		2561F7D41C04616400145397 /* InventoryComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InventoryComponent.swift; path = Game/Components/InventoryComponent.swift; sourceTree = "<group>"; };
-		2561F7D61C04622C00145397 /* Gauntlet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gauntlet.swift; path = Game/Entities/Gauntlet.swift; sourceTree = "<group>"; };
 		2561F7D81C04630900145397 /* GauntletComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GauntletComponent.swift; path = Game/Components/GauntletComponent.swift; sourceTree = "<group>"; };
 		2561F7DA1C04640700145397 /* GetComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetComponent.swift; path = Game/Components/GetComponent.swift; sourceTree = "<group>"; };
 		2561F7DC1C0480E700145397 /* PushGauntletComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushGauntletComponent.swift; path = Game/Components/PushGauntletComponent.swift; sourceTree = "<group>"; };
@@ -135,7 +149,7 @@
 		2585FE3D1BFB57E5003EC30C /* MoveComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoveComponent.swift; path = Game/Components/MoveComponent.swift; sourceTree = "<group>"; };
 		2599FC0F1C027EDD00F392FC /* Wall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Wall.swift; path = Game/Entities/Wall.swift; sourceTree = "<group>"; };
 		2599FC111C02824300F392FC /* ColliderComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColliderComponent.swift; path = Game/Components/ColliderComponent.swift; sourceTree = "<group>"; };
-		2599FC131C02887D00F392FC /* Bloc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bloc.swift; path = Game/Entities/Bloc.swift; sourceTree = "<group>"; };
+		2599FC131C02887D00F392FC /* Boulder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Boulder.swift; path = Game/Entities/Boulder.swift; sourceTree = "<group>"; };
 		25B748BD1C02272A004E9117 /* ActionsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionsManager.swift; path = Game/Managers/ActionsManager.swift; sourceTree = "<group>"; };
 		25B748BE1C02272A004E9117 /* EntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntityManager.swift; path = Game/Managers/EntityManager.swift; sourceTree = "<group>"; };
 		25B748C01C02272A004E9117 /* LevelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = LevelManager.swift; path = Game/Managers/LevelManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -221,6 +235,30 @@
 				0F2904E81BF15838000F0F23 /* Info.plist */,
 			);
 			path = TheGauntletUITests;
+			sourceTree = "<group>";
+		};
+		1F71677A1C106D850007CFDC /* BlocEntity */ = {
+			isa = PBXGroup;
+			children = (
+				2599FC0F1C027EDD00F392FC /* Wall.swift */,
+				1F7167741C1040BE0007CFDC /* Tree.swift */,
+				1F7167761C106B9C0007CFDC /* BurningTree.swift */,
+				2599FC131C02887D00F392FC /* Boulder.swift */,
+				1F7167781C106CAE0007CFDC /* BoulderCracked.swift */,
+			);
+			name = BlocEntity;
+			sourceTree = "<group>";
+		};
+		1F7167851C106E160007CFDC /* ItemEntity */ = {
+			isa = PBXGroup;
+			children = (
+				1F71677B1C106DBF0007CFDC /* Glove.swift */,
+				1F71677D1C106DC60007CFDC /* Rope.swift */,
+				1F71677F1C106DCD0007CFDC /* Hammer.swift */,
+				1F7167811C106DD30007CFDC /* Axe.swift */,
+				1F7167831C106DDC0007CFDC /* WaterSeal.swift */,
+			);
+			name = ItemEntity;
 			sourceTree = "<group>";
 		};
 		1FCAE7A61C0E3A8D005F7AC6 /* LevelEditor */ = {
@@ -315,9 +353,8 @@
 			children = (
 				252566301BF7EF64006D014D /* Player.swift */,
 				1FA40B041C0F4A2200BFED73 /* CaseEntity.swift */,
-				2599FC0F1C027EDD00F392FC /* Wall.swift */,
-				2599FC131C02887D00F392FC /* Bloc.swift */,
-				2561F7D61C04622C00145397 /* Gauntlet.swift */,
+				1F71677A1C106D850007CFDC /* BlocEntity */,
+				1F7167851C106E160007CFDC /* ItemEntity */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -572,11 +609,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F7167801C106DCD0007CFDC /* Hammer.swift in Sources */,
 				1FCAE7C51C0E3B7F005F7AC6 /* EditorModel.swift in Sources */,
 				1FCAE7B51C0E3A8D005F7AC6 /* CreatorModel.swift in Sources */,
 				1FCAE7C31C0E3B7F005F7AC6 /* ActionableActionModel.swift in Sources */,
 				2561F7DB1C04640700145397 /* GetComponent.swift in Sources */,
+				1F71677C1C106DBF0007CFDC /* Glove.swift in Sources */,
 				1FCAE7BB1C0E3A8D005F7AC6 /* PositionModel.swift in Sources */,
+				1F7167751C1040BE0007CFDC /* Tree.swift in Sources */,
 				1FCAE7B41C0E3A8D005F7AC6 /* BaseLevelModel.swift in Sources */,
 				2561F7D51C04616400145397 /* InventoryComponent.swift in Sources */,
 				2561F7DD1C0480E700145397 /* PushGauntletComponent.swift in Sources */,
@@ -588,12 +628,12 @@
 				25B748CA1C0227C6004E9117 /* GridManager.swift in Sources */,
 				252566251BF7E1F5006D014D /* GameScene.swift in Sources */,
 				1FCAE7C41C0E3B7F005F7AC6 /* CustomOperator.swift in Sources */,
-				2561F7D71C04622C00145397 /* Gauntlet.swift in Sources */,
 				1FCAE7B81C0E3A8D005F7AC6 /* LevelEnums.swift in Sources */,
 				1FCAE7C61C0E3B7F005F7AC6 /* ElementModel.swift in Sources */,
 				1FA40B051C0F4A2200BFED73 /* CaseEntity.swift in Sources */,
-				2599FC141C02887D00F392FC /* Bloc.swift in Sources */,
+				2599FC141C02887D00F392FC /* Boulder.swift in Sources */,
 				252566231BF7E03E006D014D /* GameViewController.swift in Sources */,
+				1F7167841C106DDC0007CFDC /* WaterSeal.swift in Sources */,
 				1FCAE7B31C0E3A8D005F7AC6 /* BaseImageModel.swift in Sources */,
 				1FCAE7BD1C0E3A8D005F7AC6 /* WorldModel.swift in Sources */,
 				25B748C41C02272A004E9117 /* LevelManager.swift in Sources */,
@@ -604,12 +644,16 @@
 				252566311BF7EF64006D014D /* Player.swift in Sources */,
 				252A63E31C103AE70064926D /* InterfaceManager.swift in Sources */,
 				25B748C11C02272A004E9117 /* ActionsManager.swift in Sources */,
+				1F7167791C106CAE0007CFDC /* BoulderCracked.swift in Sources */,
 				1FCAE7BA1C0E3A8D005F7AC6 /* MappableValidator.swift in Sources */,
+				1F7167771C106B9C0007CFDC /* BurningTree.swift in Sources */,
 				0F2904C71BF15838000F0F23 /* AppDelegate.swift in Sources */,
 				2585FE3E1BFB57E5003EC30C /* MoveComponent.swift in Sources */,
 				250940CE1C09FDCD00EB687F /* CameraManager.swift in Sources */,
 				2561F7D91C04630900145397 /* GauntletComponent.swift in Sources */,
+				1F71677E1C106DC60007CFDC /* Rope.swift in Sources */,
 				25B748CC1C023630004E9117 /* GridComponent.swift in Sources */,
+				1F7167821C106DD30007CFDC /* Axe.swift in Sources */,
 				0F7BC61D1BF6894000DE3A5C /* LevelSelectorViewController.swift in Sources */,
 				1FCAE7B91C0E3A8D005F7AC6 /* LevelModel.swift in Sources */,
 				2599FC121C02824300F392FC /* ColliderComponent.swift in Sources */,
