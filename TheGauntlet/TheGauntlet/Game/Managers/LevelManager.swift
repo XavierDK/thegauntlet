@@ -17,7 +17,7 @@ class LevelManager {
     let gameScene: GameScene = GameScene(size: UIScreen.mainScreen().bounds.size)
     
     // TEST
-    gameScene.backgroundColor = UIColor.whiteColor()
+    gameScene.backgroundColor = UIColor.lightGrayColor()
     //
     
     gameScene.gridManager = GridManager(levelSize: levelObject.size, entityManager: gameScene.entityManager)

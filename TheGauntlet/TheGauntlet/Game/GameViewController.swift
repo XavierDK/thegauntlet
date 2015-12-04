@@ -20,10 +20,10 @@ class GameViewController: UIViewController {
     super.init(nibName:nil, bundle:nil)
     
     let levelPath = NSBundle.mainBundle().pathForResource(levelName, ofType: "json")
-
+    
     do {
-        let lvlModel : LevelModel = try LevelModel().objectForFile(levelPath!)
-        self.scene = self.levelManager.levelFromLevelObject(lvlModel)
+      let lvlModel : LevelModel = try LevelModel().objectForFile(levelPath!)
+      self.scene = self.levelManager.levelFromLevelObject(lvlModel)
     }
     catch let error as JSONModelParserError {
       LevelModel().alertErrorForError(error)
@@ -58,6 +58,7 @@ class GameViewController: UIViewController {
       let skView = self.view as! SKView
       skView.showsFPS = true
       skView.showsNodeCount = true
+      skView.showsDrawCount = true
       
       /* Sprite Kit applies additional optimizations to improve rendering performance */
       skView.ignoresSiblingOrder = true
