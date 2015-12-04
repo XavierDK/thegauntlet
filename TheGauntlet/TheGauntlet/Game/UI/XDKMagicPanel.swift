@@ -31,8 +31,13 @@ class XDKMagicPanel: UIView {
   let marginRight: CGFloat = 40.0
   let marginBottom: CGFloat = 40.0
   let buttonSize: CGFloat = 60.0
+  var buttonsNumber: Int?
+  
+  var buttons: [UIButton]
   
   override init(frame: CGRect) {
+    
+    self.buttons = [UIButton]()
     
     super.init(frame: frame)
     
@@ -46,7 +51,26 @@ class XDKMagicPanel: UIView {
   
   func loadPanel() {
     
+    self.createButtons()
     self.addOpeningButton()
+  }
+  
+  func createButtons() {
+    
+    self.buttonsNumber = self.delegate?.numberOfItemsForMagicPanel(self)
+    
+    if let buttonsNumber = self.buttonsNumber {
+      for _ in 0 ..< buttonsNumber {
+        
+        let button = UIButton(type: .Custom)
+        self.buttons.append(button)
+        
+//        self.addSubview(button)
+//        
+//        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[button(buttonSize)]-marginBottom-|", options: .DirectionLeadingToTrailing, metrics: ["buttonSize": buttonSize, "marginBottom": marginBottom], views: ["button": button]))
+//        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[button(buttonSize)]-marginRight-|", options: .DirectionLeadingToTrailing, metrics: ["buttonSize": buttonSize, "marginRight": marginRight], views: ["button": button]))
+      }
+    }
   }
   
   func addOpeningButton() {
@@ -62,25 +86,20 @@ class XDKMagicPanel: UIView {
     self.translatesAutoresizingMaskIntoConstraints = false
     button.translatesAutoresizingMaskIntoConstraints = false
     
+    button.addTarget(self, action: "openingButtonClick:", forControlEvents: .TouchDown)
+    
     if let superview = self.superview {
       superview.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[view]-0-|", options: .DirectionLeadingToTrailing, metrics: nil, views: ["view": self]))
       superview.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[view]-0-|", options: .DirectionLeadingToTrailing, metrics: nil, views: ["view": self]))
     }
     
-    self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[button(buttonSize)]-50-|", options: .DirectionLeadingToTrailing, metrics: ["buttonSize": buttonSize], views: ["button": button]))
-    self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[button(buttonSize)]-50-|", options: .DirectionLeadingToTrailing, metrics: ["buttonSize": buttonSize], views: ["button": button]))
+    self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[button(buttonSize)]-marginBottom-|", options: .DirectionLeadingToTrailing, metrics: ["buttonSize": buttonSize, "marginBottom": marginBottom], views: ["button": button]))
+    self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[button(buttonSize)]-marginRight-|", options: .DirectionLeadingToTrailing, metrics: ["buttonSize": buttonSize, "marginRight": marginRight], views: ["button": button]))
+  }
+  
+  
+  func openingButtonClick(sender: UIButton){
     
-    //    [button addConstraints:[NSLayoutConstraint
-    //      constraintsWithVisualFormat:@"V:|-[myView(>=748)]-|"
-    //      options:NSLayoutFormatDirectionLeadingToTrailing
-    //      metrics:nil
-    //      views:NSDictionaryOfVariableBindings(myView)]];
-    //
-    //    [button addConstraints:[NSLayoutConstraint
-    //      constraintsWithVisualFormat:@"H:[myView(==200)]-|"
-    //      options:NSLayoutFormatDirectionLeadingToTrailing
-    //      metrics:nil
-    //      views:NSDictionaryOfVariableBindings(myView)]];
   }
 }
 
