@@ -23,7 +23,6 @@ class GameViewController: UIViewController {
 
     do {
         let lvlModel : LevelModel = try LevelModel().objectForFile(levelPath!)
-        print(lvlModel.debugDescription)
         self.scene = self.levelManager.levelFromLevelObject(lvlModel)
     }
     catch let error as JSONModelParserError {
@@ -31,9 +30,7 @@ class GameViewController: UIViewController {
     }
     catch {
       let alert = UIAlertController(title: "Error", message: "An error occured", preferredStyle: .Alert)
-      alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-        
-      }))
+      alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
       UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
     }
   }
