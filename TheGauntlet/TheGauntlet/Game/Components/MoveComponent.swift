@@ -42,47 +42,54 @@ class MoveComponent: GKComponent {
       return
     }
     
-      if let action = self.actionManager.nextMoveAction() {
-        switch action {
-        case .ActionDownMove:
-          if self.gridManager.moveEntity(entity, direction: .Down) {
-            self.lastTime = seconds
-            self.moveSpriteNode(0, x: 0, y: -GameConstant.Entity.Size, spriteNode: spriteComponent.node)
-          }
-          else {
-            self.rotateSpriteNode(0, spriteNode: spriteComponent.node)
-          }
-          
-        case .ActionLeftMove:
-          if self.gridManager.moveEntity(entity, direction: .Left) {
-            self.lastTime = seconds
-            self.moveSpriteNode(270, x: -GameConstant.Entity.Size, y: 0, spriteNode: spriteComponent.node)
-          }
-          else {
-            self.rotateSpriteNode(270, spriteNode: spriteComponent.node)
-          }
-          
-        case .ActionUpMove:
-          if self.gridManager.moveEntity(entity, direction: .Up) {
-            self.lastTime = seconds
-            self.moveSpriteNode(180, x: 0, y: GameConstant.Entity.Size, spriteNode: spriteComponent.node)
-          }
-          else {
-            self.rotateSpriteNode(180, spriteNode: spriteComponent.node)
-          }
-          
-        case .ActionRightMove:
-          if self.gridManager.moveEntity(entity, direction: .Right) {
-            self.lastTime = seconds
-            self.moveSpriteNode(90, x: GameConstant.Entity.Size, y: 0, spriteNode: spriteComponent.node)
-          }
-          else {
-            self.rotateSpriteNode(90, spriteNode: spriteComponent.node)
-          }
-          
-        default:
-          break
+    if let action = self.actionManager.nextMoveAction() {
+      
+      var moveDelta : Int = 1
+      
+      switch action {
+      case .ActionDownMove:
+        moveDelta = self.gridManager.moveEntity(entity, direction: .Down)
+        if moveDelta > 0 {
+          self.lastTime = seconds
+          self.moveSpriteNode(0, x: 0, y: -GameConstant.Entity.Size * CGFloat(moveDelta), spriteNode: spriteComponent.node)
         }
+        else {
+          self.rotateSpriteNode(0, spriteNode: spriteComponent.node)
+        }
+        
+      case .ActionLeftMove:
+        moveDelta = self.gridManager.moveEntity(entity, direction: .Left)
+        if moveDelta > 0 {
+          self.lastTime = seconds
+          self.moveSpriteNode(270, x: -GameConstant.Entity.Size * CGFloat(moveDelta), y: 0, spriteNode: spriteComponent.node)
+        }
+        else {
+          self.rotateSpriteNode(270, spriteNode: spriteComponent.node)
+        }
+        
+      case .ActionUpMove:
+        moveDelta = self.gridManager.moveEntity(entity, direction: .Up)
+        if moveDelta > 0 {
+          self.lastTime = seconds
+          self.moveSpriteNode(180, x: 0, y: GameConstant.Entity.Size * CGFloat(moveDelta), spriteNode: spriteComponent.node)
+        }
+        else {
+          self.rotateSpriteNode(180, spriteNode: spriteComponent.node)
+        }
+        
+      case .ActionRightMove:
+        moveDelta = self.gridManager.moveEntity(entity, direction: .Right)
+        if moveDelta > 0 {
+          self.lastTime = seconds
+          self.moveSpriteNode(90, x: GameConstant.Entity.Size * CGFloat(moveDelta), y: 0, spriteNode: spriteComponent.node)
+        }
+        else {
+          self.rotateSpriteNode(90, spriteNode: spriteComponent.node)
+        }
+        
+      default:
+        break
+      }
     }
   }
   

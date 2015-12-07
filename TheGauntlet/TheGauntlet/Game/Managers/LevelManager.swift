@@ -44,7 +44,9 @@ class LevelManager {
       case BaseType.Case:
         let specifictype = SpecificTypeCase(rawValue: anElement.specifictype)!
         switch specifictype {
-        case SpecificTypeCase.Simple, SpecificTypeCase.Muddy, SpecificTypeCase.Ephemeral, SpecificTypeCase.Actionable, SpecificTypeCase.Hole:
+        case SpecificTypeCase.Muddy:
+          self.addMuddyCaseEntityInGameScene(anElement, gameScene:gameScene)
+        case SpecificTypeCase.Simple, SpecificTypeCase.Ephemeral, SpecificTypeCase.Actionable, SpecificTypeCase.Hole:
           self.addCaseEntityInGameScene(anElement, gameScene:gameScene)
           break
         }
@@ -179,6 +181,13 @@ class LevelManager {
     let player = CaseEntity(component: element, spriteNode: spriteNode)
     gameScene.entityManager.add(player)
     gameScene.gridManager.addEntity(player, x: element.position.x, y: element.position.y)
+  }
+  
+  func addMuddyCaseEntityInGameScene(element: ElementModel, gameScene: GameScene) {
+    let spriteNode = self.spriteNodeFor(element, imageNamed:self.spriteNameForElement(element))
+    let muddy = Muddy(component: element, spriteNode: spriteNode, gridManager: gameScene.gridManager)
+    gameScene.entityManager.add(muddy)
+    gameScene.gridManager.addEntity(muddy, x: element.position.x, y: element.position.y)
   }
   
   func addWallForComponent(component: ElementModel, gameScene: GameScene) {

@@ -54,10 +54,10 @@ class GridManager {
   }
   
   
-  func moveEntity(entity: GKEntity, direction: Orientation) -> Bool {
+  func moveEntity(entity: GKEntity, direction: Orientation) -> Int {
     
     guard let gridComponent = entity.componentForClass(GridComponent.self) else {
-      return false
+      return 0
     }
     
     var newX = gridComponent.x
@@ -74,19 +74,46 @@ class GridManager {
       newX--
     }
     
-    if let gauntletUsed = entity.componentForClass(InventoryComponent.self)?.itemUsed {
+    if let itemUsed = entity.componentForClass(InventoryComponent.self)?.itemUsed {
       
-      let res = gauntletUsed.actionForGrid(self, newX: newX, newY: newY, direction: direction)
+      let res = itemUsed.actionForGrid(self, newX: newX, newY: newY, direction: direction)
       newX = res.0
       newY = res.1
     }
     
     if !self.checkLevelLimit(newX, newY: newY) {
-      return false
+      return 0
     }
     
     if self.checkComponentClass(ColliderComponent.self, newX: newX, newY: newY).0 {
-      return false
+      return 0
+    }
+    
+    var nbSteps = 1
+    while self.checkComponentClass(SlipComponent.self, newX: newX, newY: newY).0 {
+      
+      let oldX = newX
+      let oldY = newY
+      
+      switch direction {
+      case .Up:
+        newY++
+      case .Down:
+        newY--
+      case .Left:
+        newX--
+      case .Right:
+        newX++
+      }
+      
+      if !self.checkLevelLimit(newX, newY: newY) ||
+       self.checkComponentClass(ColliderComponent.self, newX: newX, newY: newY).0{
+        newX = oldX
+        newY = oldY
+        break
+      }
+
+      nbSteps++
     }
     
     let res = self.checkComponentClass(GetComponent.self, newX: newX, newY: newY)
@@ -94,16 +121,14 @@ class GridManager {
     if res.0, let object = res.1 {
       if let inventory = entity.componentForClass(InventoryComponent.self),
         let objectToGet = object.componentForClass(GetComponent.self) {
-          if let gauntlet = objectToGet.objectToGet as? GloveItem {
-            inventory.addGauntlet(gauntlet)
-          }
+          inventory.addItem(objectToGet.objectToGet)
       }
       self.entityManager.remove(object)
     }
     
     self.updateEntity(entity, newX: newX, newY: newY)
     
-    return true
+    return nbSteps
   }
   
   

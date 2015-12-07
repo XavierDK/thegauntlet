@@ -68,6 +68,8 @@
 		25B748C41C02272A004E9117 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B748C01C02272A004E9117 /* LevelManager.swift */; };
 		25B748CA1C0227C6004E9117 /* GridManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B748C91C0227C6004E9117 /* GridManager.swift */; };
 		25B748CC1C023630004E9117 /* GridComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B748CB1C023630004E9117 /* GridComponent.swift */; };
+		25FBF1FF1C164712001C28A2 /* Muddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FBF1FE1C164712001C28A2 /* Muddy.swift */; };
+		25FBF2011C164881001C28A2 /* SlipComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FBF2001C164881001C28A2 /* SlipComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +157,8 @@
 		25B748C01C02272A004E9117 /* LevelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = LevelManager.swift; path = Game/Managers/LevelManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		25B748C91C0227C6004E9117 /* GridManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = GridManager.swift; path = Game/Managers/GridManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		25B748CB1C023630004E9117 /* GridComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridComponent.swift; path = Game/Components/GridComponent.swift; sourceTree = "<group>"; };
+		25FBF1FE1C164712001C28A2 /* Muddy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Muddy.swift; path = Game/Entities/CaseEntities/Muddy.swift; sourceTree = "<group>"; };
+		25FBF2001C164881001C28A2 /* SlipComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlipComponent.swift; path = Game/Components/SlipComponent.swift; sourceTree = "<group>"; };
 		63EBAD06DDABE42B988298DE /* Pods-TheGauntlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheGauntlet.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheGauntlet/Pods-TheGauntlet.release.xcconfig"; sourceTree = "<group>"; };
 		9A7E83F421784EE977E08646 /* Pods_TheGauntlet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheGauntlet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -354,6 +358,7 @@
 			children = (
 				252566301BF7EF64006D014D /* Player.swift */,
 				1FA40B041C0F4A2200BFED73 /* CaseEntity.swift */,
+				25FBF1FD1C1646E5001C28A2 /* CaseEntity */,
 				1F71677A1C106D850007CFDC /* BlocEntity */,
 				1F7167851C106E160007CFDC /* ItemEntity */,
 			);
@@ -370,6 +375,7 @@
 				2561F7D41C04616400145397 /* InventoryComponent.swift */,
 				2561F7DA1C04640700145397 /* GetComponent.swift */,
 				2561F7DE1C0483CF00145397 /* PushableComponent.swift */,
+				25FBF2001C164881001C28A2 /* SlipComponent.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -402,6 +408,14 @@
 				2561F7DC1C0480E700145397 /* GloveItem.swift */,
 			);
 			name = Items;
+			sourceTree = "<group>";
+		};
+		25FBF1FD1C1646E5001C28A2 /* CaseEntity */ = {
+			isa = PBXGroup;
+			children = (
+				25FBF1FE1C164712001C28A2 /* Muddy.swift */,
+			);
+			name = CaseEntity;
 			sourceTree = "<group>";
 		};
 		C5159DB00072473D605D1B12 /* Pods */ = {
@@ -619,6 +633,7 @@
 			files = (
 				1F7167801C106DCD0007CFDC /* Hammer.swift in Sources */,
 				1FCAE7C51C0E3B7F005F7AC6 /* EditorModel.swift in Sources */,
+				25FBF1FF1C164712001C28A2 /* Muddy.swift in Sources */,
 				1FCAE7B51C0E3A8D005F7AC6 /* CreatorModel.swift in Sources */,
 				1FCAE7C31C0E3B7F005F7AC6 /* ActionableActionModel.swift in Sources */,
 				2561F7DB1C04640700145397 /* GetComponent.swift in Sources */,
@@ -657,6 +672,7 @@
 				1F7167771C106B9C0007CFDC /* BurningTree.swift in Sources */,
 				0F2904C71BF15838000F0F23 /* AppDelegate.swift in Sources */,
 				2585FE3E1BFB57E5003EC30C /* MoveComponent.swift in Sources */,
+				25FBF2011C164881001C28A2 /* SlipComponent.swift in Sources */,
 				250940CE1C09FDCD00EB687F /* CameraManager.swift in Sources */,
 				2561F7D91C04630900145397 /* Item.swift in Sources */,
 				1F71677E1C106DC60007CFDC /* Rope.swift in Sources */,

@@ -20,7 +20,7 @@ class InventoryComponent: GKComponent {
     super.init()
   }  
   
-  func addGauntlet(gauntlet: Item) {
+  func addItem(gauntlet: Item) {
     
     self.items.append(gauntlet)
     if self.itemUsed == nil {
