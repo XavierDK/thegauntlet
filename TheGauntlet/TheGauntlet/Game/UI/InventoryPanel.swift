@@ -9,29 +9,28 @@
 import Foundation
 import SpriteKit
 
-
-protocol InventoryPanelDataSource {
-  
-  func numberOfItemsForPanel(panel: InventoryPanel) -> Int
-}
-
-
 class InventoryButton : SKNode {
   
-  let width: CGFloat = 50
-  let height: CGFloat = 50
-  let marginWidth: CGFloat = 50
-  let marginHeight: CGFloat = 50
+  let marginWidth: CGFloat = 15 * UIScreen.mainScreen().scale
+  let marginHeight: CGFloat = 15 * UIScreen.mainScreen().scale
   let imageNode: SKSpriteNode
+  let width: CGFloat
+  let height: CGFloat
   
-  init(name: String) {
+  var buttonPosition : CGPoint {
+    return CGPoint(x: UIScreen.mainScreen().bounds.width / 2 - self.width / 2 - self.marginWidth, y: UIScreen.mainScreen().bounds.height / 2 - self.height / 2 - self.marginHeight)
+  }
+  
+  init(name: String, width: CGFloat, height: CGFloat) {
     
-    self.imageNode = SKSpriteNode(color: UIColor.blackColor(), size: CGSize(width: self.width, height: self.height))
-    self.imageNode.position = CGPoint(x: UIScreen.mainScreen().bounds.width / 2 - self.width / 2 - self.marginWidth, y: -1 * UIScreen.mainScreen().bounds.height / 2 + self.height / 2 + self.marginHeight)
+    self.width = width
+    self.height = height
+    self.imageNode = SKSpriteNode(color: UIColor.brownColor(), size: CGSize(width: width, height: height))
     self.imageNode.name = name
     
     super.init()
     
+    self.imageNode.position = self.buttonPosition
     self.addChild(self.imageNode)
   }
   
@@ -43,37 +42,42 @@ class InventoryButton : SKNode {
 
 class InventoryItem : SKNode {
   
-  let imageNode: SKSpriteNode
+  let positionIndex: [Int : CGPoint] =
+  [0 : CGPoint(x: -50 * UIScreen.mainScreen().scale, y: 25 * UIScreen.mainScreen().scale),
+    1 : CGPoint(x: -0  * UIScreen.mainScreen().scale, y: 25 * UIScreen.mainScreen().scale),
+    2 : CGPoint(x: 50 * UIScreen.mainScreen().scale, y: 25 * UIScreen.mainScreen().scale),
+    3 : CGPoint(x: -25 * UIScreen.mainScreen().scale, y: -25 * UIScreen.mainScreen().scale),
+    4 : CGPoint(x: 25 * UIScreen.mainScreen().scale, y: -25 * UIScreen.mainScreen().scale)]
   
-  let max : Int
-  let index : Int
+  let imageNode: SKSpriteNode
   
   let width : CGFloat
   let height : CGFloat
+  let index : Int
   
-  var line : Int {
+  init(width: CGFloat, height: CGFloat, index: Int) {
     
-    return self.index / self.max
-  }
-  
-  init(index: Int, max: Int, width: CGFloat, height: CGFloat) {
-    
-    self.max = max
-    self.index = index
     self.width = width
     self.height = height
+    self.index = index
     
-    self.imageNode = SKSpriteNode(color: UIColor.blackColor(), size: CGSize(width: self.width, height: self.height))
+    self.imageNode = SKSpriteNode(color: UIColor.lightGrayColor(), size: CGSize(width: self.width, height: self.height))
     
     super.init()
-  }
-
-  required init?(coder aDecoder: NSCoder) {
-      fatalError("init(coder:) has not been implemented")
+    
+    self.addChild(self.imageNode)
   }
   
-  func clean() {
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  func movingPosition() -> CGPoint {
     
+    if let position = self.positionIndex[self.index] {
+      return position
+    }
+    return CGPointZero
   }
 }
 
@@ -85,59 +89,22 @@ class InventoryPanel : SKNode {
   var items : [InventoryItem]
   let backgroundName : String = "background"
   let inventoryButtonName : String = "inventoryButton"
-  let animationDuration: NSTimeInterval = 0.3
-  let fadeForBackground: CGFloat = 0.7
+  let animationDuration: NSTimeInterval = 0.20
+  let fadeForBackground: CGFloat = 0.9
   var isPanelOpened: Bool = false
   
-  var dataSource: InventoryPanelDataSource? {
-    didSet {
-      
-      self.setupItems()
-    }
-  }
+  let width: CGFloat = 25 * UIScreen.mainScreen().scale
+  let height: CGFloat = 25 * UIScreen.mainScreen().scale
+  let numberItems: Int = 5
   
-  var itemsNumber: Int?
-  
-  let nbMaxItemsPerLine: Int = 3
-//  let itemHorizontalMargin: CGFloat = 50
-//  let itemVerticalMargin: CGFloat = 50
-  let itemWidth: CGFloat = 50
-  let itemHeight: CGFloat = 50
-  let itemHorizontalMargin : CGFloat = 150
-  let itemVerticalMargin : CGFloat = 150
-  
-  var itemMarginWidth : CGFloat {
-    
-    let iHm = (UIScreen.mainScreen().bounds.size.width - (CGFloat(self.nbMaxItemsPerLine) * self.itemWidth) - (self.itemHorizontalMargin * 2)) / CGFloat(self.nbMaxItemsPerLine - 1)
-    return iHm
-  }
-  
-  var itemMarginHeight: CGFloat {
-    
-    let iVm = (UIScreen.mainScreen().bounds.size.height - (CGFloat(self.numberLines) * self.itemHeight) - (self.itemVerticalMargin * 2)) / CGFloat(self.numberLines - 1)
-    return iVm
-  }
-  
-  var numberLines : Int {
-    
-    if let itemsNumber = self.itemsNumber {
-      let nb = Int(ceil(CGFloat(itemsNumber) / CGFloat(self.nbMaxItemsPerLine)))
-      
-      return nb
-    }
-    return 0
-  }
-
   
   override init() {
     
     self.background = SKSpriteNode(color: UIColor.blackColor(), size: CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height))
-    self.button = InventoryButton(name: self.inventoryButtonName)
+    self.button = InventoryButton(name: self.inventoryButtonName, width: self.width, height: self.height)
     self.items = [InventoryItem]()
     
     super.init()
-    
-//    self.userInteractionEnabled = true
     
     self.setup()
   }
@@ -149,6 +116,7 @@ class InventoryPanel : SKNode {
   func setup() {
     
     self.setupBackground()
+    self.setupItems()
     self.setupButton()
   }
   
@@ -166,30 +134,13 @@ class InventoryPanel : SKNode {
   
   func setupItems() {
     
-    if let dataSource = self.dataSource {
+    for i in 0 ..< self.numberItems {
       
-      self.itemsNumber = dataSource.numberOfItemsForPanel(self)
-      
-      print("\(self.itemMarginWidth) - \(self.itemMarginHeight)")
-      
-      if let nbItems = self.itemsNumber {
-        
-        for i in 0 ..< nbItems {
-          
-          let item = InventoryItem(index: i, max: self.nbMaxItemsPerLine, width: self.itemWidth, height: self.itemHeight)
-          self.items.append(item)
-        }
-      }
+      let item = InventoryItem(width: self.width, height: self.height, index: i)
+      self.items.append(item)
+      item.position = self.button.buttonPosition
+      self.addChild(item)
     }
-  }
-  
-  func reloadData() {
-    
-    for item in self.items {
-      item.clean()
-    }
-    self.items.removeAll()
-    self.setupItems()
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -237,6 +188,12 @@ class InventoryPanel : SKNode {
     self.isPanelOpened = true
     let fadeAction: SKAction = SKAction.fadeAlphaTo(self.fadeForBackground, duration: self.animationDuration)
     self.background.runAction(fadeAction)
+    
+    for item in self.items {
+      
+      let moveAction = SKAction.moveTo(item.movingPosition(), duration: self.animationDuration)
+      item.runAction(moveAction)
+    }
   }
   
   func closePanel() {
@@ -244,5 +201,12 @@ class InventoryPanel : SKNode {
     self.isPanelOpened = false
     let fadeAction: SKAction = SKAction.fadeOutWithDuration(self.animationDuration)
     self.background.runAction(fadeAction)
+    
+    for item in self.items {
+      
+      let moveAction = SKAction.moveTo(self.button.buttonPosition, duration: self.animationDuration)
+      item.runAction(moveAction)
+    }
   }
 }
+ 

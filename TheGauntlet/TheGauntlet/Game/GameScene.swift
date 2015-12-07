@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene, UIGestureRecognizerDelegate, InventoryPanelDataSource {
+class GameScene: SKScene, UIGestureRecognizerDelegate {
   
   var entityManager: EntityManager!
   var actionsManager: ActionsManager = ActionsManager()
@@ -65,7 +65,6 @@ class GameScene: SKScene, UIGestureRecognizerDelegate, InventoryPanelDataSource 
     self.view?.addGestureRecognizer(swipeGesture)
     
     self.inventoryPanel.zPosition = 999
-    self.inventoryPanel.dataSource = self
     self.cameraManager.camera.addChild(self.inventoryPanel)
   }
   
@@ -159,15 +158,5 @@ class GameScene: SKScene, UIGestureRecognizerDelegate, InventoryPanelDataSource 
       return false
     }
     return true
-  }
-  
-  
-  //
-  // MARK: Panel DataSource
-  //
-  
-  func numberOfItemsForPanel(panel: InventoryPanel) -> Int {
-    
-    return 5
   }
 }
