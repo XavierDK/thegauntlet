@@ -74,7 +74,7 @@ class GridManager {
       newX--
     }
     
-    if let gauntletUsed = entity.componentForClass(InventoryComponent.self)?.gauntletUsed {
+    if let gauntletUsed = entity.componentForClass(InventoryComponent.self)?.itemUsed {
       
       let res = gauntletUsed.actionForGrid(self, newX: newX, newY: newY, direction: direction)
       newX = res.0
@@ -94,7 +94,7 @@ class GridManager {
     if res.0, let object = res.1 {
       if let inventory = entity.componentForClass(InventoryComponent.self),
         let objectToGet = object.componentForClass(GetComponent.self) {
-          if let gauntlet = objectToGet.objectToGet as? GauntletComponent {
+          if let gauntlet = objectToGet.objectToGet as? GloveItem {
             inventory.addGauntlet(gauntlet)
           }
       }

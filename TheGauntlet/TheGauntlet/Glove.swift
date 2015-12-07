@@ -24,7 +24,7 @@ class Glove: GKEntity {
     let gridComponent = GridComponent(gridManager: gridManager, x: component.position.x, y: component.position.y)
     addComponent(gridComponent)
     
-    let getComponent = GetComponent(objectToGet: PushGauntletComponent())
+    let getComponent = GetComponent(objectToGet: GloveItem())
     addComponent(getComponent)
   }
 }

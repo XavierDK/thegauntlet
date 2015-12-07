@@ -11,20 +11,20 @@ import SpriteKit
 
 class InventoryComponent: GKComponent {
   
-  var gauntletUsed: GauntletComponent?
-  var gauntlets: [GauntletComponent]
+  var itemUsed: Item?
+  var items: [Item]
   
   override init() {
     
-    self.gauntlets = [GauntletComponent]()
+    self.items = [Item]()
     super.init()
   }  
   
-  func addGauntlet(gauntlet: GauntletComponent) {
+  func addGauntlet(gauntlet: Item) {
     
-    self.gauntlets.append(gauntlet)
-    if self.gauntletUsed == nil {
-      self.gauntletUsed = gauntlet
+    self.items.append(gauntlet)
+    if self.itemUsed == nil {
+      self.itemUsed = gauntlet
     }
   }
 }

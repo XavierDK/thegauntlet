@@ -11,9 +11,9 @@ import SpriteKit
 
 class GetComponent: GKComponent {
   
-  let objectToGet: GKComponent
+  let objectToGet: Item
   
-  init(objectToGet: GKComponent) {
+  init(objectToGet: Item) {
     self.objectToGet = objectToGet
     super.init()
   }

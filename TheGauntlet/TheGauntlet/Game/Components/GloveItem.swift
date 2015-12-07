@@ -9,11 +9,10 @@
 import GameplayKit
 import SpriteKit
 
-class PushGauntletComponent: GKComponent, GauntletComponent {
+class GloveItem: Item {
   
-  override init() {
+  init() {
     
-    super.init()
   }
   
   func actionForGrid(gridManager: GridManager, newX: Int, newY: Int, direction: Orientation) -> (Int, Int) {

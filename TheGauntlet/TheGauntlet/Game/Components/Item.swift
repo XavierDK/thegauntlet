@@ -9,7 +9,7 @@
 import GameplayKit
 import SpriteKit
 
-protocol GauntletComponent {
+protocol Item {
   
   func actionForGrid(gridManager: GridManager, newX: Int, newY: Int, direction: Orientation) -> (Int, Int)
 }
