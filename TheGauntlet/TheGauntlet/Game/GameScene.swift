@@ -7,20 +7,22 @@
 //
 
 import SpriteKit
-import UIKit
 
-
-class GameScene: SKScene, UIGestureRecognizerDelegate {
+class GameScene: SKScene, UIGestureRecognizerDelegate, InventoryPanelDataSource {
   
   var entityManager: EntityManager!
   var actionsManager: ActionsManager = ActionsManager()
   var gridManager: GridManager!
   var cameraManager: CameraManager!
   
+  let inventoryPanel: InventoryPanel
+  
   var cameraActivated: Bool = false
   var zoomActivated: Bool = false
   
   override init(size: CGSize) {
+    
+    self.inventoryPanel = InventoryPanel()
     
     super.init(size: size)
     
@@ -62,16 +64,19 @@ class GameScene: SKScene, UIGestureRecognizerDelegate {
     swipeGesture.delegate = self
     self.view?.addGestureRecognizer(swipeGesture)
     
-    let panel = XDKMagicPanel(frame: self.view!.bounds)
-    panel.layer.zPosition = 999
-    self.view?.addSubview(panel)
-    panel.loadPanel()
+    self.inventoryPanel.zPosition = 999
+    self.inventoryPanel.dataSource = self
+    self.cameraManager.camera.addChild(self.inventoryPanel)
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    
+    self.inventoryPanel.touchesBegan(touches, withEvent: event)
   }
   
   override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    
+    self.inventoryPanel.touchesMoved(touches, withEvent: event)
     
     if touches.count > 2 {
       
@@ -87,6 +92,8 @@ class GameScene: SKScene, UIGestureRecognizerDelegate {
   }
   
   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    
+    self.inventoryPanel.touchesEnded(touches, withEvent: event)
     
     self.cameraManager.resetCamera()
     self.cameraActivated = false
@@ -152,5 +159,15 @@ class GameScene: SKScene, UIGestureRecognizerDelegate {
       return false
     }
     return true
+  }
+  
+  
+  //
+  // MARK: Panel DataSource
+  //
+  
+  func numberOfItemsForPanel(panel: InventoryPanel) -> Int {
+    
+    return 5
   }
 }
