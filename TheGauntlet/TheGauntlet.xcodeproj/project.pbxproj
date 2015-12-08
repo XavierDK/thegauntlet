@@ -29,6 +29,8 @@
 		1F7167801C106DCD0007CFDC /* Hammer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F71677F1C106DCD0007CFDC /* Hammer.swift */; };
 		1F7167821C106DD30007CFDC /* Axe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7167811C106DD30007CFDC /* Axe.swift */; };
 		1F7167841C106DDC0007CFDC /* WaterSeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7167831C106DDC0007CFDC /* WaterSeal.swift */; };
+		1F90F9241C15A97600A26242 /* LevelEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F90F9231C15A97600A26242 /* LevelEditorViewController.swift */; };
+		1F90F9261C15AF9000A26242 /* LevelEditorElementCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F90F9251C15AF9000A26242 /* LevelEditorElementCollectionViewController.swift */; };
 		1FA40B051C0F4A2200BFED73 /* CaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA40B041C0F4A2200BFED73 /* CaseEntity.swift */; };
 		1FA40B071C0F94A300BFED73 /* level004.json in Resources */ = {isa = PBXBuildFile; fileRef = 1FA40B061C0F94A300BFED73 /* level004.json */; };
 		1FCAE7B31C0E3A8D005F7AC6 /* BaseImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCAE7A81C0E3A8D005F7AC6 /* BaseImageModel.swift */; };
@@ -113,6 +115,8 @@
 		1F71677F1C106DCD0007CFDC /* Hammer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hammer.swift; sourceTree = "<group>"; };
 		1F7167811C106DD30007CFDC /* Axe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Axe.swift; sourceTree = "<group>"; };
 		1F7167831C106DDC0007CFDC /* WaterSeal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterSeal.swift; sourceTree = "<group>"; };
+		1F90F9231C15A97600A26242 /* LevelEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelEditorViewController.swift; sourceTree = "<group>"; };
+		1F90F9251C15AF9000A26242 /* LevelEditorElementCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelEditorElementCollectionViewController.swift; sourceTree = "<group>"; };
 		1FA40B041C0F4A2200BFED73 /* CaseEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseEntity.swift; sourceTree = "<group>"; };
 		1FA40B061C0F94A300BFED73 /* level004.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level004.json; sourceTree = "<group>"; };
 		1FCAE7A81C0E3A8D005F7AC6 /* BaseImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseImageModel.swift; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 				1FCAE7CE1C0E5268005F7AC6 /* LevelAssets.xcassets */,
 				1FCAE7D01C0E536D005F7AC6 /* JSON */,
 				1FCAE7A71C0E3A8D005F7AC6 /* Model */,
+				1F90F9231C15A97600A26242 /* LevelEditorViewController.swift */,
+				1F90F9251C15AF9000A26242 /* LevelEditorElementCollectionViewController.swift */,
 			);
 			path = LevelEditor;
 			sourceTree = "<group>";
@@ -499,7 +505,7 @@
 				TargetAttributes = {
 					0F2904C21BF15838000F0F23 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = F8Z9YT6W9Z;
+						DevelopmentTeam = C4FTLCP442;
 					};
 					0F2904D61BF15838000F0F23 = {
 						CreatedOnToolsVersion = 7.1;
@@ -634,6 +640,7 @@
 				1F7167801C106DCD0007CFDC /* Hammer.swift in Sources */,
 				1FCAE7C51C0E3B7F005F7AC6 /* EditorModel.swift in Sources */,
 				25FBF1FF1C164712001C28A2 /* Muddy.swift in Sources */,
+				1F90F9241C15A97600A26242 /* LevelEditorViewController.swift in Sources */,
 				1FCAE7B51C0E3A8D005F7AC6 /* CreatorModel.swift in Sources */,
 				1FCAE7C31C0E3B7F005F7AC6 /* ActionableActionModel.swift in Sources */,
 				2561F7DB1C04640700145397 /* GetComponent.swift in Sources */,
@@ -666,6 +673,7 @@
 				2561F7DF1C0483CF00145397 /* PushableComponent.swift in Sources */,
 				252566311BF7EF64006D014D /* Player.swift in Sources */,
 				252A63E31C103AE70064926D /* InterfaceManager.swift in Sources */,
+				1F90F9261C15AF9000A26242 /* LevelEditorElementCollectionViewController.swift in Sources */,
 				25B748C11C02272A004E9117 /* ActionsManager.swift in Sources */,
 				1F7167791C106CAE0007CFDC /* BoulderCracked.swift in Sources */,
 				1FCAE7BA1C0E3A8D005F7AC6 /* MappableValidator.swift in Sources */,
@@ -829,7 +837,7 @@
 				INFOPLIST_FILE = TheGauntlet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.thegauntlet.TheGauntletrg;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.thegauntlet.TheGauntlet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -848,7 +856,7 @@
 				INFOPLIST_FILE = TheGauntlet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fr.thegauntlet.TheGauntletrg;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.thegauntlet.TheGauntlet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
