@@ -11,27 +11,28 @@
     "created" : "01/01/1986",
     "updated" : "02/01/1986",
     "backgroundImage" : { "imageId" : 0, "imageOrientation" : 90 },
-    "size" : { "width" : 7, "height" : 7 },
+    "size" : { "width" : 9, "height" : 9 },
     "elements" : [
-      { "basetype" : 2, "specifictype" : 1, "position" : { "x" : 1, "y" : 1, "z" : 9, "orientation" : 0 } },
-      { "basetype" : 2, "specifictype" : 2, "position" : { "x" : 2, "y" : 1, "z" : 9, "orientation" : 0 } },
-      { "basetype" : 2, "specifictype" : 3, "position" : { "x" : 3, "y" : 1, "z" : 9, "orientation" : 0 } },
-      { "basetype" : 2, "specifictype" : 4, "position" : { "x" : 4, "y" : 1, "z" : 9, "orientation" : 0 } },
-      { "basetype" : 2, "specifictype" : 5, "action": { "action" : 1, "block" : 2, "position" : { "x" : 5, "y" : 6, "z" : 11, "orientation" : 0 }  } , "position" : { "x" : 5, "y" : 1, "z" : 9, "orientation" : 0 } },
+      { "basetype" : 2, "specifictype" : 1, "position" : { "x" : 2, "y" : 1, "z" : 9, "orientation" : 0 } },
+      { "basetype" : 2, "specifictype" : 2, "position" : { "x" : 3, "y" : 1, "z" : 9, "orientation" : 0 }, "action": { "action" : 3, "position" : { "x" : 7, "y" : 1, "z" : 31, "orientation" : 0 }  } },
+      { "basetype" : 2, "specifictype" : 3, "position" : { "x" : 4, "y" : 1, "z" : 9, "orientation" : 0 } },
+      { "basetype" : 2, "specifictype" : 4, "position" : { "x" : 5, "y" : 1, "z" : 9, "orientation" : 0 } },
+      { "basetype" : 2, "specifictype" : 5, "position" : { "x" : 6, "y" : 1, "z" : 9, "orientation" : 0 }, "action": { "action" : 1, "block" : 2, "position" : { "x" : 7, "y" : 7, "z" : 11, "orientation" : 0}}},
+      { "basetype" : 2, "specifictype" : 2, "position" : { "x" : 7, "y" : 1, "z" : 9, "orientation" : 0 }, "action": { "action" : 3, "position" : { "x" : 3, "y" : 1, "z" : 31, "orientation" : 0 }  } },
                   
-      { "basetype" : 3, "specifictype" : 1, "position" : { "x" : 1, "y" : 3, "z" : 11, "orientation" : 0 } },
-      { "basetype" : 3, "specifictype" : 2, "position" : { "x" : 2, "y" : 3, "z" : 11, "orientation" : 0 } },
-      { "basetype" : 3, "specifictype" : 3, "position" : { "x" : 3, "y" : 3, "z" : 11, "orientation" : 0 } },
-      { "basetype" : 3, "specifictype" : 4, "position" : { "x" : 4, "y" : 3, "z" : 11, "orientation" : 0 } },
-      { "basetype" : 3, "specifictype" : 5, "position" : { "x" : 5, "y" : 3, "z" : 11, "orientation" : 0 } },
+      { "basetype" : 3, "specifictype" : 1, "position" : { "x" : 2, "y" : 4, "z" : 11, "orientation" : 0 } },
+      { "basetype" : 3, "specifictype" : 2, "position" : { "x" : 3, "y" : 4, "z" : 11, "orientation" : 0 } },
+      { "basetype" : 3, "specifictype" : 3, "position" : { "x" : 4, "y" : 4, "z" : 11, "orientation" : 0 } },
+      { "basetype" : 3, "specifictype" : 4, "position" : { "x" : 5, "y" : 4, "z" : 11, "orientation" : 0 } },
+      { "basetype" : 3, "specifictype" : 5, "position" : { "x" : 6, "y" : 4, "z" : 11, "orientation" : 0 } },
 
-      { "basetype" : 4, "specifictype" : 1, "position" : { "x" : 1, "y" : 5, "z" : 21, "orientation" : 0 } },
-      { "basetype" : 4, "specifictype" : 2, "position" : { "x" : 2, "y" : 5, "z" : 21, "orientation" : 0 } },
-      { "basetype" : 4, "specifictype" : 3, "position" : { "x" : 3, "y" : 5, "z" : 21, "orientation" : 0 } },
-      { "basetype" : 4, "specifictype" : 4, "position" : { "x" : 4, "y" : 5, "z" : 21, "orientation" : 0 } },
-      { "basetype" : 4, "specifictype" : 5, "position" : { "x" : 5, "y" : 5, "z" : 21, "orientation" : 0 } },
+      { "basetype" : 4, "specifictype" : 1, "position" : { "x" : 2, "y" : 7, "z" : 21, "orientation" : 0 } },
+      { "basetype" : 4, "specifictype" : 2, "position" : { "x" : 3, "y" : 7, "z" : 21, "orientation" : 0 } },
+      { "basetype" : 4, "specifictype" : 3, "position" : { "x" : 4, "y" : 7, "z" : 21, "orientation" : 0 } },
+      { "basetype" : 4, "specifictype" : 4, "position" : { "x" : 5, "y" : 7, "z" : 21, "orientation" : 0 } },
+      { "basetype" : 4, "specifictype" : 5, "position" : { "x" : 6, "y" : 7, "z" : 21, "orientation" : 0 } },
 
       { "basetype" : 1, "specifictype" : 1, "position" : { "x" : 0, "y" : 0, "z" : 31, "orientation" : 180 } },
-      { "basetype" : 1, "specifictype" : 2, "position" : { "x" : 6, "y" : 6, "z" : 9, "orientation" : 0 } }
+      { "basetype" : 1, "specifictype" : 2, "position" : { "x" : 8, "y" : 8, "z" : 9, "orientation" : 0 } }
     ]
 }

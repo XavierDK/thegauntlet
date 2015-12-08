@@ -47,6 +47,7 @@ enum SpecificTypeCase : Int {
 enum ActionableActionType : Int {
     case Show = 1
     case Hide = 2
+    case Teleportation = 3
 }
 
 

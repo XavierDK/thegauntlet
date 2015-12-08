@@ -11,7 +11,7 @@ import ObjectMapper
 
 struct ActionableActionModel {
     var action : ActionableActionType!
-    var block : SpecificTypeBlock!
+    var block : SpecificTypeBlock?
     var position : PositionModel!
 }
 
