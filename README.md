@@ -1,3 +1,5 @@
+[![Build Status](https://www.bitrise.io/app/50148899add2e0d9.svg?token=5yvc56juTwgPA0FEST6dIw)](https://www.bitrise.io/app/50148899add2e0d9)
+
 # CDC Foxy
 
 ## I) Mise en contexte
@@ -37,7 +39,7 @@
 #### Motivation du joueur:
 
 - Surmonter un challenge
-- découverte de nouvelles mécaniques de jeu au fur et à mesure que la partie progresse
+- découverte de nouvelles mécaniques de jeu au fur et à mesure que la partie progresse
 
 ## III) Composants
 
